@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Factory Pattern">
+      <UniqueIdentifier>{3c963cfb-2f60-4297-87ef-aa2ded826371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factory Pattern">
+      <UniqueIdentifier>{d3300c86-de8c-428f-8602-ce86e013eda1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -21,10 +27,40 @@
     <ClCompile Include="src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\FactoryPattern\PlayerCharacter.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FactoryPattern\NPC.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FactoryPattern\FactoryImpl.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FactoryPattern\Factory.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FactoryPattern\Drawable.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\PlayerCharacter.h">
+      <Filter>Header Files\Factory Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\NPC.h">
+      <Filter>Header Files\Factory Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\FactoryImpl.h">
+      <Filter>Header Files\Factory Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\Factory.h">
+      <Filter>Header Files\Factory Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\Drawable.h">
+      <Filter>Header Files\Factory Pattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
