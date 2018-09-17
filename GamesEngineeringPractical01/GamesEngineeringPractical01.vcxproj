@@ -148,12 +148,6 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
   <ItemGroup>
     <ClInclude Include="src\stdafx.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="deps\bin\.gitkeep" />
-    <None Include="deps\lib\debug\.gitkeep" />
-    <None Include="deps\lib\release\.gitkeep" />
-    <None Include="res\.gitkeep" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
