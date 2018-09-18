@@ -2,15 +2,14 @@
 
 #include "Drawable.h"
 
-namespace app
+namespace app::FactoryPattern
 {
 	class Factory
 	{
 	public:
 		Factory() = default;
 		~Factory() = default;
-		virtual std::unique_ptr<Drawable> CreatePlayer() abstract;
-		virtual std::unique_ptr<Drawable> CreateNpc() abstract;
+		virtual std::unique_ptr<Drawable> Create() = 0;
 	};
 
 }

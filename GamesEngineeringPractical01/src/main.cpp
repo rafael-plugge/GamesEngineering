@@ -1,18 +1,29 @@
 #include "stdafx.h"
 
-#include "FactoryPattern/FactoryImpl.h"
-using namespace app;
+#include "FactoryPattern/PCharacterFactory.h"
+#include "FactoryPattern/NPCFactory.h"
+
+#include "HandlePattern/PlayerCharacter.h"
+#include "HandlePattern/Win32Window.h"
+#include "HandlePattern/LinuxWindow.h"
 
 void FactoryPatternDemo()
 {
-	std::unique_ptr<Factory> pFactory = std::make_unique<FactoryImpl>();
+	using namespace app::FactoryPattern;
 	std::vector<std::unique_ptr<Drawable>> drawVector;
-	drawVector.push_back(pFactory->CreateNpc());
-	drawVector.push_back(pFactory->CreatePlayer());
-	drawVector.push_back(pFactory->CreatePlayer());
-	drawVector.push_back(pFactory->CreateNpc());
-	drawVector.push_back(pFactory->CreateNpc());
-	drawVector.push_back(pFactory->CreatePlayer());
+	
+	// Player Character Factory
+	std::unique_ptr<Factory> pFactory = std::make_unique<PCharacterFactory>();
+	drawVector.push_back(pFactory->Create());
+	drawVector.push_back(pFactory->Create());
+
+	// Npc Character Factory
+	pFactory = std::make_unique<NpcFactory>();
+	drawVector.push_back(pFactory->Create());
+	drawVector.push_back(pFactory->Create());
+	drawVector.push_back(pFactory->Create());
+	drawVector.push_back(pFactory->Create());
+	drawVector.push_back(pFactory->Create());
 
 	std::cout << std::endl << "Drawing all drawables" << std::endl << std::endl;
 	for (auto const & pDrawable : drawVector)
@@ -24,7 +35,15 @@ void FactoryPatternDemo()
 
 void HandlePatternDemo()
 {
+	using namespace app::HandlePattern;
 
+	std::shared_ptr<Window> sptrWindow = std::make_shared<Win32Window>();
+	std::unique_ptr<Character> uptrCharacter = std::make_unique<PlayerCharacter>(sptrWindow);
+	uptrCharacter->Draw();
+	
+	sptrWindow = std::make_shared<LinuxWindow>();
+	uptrCharacter = std::make_unique<PlayerCharacter>(sptrWindow);
+	uptrCharacter->Draw();
 }
 
 void ProxyPatternDemo()

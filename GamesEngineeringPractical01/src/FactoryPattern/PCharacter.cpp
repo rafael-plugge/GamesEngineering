@@ -1,12 +1,12 @@
 #include "stdafx.h"
-#include "PlayerCharacter.h"
+#include "PCharacter.h"
 
-app::PlayerCharacter::PlayerCharacter()
+app::FactoryPattern::PCharacter::PCharacter()
 {
 	std::cout << "Creating Player Character" << std::endl;
 }
 
-void app::PlayerCharacter::draw()
+void app::FactoryPattern::PCharacter::draw()
 {
 	std::cout << "Player character" << std::endl;
 }

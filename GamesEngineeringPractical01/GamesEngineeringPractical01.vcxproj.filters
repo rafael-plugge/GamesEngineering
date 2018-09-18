@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Factory Pattern">
       <UniqueIdentifier>{d3300c86-de8c-428f-8602-ce86e013eda1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\HandlePattern">
+      <UniqueIdentifier>{cd7cdc0b-476b-4a96-84cf-7c578a9b7da2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HandlePattern">
+      <UniqueIdentifier>{846a7d79-8499-42e6-b42f-9ffcedd0530c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -27,13 +33,7 @@
     <ClCompile Include="src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\FactoryPattern\PlayerCharacter.cpp">
-      <Filter>Source Files\Factory Pattern</Filter>
-    </ClCompile>
     <ClCompile Include="src\FactoryPattern\NPC.cpp">
-      <Filter>Source Files\Factory Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FactoryPattern\FactoryImpl.cpp">
       <Filter>Source Files\Factory Pattern</Filter>
     </ClCompile>
     <ClCompile Include="src\FactoryPattern\Factory.cpp">
@@ -42,24 +42,66 @@
     <ClCompile Include="src\FactoryPattern\Drawable.cpp">
       <Filter>Source Files\Factory Pattern</Filter>
     </ClCompile>
+    <ClCompile Include="src\FactoryPattern\NPCFactory.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HandlePattern\Window.cpp">
+      <Filter>Source Files\HandlePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HandlePattern\Character.cpp">
+      <Filter>Source Files\HandlePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HandlePattern\Win32Window.cpp">
+      <Filter>Source Files\HandlePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HandlePattern\LinuxWindow.cpp">
+      <Filter>Source Files\HandlePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HandlePattern\PlayerCharacter.cpp">
+      <Filter>Source Files\HandlePattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FactoryPattern\PCharacter.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FactoryPattern\PCharacterFactory.cpp">
+      <Filter>Source Files\Factory Pattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FactoryPattern\PlayerCharacter.h">
-      <Filter>Header Files\Factory Pattern</Filter>
-    </ClInclude>
     <ClInclude Include="src\FactoryPattern\NPC.h">
-      <Filter>Header Files\Factory Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="src\FactoryPattern\FactoryImpl.h">
       <Filter>Header Files\Factory Pattern</Filter>
     </ClInclude>
     <ClInclude Include="src\FactoryPattern\Factory.h">
       <Filter>Header Files\Factory Pattern</Filter>
     </ClInclude>
     <ClInclude Include="src\FactoryPattern\Drawable.h">
+      <Filter>Header Files\Factory Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\NPCFactory.h">
+      <Filter>Header Files\Factory Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HandlePattern\Window.h">
+      <Filter>Header Files\HandlePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HandlePattern\PlayerCharacter.h">
+      <Filter>Header Files\HandlePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HandlePattern\Character.h">
+      <Filter>Header Files\HandlePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HandlePattern\Win32Window.h">
+      <Filter>Header Files\HandlePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HandlePattern\LinuxWindow.h">
+      <Filter>Header Files\HandlePattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\PCharacter.h">
+      <Filter>Header Files\Factory Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FactoryPattern\PCharacterFactory.h">
       <Filter>Header Files\Factory Pattern</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,13 +4,11 @@
 
 namespace app::FactoryPattern
 {
-	class Npc : public Drawable
+	class PCharacter : public Drawable
 	{
 	public:
-		Npc();
-		~Npc() = default;
-
-		// Inherited via Drawable
+		PCharacter();
+		~PCharacter() = default;
 		virtual void draw() override;
 
 	private:

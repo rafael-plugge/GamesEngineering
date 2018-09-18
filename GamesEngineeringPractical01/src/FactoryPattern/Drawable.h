@@ -1,6 +1,6 @@
 #pragma once
 
-namespace app
+namespace app::FactoryPattern
 {
 	class Drawable
 	{

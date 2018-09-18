@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "NPC.h"
 
-app::Npc::Npc()
+app::FactoryPattern::Npc::Npc()
 {
 	std::cout << "Creating Npc" << std::endl;
 }
 
-void app::Npc::draw()
+void app::FactoryPattern::Npc::draw()
 {
 	std::cout << "Non-player character" << std::endl;
 }
