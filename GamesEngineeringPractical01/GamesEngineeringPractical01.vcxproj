@@ -150,6 +150,9 @@
     <ClCompile Include="src\HandlePattern\Win32Window.cpp" />
     <ClCompile Include="src\HandlePattern\Window.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ProxyPattern\ITexture.cpp" />
+    <ClCompile Include="src\ProxyPattern\TextureLoader.cpp" />
+    <ClCompile Include="src\ProxyPattern\TexturePng.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -167,6 +170,9 @@
     <ClInclude Include="src\HandlePattern\PlayerCharacter.h" />
     <ClInclude Include="src\HandlePattern\Win32Window.h" />
     <ClInclude Include="src\HandlePattern\Window.h" />
+    <ClInclude Include="src\ProxyPattern\ITexture.h" />
+    <ClInclude Include="src\ProxyPattern\TextureLoader.h" />
+    <ClInclude Include="src\ProxyPattern\TexturePng.h" />
     <ClInclude Include="src\stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

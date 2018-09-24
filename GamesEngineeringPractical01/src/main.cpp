@@ -7,6 +7,9 @@
 #include "HandlePattern/Win32Window.h"
 #include "HandlePattern/LinuxWindow.h"
 
+#include "ProxyPattern/ITexture.h"
+#include "ProxyPattern/TextureLoader.h"
+
 void FactoryPatternDemo()
 {
 	using namespace app::FactoryPattern;
@@ -48,7 +51,12 @@ void HandlePatternDemo()
 
 void ProxyPatternDemo()
 {
+	using namespace app::ProxyPattern;
 
+	std::unique_ptr<TextureLoader> uptrTextureLoader = std::make_unique<TextureLoader>();
+	std::unique_ptr<ITexture> uptrTexture = uptrTextureLoader->create();
+
+	uptrTexture->load();
 }
 
 int main()
