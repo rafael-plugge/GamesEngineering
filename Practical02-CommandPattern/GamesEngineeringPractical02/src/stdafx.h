@@ -69,6 +69,7 @@
 #include <ostream>
 #include <fstream>
 #include <filesystem>
+#include <iostream>
 
 // STL Multithreading libraries
 #include <thread>
@@ -82,5 +83,12 @@
 /**         Includes here       **/
 /*********************************/
 
+// SDL Library
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
+
+// Global constants
+namespace app
+{
+	typedef std::chrono::duration<double> seconds;
+}

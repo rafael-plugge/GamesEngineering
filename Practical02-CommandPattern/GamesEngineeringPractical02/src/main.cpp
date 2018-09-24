@@ -1,6 +1,8 @@
 #include "stdafx.h"
+#include "app/Game.h"
 
 int main(int argc, char** argv)
 {
-	return EXIT_SUCCESS;
+	SDL_SetMainReady();
+	return app::Game().run();
 }

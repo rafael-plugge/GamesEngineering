@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\app">
+      <UniqueIdentifier>{569c4bce-ebf8-4ddc-8a4f-35b699bfc487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app">
+      <UniqueIdentifier>{769fb6f2-99e7-409b-bef7-1da2b4b2b7a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\utilities">
+      <UniqueIdentifier>{20c49351-6d04-4bdd-81fc-5638bb834c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\utilities">
+      <UniqueIdentifier>{de0d7172-577c-4f5a-a409-0de5351366ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -21,10 +33,28 @@
     <ClCompile Include="src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\app\Game.cpp">
+      <Filter>Source Files\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\Window.cpp">
+      <Filter>Source Files\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilties\SdlDeleter.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\Game.h">
+      <Filter>Header Files\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\Window.h">
+      <Filter>Header Files\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilties\SdlDeleter.h">
+      <Filter>Header Files\app\utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
