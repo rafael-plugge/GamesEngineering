@@ -20,22 +20,24 @@ int app::Game::run()
 	using clock = std::chrono::high_resolution_clock;
 	constexpr std::chrono::nanoseconds updateStepNano =
 		std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::duration<double, std::milli>(1 / 60.0 * 1000.0));
+	constexpr app::seconds updateStep = std::chrono::duration_cast<app::seconds>(updateStepNano);
 	clock::time_point deltaTimePoint = clock::now();
 	clock::duration elapsedTime = updateStepNano;
+	clock::duration deltaRenderStep = clock::duration::zero();
 
 	if (!this->init()) { return EXIT_FAILURE; }
 
 	while (m_window.isOpen())
 	{
 		m_window.pollEvents();
-		elapsedTime += std::chrono::duration_cast<clock::duration>(clock::now() - deltaTimePoint);
+		deltaRenderStep = elapsedTime += std::chrono::duration_cast<clock::duration>(clock::now() - deltaTimePoint);
 		deltaTimePoint = clock::now();
 		while (elapsedTime > updateStepNano)
 		{
-			this->update(s_updateStep);
+			this->update(updateStep);
 			elapsedTime -= updateStepNano;
 		}
-		this->render();
+		this->render(std::chrono::duration_cast<app::seconds>(deltaRenderStep));
 	}
 
 	return EXIT_SUCCESS;
@@ -50,7 +52,7 @@ void app::Game::update(app::seconds const & dt)
 {
 }
 
-void app::Game::render()
+void app::Game::render(app::seconds const & dt)
 {
 	m_window.clear();
 	m_window.display();
