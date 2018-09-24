@@ -10,6 +10,8 @@
 /*********************************/
 /**    BEGIN Debug Libraries    **/
 /*********************************/
+#pragma comment(lib, "SDL2d.lib")
+#pragma comment(lib, "SDL2maind.lib")
 /*********************************/
 /**     END Debug Libraries     **/
 /*********************************/
@@ -19,6 +21,8 @@
 /*********************************/
 /**   BEGIN Release Libraries   **/
 /*********************************/
+#pragma comment(lib, "SDL2.lib")
+#pragma comment(lib, "SDL2main.lib")
 /*********************************/
 /**    END Release Libraries    **/
 /*********************************/
@@ -78,4 +82,5 @@
 /**         Includes here       **/
 /*********************************/
 
-
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
