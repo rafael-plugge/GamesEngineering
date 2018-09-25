@@ -139,7 +139,13 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\app\components\Dimension.cpp" />
+    <ClCompile Include="src\app\components\Location.cpp" />
+    <ClCompile Include="src\app\components\Render.cpp" />
     <ClCompile Include="src\app\Game.cpp" />
+    <ClCompile Include="src\app\graphics\Texture.cpp" />
+    <ClCompile Include="src\app\system\BaseSystem.cpp" />
+    <ClCompile Include="src\app\system\RenderSystem.cpp" />
     <ClCompile Include="src\app\utilties\SdlDeleter.cpp" />
     <ClCompile Include="src\app\Window.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -149,7 +155,13 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\app\components\Dimension.h" />
+    <ClInclude Include="src\app\components\Location.h" />
+    <ClInclude Include="src\app\components\Render.h" />
     <ClInclude Include="src\app\Game.h" />
+    <ClInclude Include="src\app\graphics\Texture.h" />
+    <ClInclude Include="src\app\system\BaseSystem.h" />
+    <ClInclude Include="src\app\system\RenderSystem.h" />
     <ClInclude Include="src\app\utilties\SdlDeleter.h" />
     <ClInclude Include="src\app\Window.h" />
     <ClInclude Include="src\stdafx.h" />

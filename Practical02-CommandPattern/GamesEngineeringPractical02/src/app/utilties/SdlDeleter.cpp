@@ -12,3 +12,15 @@ void app::util::SdlDeleter::operator()(SDL_Renderer * pRenderer) const
 	if (pRenderer == nullptr) { return; }
 	SDL_DestroyRenderer(pRenderer);
 }
+
+void app::util::SdlDeleter::operator()(SDL_Texture * pTexture) const
+{
+	if (pTexture == nullptr) { return; }
+	SDL_DestroyTexture(pTexture);
+}
+
+void app::util::SdlDeleter::operator()(SDL_Surface * pSurface) const
+{
+	if (pSurface == nullptr) { return; }
+	SDL_FreeSurface(pSurface);
+}

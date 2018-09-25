@@ -25,6 +25,24 @@
     <Filter Include="Header Files\app\utilities">
       <UniqueIdentifier>{de0d7172-577c-4f5a-a409-0de5351366ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\app\system">
+      <UniqueIdentifier>{0b40276c-1ec1-4fbb-93f4-b872fc3557d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\system">
+      <UniqueIdentifier>{bb46263c-9da0-48c1-b3e7-eab2cbcec619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\graphics">
+      <UniqueIdentifier>{a5fb5cb6-34e5-4008-baea-dbebae061fa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\graphics">
+      <UniqueIdentifier>{9595604f-54a5-4d9e-80d6-094781b1abe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\components">
+      <UniqueIdentifier>{7059dd50-8b2e-43cc-8913-80ce4e83d706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\components">
+      <UniqueIdentifier>{ac9f2279-7abf-4332-8a87-873a616a9eda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -42,6 +60,24 @@
     <ClCompile Include="src\app\utilties\SdlDeleter.cpp">
       <Filter>Source Files\app\utilities</Filter>
     </ClCompile>
+    <ClCompile Include="src\app\system\BaseSystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\RenderSystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Location.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\graphics\Texture.cpp">
+      <Filter>Source Files\app\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Dimension.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Render.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -55,6 +91,24 @@
     </ClInclude>
     <ClInclude Include="src\app\utilties\SdlDeleter.h">
       <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\BaseSystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\RenderSystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Location.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\graphics\Texture.h">
+      <Filter>Header Files\app\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Dimension.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Render.h">
+      <Filter>Header Files\app\components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

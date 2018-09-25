@@ -18,6 +18,8 @@ namespace app::util
 	public: // Public Member Functions
 		void operator()(SDL_Window * pWindow) const;
 		void operator()(SDL_Renderer * pRenderer) const;
+		void operator()(SDL_Texture * pTexture) const;
+		void operator()(SDL_Surface * pSurface) const;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
@@ -30,6 +32,11 @@ namespace app::util
 	private: // Private Member Variables
 	};
 
+	// Unique Pointers
+	typedef std::unique_ptr<SDL_Renderer, SdlDeleter> UPtrRenderer;
+	typedef std::unique_ptr<SDL_Window, SdlDeleter> UPtrWindow;
+	typedef std::unique_ptr<SDL_Texture, SdlDeleter> UPtrTexture;
+	typedef std::unique_ptr<SDL_Surface, SdlDeleter> UPtrSurface;
 }
 
 #endif // !_SDL_DELETER_H

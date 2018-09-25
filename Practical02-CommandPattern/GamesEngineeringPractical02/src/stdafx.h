@@ -32,6 +32,7 @@
 /*********************************/
 /** BEGIN Independant Libraries **/
 /*********************************/
+#pragma comment(lib, "SDL2_image.lib")
 /*********************************/
 /**  END Independant Libraries  **/
 /*********************************/
@@ -86,6 +87,12 @@
 // SDL Library
 #define SDL_MAIN_HANDLED
 #include <SDL/SDL.h>
+
+// SDL Image Library
+#include <SDL/SDL_image.h>
+
+// Entt Library
+#include <entt/entt.hpp>
 
 // Global constants
 namespace app
