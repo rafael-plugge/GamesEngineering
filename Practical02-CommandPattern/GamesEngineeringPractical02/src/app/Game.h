@@ -2,6 +2,7 @@
 #define _GAME_H
 
 #include "Window.h"
+#include "app/system/BaseSystem.h"
 
 namespace app
 {
@@ -26,11 +27,16 @@ namespace app
 	private: // Private Static Functions
 	private: // Private Member Functions
 		bool init();
+		bool createComponentDependencies();
+		bool createSystems();
 		void update(app::seconds const & dt);
 		void render(app::seconds const & dt);
 	private: // Private Static Variables
 	private: // Private Member Variables
+		entt::DefaultRegistry m_registry;
 		app::Window m_window;
+		std::vector<std::unique_ptr<sys::BaseSystem>> m_updateSystems;
+		std::vector<std::unique_ptr<sys::BaseSystem>> m_renderSystems;
 	};
 
 }

@@ -22,6 +22,7 @@ namespace app
 		void display() const;
 
 		inline constexpr bool const & isOpen() { return m_open; }
+		inline std::shared_ptr<SDL_Renderer> getRenderer() { return m_renderer; }
 	public: // Public Member Variables
 	protected: // Protected Member Functions
 	protected: // Protected Member Variables
@@ -38,7 +39,7 @@ namespace app
 		std::size_t m_width;
 		std::size_t m_height;
 		UPtrWindow m_window;
-		UPtrRenderer m_renderer;
+		std::shared_ptr<SDL_Renderer> m_renderer;
 
 	};
 

@@ -14,14 +14,6 @@ app::Window::Window(std::string const & title, std::size_t const & width, std::s
 
 app::Window::~Window()
 {
-	if (m_renderer)
-	{
-		SDL_DestroyRenderer(m_renderer.release());
-	}
-	if (m_window)
-	{
-		SDL_DestroyWindow(m_window.release());
-	}
 }
 
 void app::Window::pollEvents()
@@ -93,10 +85,12 @@ bool app::Window::init()
 
 bool app::Window::initWindow()
 {
+	typedef SDL_WindowFlags WindowFlags;
 	constexpr auto centerPos = SDL_WINDOWPOS_CENTERED;
+	constexpr auto windowFlags = WindowFlags::SDL_WINDOW_ALLOW_HIGHDPI | WindowFlags::SDL_WINDOW_SHOWN;
 	SDL_Window * pWindow = nullptr;
 
-	pWindow = SDL_CreateWindow(m_title.c_str(), centerPos, centerPos, m_width, m_height, NULL);
+	pWindow = SDL_CreateWindow(m_title.c_str(), centerPos, centerPos, m_width, m_height, windowFlags);
 
 	const bool success = nullptr != pWindow;
 	if (success) { m_window.reset(pWindow); }
@@ -107,10 +101,9 @@ bool app::Window::initRenderer(app::Window::UPtrWindow const & uptrSdlWindow)
 {
 	SDL_Renderer * pRenderer = nullptr;
 	
-	constexpr auto windowMode = SDL_RENDERER_ACCELERATED;
-	pRenderer = SDL_CreateRenderer(uptrSdlWindow.get(), -1, windowMode);
+	pRenderer = SDL_CreateRenderer(uptrSdlWindow.get(), -1, SDL_RendererFlags::SDL_RENDERER_ACCELERATED);
 
 	const bool success = nullptr != pRenderer;
-	if (success) { m_renderer.reset(pRenderer); }
+	if (success) { m_renderer.reset(pRenderer, app::util::SdlDeleter()); }
 	return success;
 }

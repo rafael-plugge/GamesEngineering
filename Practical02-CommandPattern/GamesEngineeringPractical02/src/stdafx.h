@@ -10,8 +10,6 @@
 /*********************************/
 /**    BEGIN Debug Libraries    **/
 /*********************************/
-#pragma comment(lib, "SDL2d.lib")
-#pragma comment(lib, "SDL2maind.lib")
 /*********************************/
 /**     END Debug Libraries     **/
 /*********************************/
@@ -21,8 +19,6 @@
 /*********************************/
 /**   BEGIN Release Libraries   **/
 /*********************************/
-#pragma comment(lib, "SDL2.lib")
-#pragma comment(lib, "SDL2main.lib")
 /*********************************/
 /**    END Release Libraries    **/
 /*********************************/
@@ -32,6 +28,9 @@
 /*********************************/
 /** BEGIN Independant Libraries **/
 /*********************************/
+#pragma comment(lib, "SDL2.lib")
+#pragma comment(lib, "SDL2main.lib")
+#pragma comment(lib, "SDL2test.lib")
 #pragma comment(lib, "SDL2_image.lib")
 /*********************************/
 /**  END Independant Libraries  **/
