@@ -1,7 +1,7 @@
 ﻿#ifndef _TEXTURE_H
 #define _TEXTURE_H
 
-#include "app/utilties/SdlDeleter.h"
+#include "app/utilities/SdlDeleter.h"
 
 namespace app::graphics
 {

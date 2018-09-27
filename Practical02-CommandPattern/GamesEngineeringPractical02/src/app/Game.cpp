@@ -3,10 +3,21 @@
 
 // Systems
 #include "app/system/RenderSystem.h"
+#include "app/system/InputKeySystem.h"
+#include "app/system/InputMouseSystem.h"
+
+// commands
+#include "CommandPattern/CrouchCommand.h"
+#include "CommandPattern/FireCommand.h"
+#include "CommandPattern/JumpCommand.h"
+#include "CommandPattern/MeleeCommand.h"
+#include "CommandPattern/ShieldCommand.h"
 
 app::Game::Game()
 	: m_registry()
-	, m_window("Games Engineering", 1366u, 768u)
+	, m_keyhandler()
+	, m_mousehandler()
+	, m_window(m_keyhandler, m_mousehandler, "Games Engineering", 1366u, 768u)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) != NULL)
 	{
@@ -61,10 +72,24 @@ bool app::Game::createSystems()
 {
 	try
 	{
-		m_updateSystems.reserve(5);
-		m_renderSystems.reserve(1);
+		auto inputKeySystem = std::make_unique<sys::InputKeySystem>(sys::InputKeySystem(m_registry, m_keyhandler));
+		inputKeySystem->bindCommand(SDLK_SPACE, std::make_unique<commandPattern::JumpCommand>());
+		inputKeySystem->bindCommand(SDLK_c, std::make_unique<commandPattern::CrouchCommand>());
+		inputKeySystem->bindCommand(SDLK_f, std::make_unique<commandPattern::MeleeCommand>());
 
-		m_renderSystems.push_back(std::make_unique<sys::RenderSystem>(sys::RenderSystem(m_registry, m_window.getRenderer())));
+		using ButtonType = app::util::MouseHandler::ButtonType;
+		auto inputMouseSystem = std::make_unique<sys::InputMouseSystem>(sys::InputMouseSystem(m_registry, m_mousehandler));
+		inputMouseSystem->bindCommand(ButtonType::Left, std::make_unique<commandPattern::FireCommand>());
+		inputMouseSystem->bindCommand(ButtonType::Right, std::make_unique<commandPattern::ShieldCommand>());
+
+		m_updateSystems = {
+			std::move(inputKeySystem),
+			std::move(inputMouseSystem)
+		};
+
+		m_renderSystems = {
+			std::make_unique<sys::RenderSystem>(sys::RenderSystem(m_registry, m_window.getRenderer()))
+		};
 
 		return true;
 	}

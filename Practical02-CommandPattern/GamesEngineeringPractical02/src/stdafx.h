@@ -97,4 +97,7 @@
 namespace app
 {
 	typedef std::chrono::duration<double> seconds;
+	typedef uint32_t Entity;
+	typedef entt::Registry<Entity> Registry;
+	typedef SDL_Keycode KeyCode;
 }

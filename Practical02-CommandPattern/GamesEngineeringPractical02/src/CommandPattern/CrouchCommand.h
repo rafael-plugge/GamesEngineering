@@ -1,32 +1,31 @@
-﻿#ifndef _BASE_SYSTEM_H
-#define _BASE_SYSTEM_H
+﻿#ifndef _CROUCH_COMMAND_H
+#define _CROUCH_COMMAND_H
 
-namespace app::sys
+#include "Command.h"
+
+namespace app::commandPattern
 {
-	class BaseSystem
+	class CrouchCommand : public Command
 	{
 	public: // Constructors/Destructor/Assignments
-		BaseSystem(app::Registry & registry);
+		CrouchCommand() = default;
+		CrouchCommand(CrouchCommand const &) = default;
+		CrouchCommand(CrouchCommand &&) = default;
 
-		BaseSystem() = delete;
-		BaseSystem(BaseSystem const &) = default;
-		BaseSystem(BaseSystem &&) = default;
+		~CrouchCommand() = default;
 
-		~BaseSystem() = default;
-
-		BaseSystem & operator=(BaseSystem const &) = default;
-		BaseSystem & operator=(BaseSystem &&) = default;
+		CrouchCommand & operator=(CrouchCommand const &) = default;
+		CrouchCommand & operator=(CrouchCommand &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		virtual void update(app::seconds const & dt) = 0;
+		virtual void execute() override;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
-		entt::DefaultRegistry & m_registry;
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
@@ -35,4 +34,4 @@ namespace app::sys
 	};
 }
 
-#endif // !_BASE_SYSTEM_H
+#endif // !_CROUCH_COMMAND_H

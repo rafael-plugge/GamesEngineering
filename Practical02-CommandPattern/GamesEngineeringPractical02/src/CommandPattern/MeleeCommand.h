@@ -1,32 +1,31 @@
-﻿#ifndef _BASE_SYSTEM_H
-#define _BASE_SYSTEM_H
+﻿#ifndef _MELEE_COMMAND_H
+#define _MELEE_COMMAND_H
 
-namespace app::sys
+#include "Command.h"
+
+namespace app::commandPattern
 {
-	class BaseSystem
+	class MeleeCommand : public Command
 	{
 	public: // Constructors/Destructor/Assignments
-		BaseSystem(app::Registry & registry);
+		MeleeCommand() = default;
+		MeleeCommand(MeleeCommand const &) = default;
+		MeleeCommand(MeleeCommand &&) = default;
 
-		BaseSystem() = delete;
-		BaseSystem(BaseSystem const &) = default;
-		BaseSystem(BaseSystem &&) = default;
+		~MeleeCommand() = default;
 
-		~BaseSystem() = default;
-
-		BaseSystem & operator=(BaseSystem const &) = default;
-		BaseSystem & operator=(BaseSystem &&) = default;
+		MeleeCommand & operator=(MeleeCommand const &) = default;
+		MeleeCommand & operator=(MeleeCommand &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		virtual void update(app::seconds const & dt) = 0;
+		virtual void execute() override;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
-		entt::DefaultRegistry & m_registry;
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
@@ -35,4 +34,4 @@ namespace app::sys
 	};
 }
 
-#endif // !_BASE_SYSTEM_H
+#endif // !_MELEE_COMMAND_H

@@ -70,10 +70,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\deps\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>.\deps\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>.\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>.\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -145,9 +151,19 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\app\Game.cpp" />
     <ClCompile Include="src\app\graphics\Texture.cpp" />
     <ClCompile Include="src\app\system\BaseSystem.cpp" />
+    <ClCompile Include="src\app\system\InputKeySystem.cpp" />
+    <ClCompile Include="src\app\system\InputMouseSystem.cpp" />
     <ClCompile Include="src\app\system\RenderSystem.cpp" />
-    <ClCompile Include="src\app\utilties\SdlDeleter.cpp" />
+    <ClCompile Include="src\app\utilities\Keyhandler.cpp" />
+    <ClCompile Include="src\app\utilities\MouseHandler.cpp" />
+    <ClCompile Include="src\app\utilities\SdlDeleter.cpp" />
     <ClCompile Include="src\app\Window.cpp" />
+    <ClCompile Include="src\CommandPattern\Command.cpp" />
+    <ClCompile Include="src\CommandPattern\CrouchCommand.cpp" />
+    <ClCompile Include="src\CommandPattern\FireCommand.cpp" />
+    <ClCompile Include="src\CommandPattern\JumpCommand.cpp" />
+    <ClCompile Include="src\CommandPattern\MeleeCommand.cpp" />
+    <ClCompile Include="src\CommandPattern\ShieldCommand.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -161,9 +177,19 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\app\Game.h" />
     <ClInclude Include="src\app\graphics\Texture.h" />
     <ClInclude Include="src\app\system\BaseSystem.h" />
+    <ClInclude Include="src\app\system\InputKeySystem.h" />
+    <ClInclude Include="src\app\system\InputMouseSystem.h" />
     <ClInclude Include="src\app\system\RenderSystem.h" />
-    <ClInclude Include="src\app\utilties\SdlDeleter.h" />
+    <ClInclude Include="src\app\utilities\Keyhandler.h" />
+    <ClInclude Include="src\app\utilities\MouseHandler.h" />
+    <ClInclude Include="src\app\utilities\SdlDeleter.h" />
     <ClInclude Include="src\app\Window.h" />
+    <ClInclude Include="src\CommandPattern\Command.h" />
+    <ClInclude Include="src\CommandPattern\CrouchCommand.h" />
+    <ClInclude Include="src\CommandPattern\FireCommand.h" />
+    <ClInclude Include="src\CommandPattern\JumpCommand.h" />
+    <ClInclude Include="src\CommandPattern\MeleeCommand.h" />
+    <ClInclude Include="src\CommandPattern\ShieldCommand.h" />
     <ClInclude Include="src\stdafx.h" />
   </ItemGroup>
   <ItemGroup>

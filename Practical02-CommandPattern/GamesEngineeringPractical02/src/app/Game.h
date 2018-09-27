@@ -34,9 +34,11 @@ namespace app
 	private: // Private Static Variables
 	private: // Private Member Variables
 		entt::DefaultRegistry m_registry;
+		app::util::KeyHandler<SDL_Keycode> m_keyhandler;
+		app::util::MouseHandler m_mousehandler;
 		app::Window m_window;
-		std::vector<std::unique_ptr<sys::BaseSystem>> m_updateSystems;
-		std::vector<std::unique_ptr<sys::BaseSystem>> m_renderSystems;
+		std::array<std::unique_ptr<sys::BaseSystem>, 2> m_updateSystems;
+		std::array<std::unique_ptr<sys::BaseSystem>, 1> m_renderSystems;
 	};
 
 }

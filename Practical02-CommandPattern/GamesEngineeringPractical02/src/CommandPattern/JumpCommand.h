@@ -1,32 +1,31 @@
-﻿#ifndef _BASE_SYSTEM_H
-#define _BASE_SYSTEM_H
+﻿#ifndef _JUMP_COMMAND_H
+#define _JUMP_COMMAND_H
 
-namespace app::sys
+#include "Command.h"
+
+namespace app::commandPattern
 {
-	class BaseSystem
+	class JumpCommand : public Command
 	{
 	public: // Constructors/Destructor/Assignments
-		BaseSystem(app::Registry & registry);
+		JumpCommand() = default;
+		JumpCommand(JumpCommand const &) = default;
+		JumpCommand(JumpCommand &&) = default;
 
-		BaseSystem() = delete;
-		BaseSystem(BaseSystem const &) = default;
-		BaseSystem(BaseSystem &&) = default;
+		~JumpCommand() = default;
 
-		~BaseSystem() = default;
-
-		BaseSystem & operator=(BaseSystem const &) = default;
-		BaseSystem & operator=(BaseSystem &&) = default;
+		JumpCommand & operator=(JumpCommand const &) = default;
+		JumpCommand & operator=(JumpCommand &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		virtual void update(app::seconds const & dt) = 0;
+		virtual void execute() override;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
-		entt::DefaultRegistry & m_registry;
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
@@ -35,4 +34,4 @@ namespace app::sys
 	};
 }
 
-#endif // !_BASE_SYSTEM_H
+#endif // !_JUMP_COMMAND_H

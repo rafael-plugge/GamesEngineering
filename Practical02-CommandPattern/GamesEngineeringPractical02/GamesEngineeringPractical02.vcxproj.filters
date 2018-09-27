@@ -43,6 +43,12 @@
     <Filter Include="Source Files\app\components">
       <UniqueIdentifier>{ac9f2279-7abf-4332-8a87-873a616a9eda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\CommandPattern">
+      <UniqueIdentifier>{07c8e966-f227-41ca-af98-671aa20d7afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CommandPattern">
+      <UniqueIdentifier>{865077de-7881-4e7c-8bf2-dc4226209e46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -56,9 +62,6 @@
     </ClCompile>
     <ClCompile Include="src\app\Window.cpp">
       <Filter>Source Files\app</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\utilties\SdlDeleter.cpp">
-      <Filter>Source Files\app\utilities</Filter>
     </ClCompile>
     <ClCompile Include="src\app\system\BaseSystem.cpp">
       <Filter>Source Files\app\system</Filter>
@@ -78,6 +81,39 @@
     <ClCompile Include="src\app\components\Render.cpp">
       <Filter>Source Files\app\components</Filter>
     </ClCompile>
+    <ClCompile Include="src\CommandPattern\Command.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\JumpCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\MeleeCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\ShieldCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\FireCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\CrouchCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilities\MouseHandler.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\InputKeySystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilities\Keyhandler.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilities\SdlDeleter.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\InputMouseSystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -88,9 +124,6 @@
     </ClInclude>
     <ClInclude Include="src\app\Window.h">
       <Filter>Header Files\app</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\utilties\SdlDeleter.h">
-      <Filter>Header Files\app\utilities</Filter>
     </ClInclude>
     <ClInclude Include="src\app\system\BaseSystem.h">
       <Filter>Header Files\app\system</Filter>
@@ -109,6 +142,39 @@
     </ClInclude>
     <ClInclude Include="src\app\components\Render.h">
       <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\Command.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\JumpCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\ShieldCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\MeleeCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\CrouchCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\FireCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilities\MouseHandler.h">
+      <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\InputKeySystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilities\SdlDeleter.h">
+      <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilities\Keyhandler.h">
+      <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\InputMouseSystem.h">
+      <Filter>Header Files\app\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
