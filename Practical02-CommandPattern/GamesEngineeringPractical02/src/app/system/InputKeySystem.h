@@ -5,11 +5,13 @@
 #include "app/utilities/Keyhandler.h"
 #include "app/utilities/MouseHandler.h"
 #include "CommandPattern/Command.h"
+#include "CommandPattern/MacroCommand.h"
 
 namespace app::sys
 {
 	class InputKeySystem : public BaseSystem
 	{
+		typedef std::unordered_map<app::KeyCode, std::unique_ptr<app::commandPattern::Command>> map;
 	public: // Constructors/Destructor/Assignments
 		InputKeySystem(app::Registry & registry, app::util::KeyHandler<app::KeyCode> & keyHandler);
 
@@ -37,7 +39,11 @@ namespace app::sys
 	private: // Private Static Variables
 	private: // Private Member Variables
 		app::util::KeyHandler<app::KeyCode> & m_keyHandler;
-		std::unordered_map<app::KeyCode, std::unique_ptr<app::commandPattern::Command>> m_commands;
+		map m_commands;
+		enum class CommandType
+		{
+			Do, Undo, Redo
+		}m_commandType;
 	};
 }
 

@@ -76,6 +76,9 @@ bool app::Game::createSystems()
 		inputKeySystem->bindCommand(SDLK_SPACE, std::make_unique<commandPattern::JumpCommand>());
 		inputKeySystem->bindCommand(SDLK_c, std::make_unique<commandPattern::CrouchCommand>());
 		inputKeySystem->bindCommand(SDLK_f, std::make_unique<commandPattern::MeleeCommand>());
+		auto macroCommand = std::make_unique<commandPattern::MacroCommand>();
+		macroCommand->add({ std::make_unique<commandPattern::CrouchCommand>(), std::make_unique<commandPattern::FireCommand>(), std::make_unique<commandPattern::ShieldCommand>() });
+		inputKeySystem->bindCommand(SDLK_m, std::move(macroCommand));
 
 		using ButtonType = app::util::MouseHandler::ButtonType;
 		auto inputMouseSystem = std::make_unique<sys::InputMouseSystem>(sys::InputMouseSystem(m_registry, m_mousehandler));

@@ -17,6 +17,8 @@ namespace app::commandPattern
 	public: // Public Static Functions
 	public: // Public Member Functions
 		virtual void execute() abstract;
+		virtual void undo() abstract;
+		virtual void redo() abstract;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions

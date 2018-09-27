@@ -162,6 +162,7 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\CommandPattern\CrouchCommand.cpp" />
     <ClCompile Include="src\CommandPattern\FireCommand.cpp" />
     <ClCompile Include="src\CommandPattern\JumpCommand.cpp" />
+    <ClCompile Include="src\CommandPattern\MacroCommand.cpp" />
     <ClCompile Include="src\CommandPattern\MeleeCommand.cpp" />
     <ClCompile Include="src\CommandPattern\ShieldCommand.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -188,6 +189,7 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\CommandPattern\CrouchCommand.h" />
     <ClInclude Include="src\CommandPattern\FireCommand.h" />
     <ClInclude Include="src\CommandPattern\JumpCommand.h" />
+    <ClInclude Include="src\CommandPattern\MacroCommand.h" />
     <ClInclude Include="src\CommandPattern\MeleeCommand.h" />
     <ClInclude Include="src\CommandPattern\ShieldCommand.h" />
     <ClInclude Include="src\stdafx.h" />

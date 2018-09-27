@@ -114,6 +114,9 @@
     <ClCompile Include="src\app\system\InputMouseSystem.cpp">
       <Filter>Source Files\app\system</Filter>
     </ClCompile>
+    <ClCompile Include="src\CommandPattern\MacroCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -175,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="src\app\system\InputMouseSystem.h">
       <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\MacroCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

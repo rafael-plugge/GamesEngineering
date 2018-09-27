@@ -20,6 +20,8 @@ namespace app::commandPattern
 	public: // Public Static Functions
 	public: // Public Member Functions
 		virtual void execute() override;
+		virtual void undo() override;
+		virtual void redo() override;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
