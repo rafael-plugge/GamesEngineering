@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\app">
+      <UniqueIdentifier>{569c4bce-ebf8-4ddc-8a4f-35b699bfc487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app">
+      <UniqueIdentifier>{769fb6f2-99e7-409b-bef7-1da2b4b2b7a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\utilities">
+      <UniqueIdentifier>{20c49351-6d04-4bdd-81fc-5638bb834c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\utilities">
+      <UniqueIdentifier>{de0d7172-577c-4f5a-a409-0de5351366ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\system">
+      <UniqueIdentifier>{0b40276c-1ec1-4fbb-93f4-b872fc3557d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\system">
+      <UniqueIdentifier>{bb46263c-9da0-48c1-b3e7-eab2cbcec619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\graphics">
+      <UniqueIdentifier>{a5fb5cb6-34e5-4008-baea-dbebae061fa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\graphics">
+      <UniqueIdentifier>{9595604f-54a5-4d9e-80d6-094781b1abe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\components">
+      <UniqueIdentifier>{7059dd50-8b2e-43cc-8913-80ce4e83d706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\components">
+      <UniqueIdentifier>{ac9f2279-7abf-4332-8a87-873a616a9eda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CommandPattern">
+      <UniqueIdentifier>{07c8e966-f227-41ca-af98-671aa20d7afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CommandPattern">
+      <UniqueIdentifier>{865077de-7881-4e7c-8bf2-dc4226209e46}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\Game.cpp">
+      <Filter>Source Files\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\Window.cpp">
+      <Filter>Source Files\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\BaseSystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\RenderSystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Location.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\graphics\Texture.cpp">
+      <Filter>Source Files\app\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Dimension.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Render.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\Command.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\JumpCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\MeleeCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\ShieldCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\FireCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\CrouchCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilities\MouseHandler.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\InputKeySystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilities\Keyhandler.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilities\SdlDeleter.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\InputMouseSystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CommandPattern\MacroCommand.cpp">
+      <Filter>Source Files\CommandPattern</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\Game.h">
+      <Filter>Header Files\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\Window.h">
+      <Filter>Header Files\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\BaseSystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\RenderSystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Location.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\graphics\Texture.h">
+      <Filter>Header Files\app\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Dimension.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Render.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\Command.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\JumpCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\ShieldCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\MeleeCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\CrouchCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\FireCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilities\MouseHandler.h">
+      <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\InputKeySystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilities\SdlDeleter.h">
+      <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilities\Keyhandler.h">
+      <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\InputMouseSystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CommandPattern\MacroCommand.h">
+      <Filter>Header Files\CommandPattern</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\.gitkeep">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
