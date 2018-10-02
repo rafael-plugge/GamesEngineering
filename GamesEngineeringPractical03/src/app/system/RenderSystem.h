@@ -35,6 +35,7 @@ namespace app::sys
 	private: // Private Member Variables
 		std::shared_ptr<SDL_Renderer> m_renderer;
 		SDL_Rect m_rect;
+		std::optional<SDL_Rect> m_sourceRect;
 	};
 }
 

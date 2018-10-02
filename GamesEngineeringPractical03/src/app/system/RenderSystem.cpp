@@ -10,6 +10,7 @@ app::sys::RenderSystem::RenderSystem(entt::DefaultRegistry & registry, std::shar
 	: BaseSystem(registry)
 	, m_renderer(renderer)
 	, m_rect{ 0, 0, 0, 0 }
+	, m_sourceRect()
 {
 }
 
@@ -25,6 +26,6 @@ void app::sys::RenderSystem::update(app::seconds const & dt)
 		m_rect.w = dimension.width;
 		m_rect.h = dimension.height;
 
-		SDL_RenderCopy(m_renderer.get(), render.texture->get(), nullptr, &m_rect);
+		SDL_RenderCopy(m_renderer.get(), render.texture->get(), m_sourceRect.has_value() ? &m_sourceRect.value() : nullptr, &m_rect);
 	});
 }

@@ -62,6 +62,7 @@
 #include <initializer_list>
 #include <limits>
 #include <variant>
+#include <optional>
 
 // STL Input/Output libraries
 #include <string>
