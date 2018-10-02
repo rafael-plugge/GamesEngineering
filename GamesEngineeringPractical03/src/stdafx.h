@@ -61,6 +61,7 @@
 #include <tuple>
 #include <initializer_list>
 #include <limits>
+#include <variant>
 
 // STL Input/Output libraries
 #include <string>

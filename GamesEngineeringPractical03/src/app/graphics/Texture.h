@@ -3,25 +3,28 @@
 
 #include "app/utilities/SdlDeleter.h"
 
-namespace app::graphics
+// Graphics
+namespace app::gra
 {
 	class Texture
 	{
 	public: // Constructors/Destructor/Assignments
-		Texture(app::util::UPtrRenderer const & renderer, std::string const & file);
+		Texture(std::shared_ptr<SDL_Renderer> renderer, std::string const & file);
 
 		Texture() = default;
-		Texture(Texture const &) = default;
+		Texture(Texture const &) = delete;
 		Texture(Texture &&) = default;
 
 		~Texture() = default;
 
-		Texture & operator=(Texture const &) = default;
+		Texture & operator=(Texture const &) = delete;
 		Texture & operator=(Texture &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		bool loadTexture(app::util::UPtrRenderer const & renderer, std::string const & file);
+		bool loadTexture(std::shared_ptr<SDL_Renderer> renderer, std::string const & file);
+		SDL_Texture const * get() const { return m_texture.get(); }
+		SDL_Texture * get() { return m_texture.get(); }
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
@@ -29,7 +32,7 @@ namespace app::graphics
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 	private: // Private Static Functions
-		static app::util::UPtrTexture loadTextureFromFile(app::util::UPtrRenderer const & renderer, std::string const & file);
+		static app::util::UPtrTexture loadTextureFromFile(std::shared_ptr<SDL_Renderer> renderer, std::string const & file);
 		static app::util::UPtrSurface loadSurfaceFromFile(std::string const & file);
 	private: // Private Member Functions
 	private: // Private Static Variables

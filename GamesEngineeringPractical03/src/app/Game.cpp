@@ -13,6 +13,10 @@
 #include "CommandPattern/MeleeCommand.h"
 #include "CommandPattern/ShieldCommand.h"
 
+// Factories
+#include "app/factories/TextureFactory.h"
+#include "app/factories/PlayerFactory.h"
+
 app::Game::Game()
 	: m_registry()
 	, m_keyhandler()
@@ -60,12 +64,20 @@ int app::Game::run()
 
 bool app::Game::init()
 {
-	return this->createComponentDependencies() && this->createSystems();
+	return this->createComponentDependencies() && this->createSystems() && this->createEntities();
 }
 
 bool app::Game::createComponentDependencies()
 {
-	return true;
+	try
+	{
+		return true;
+	}
+	catch (const std::exception& e)
+	{
+		SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, e.what());
+		return false;
+	}
 }
 
 bool app::Game::createSystems()
@@ -76,14 +88,14 @@ bool app::Game::createSystems()
 		inputKeySystem->bindCommand(SDLK_SPACE, std::make_unique<commandPattern::JumpCommand>());
 		inputKeySystem->bindCommand(SDLK_c, std::make_unique<commandPattern::CrouchCommand>());
 		inputKeySystem->bindCommand(SDLK_f, std::make_unique<commandPattern::MeleeCommand>());
+
 		auto macroCommand = std::make_unique<commandPattern::MacroCommand>();
 		macroCommand->add({ std::make_unique<commandPattern::CrouchCommand>(), std::make_unique<commandPattern::FireCommand>(), std::make_unique<commandPattern::ShieldCommand>() });
 		inputKeySystem->bindCommand(SDLK_m, std::move(macroCommand));
 
-		using ButtonType = app::util::MouseHandler::ButtonType;
-		auto inputMouseSystem = std::make_unique<sys::InputMouseSystem>(sys::InputMouseSystem(m_registry, m_mousehandler));
-		inputMouseSystem->bindCommand(ButtonType::Left, std::make_unique<commandPattern::FireCommand>());
-		inputMouseSystem->bindCommand(ButtonType::Right, std::make_unique<commandPattern::ShieldCommand>());
+		auto inputMouseSystem = std::make_unique<sys::InputMouseSystem>(m_registry, m_mousehandler);
+		inputMouseSystem->bindCommand(util::MouseHandler::ButtonType::Left, std::make_unique<commandPattern::FireCommand>());
+		inputMouseSystem->bindCommand(util::MouseHandler::ButtonType::Right, std::make_unique<commandPattern::ShieldCommand>());
 
 		m_updateSystems = {
 			std::move(inputKeySystem),
@@ -103,16 +115,23 @@ bool app::Game::createSystems()
 	}
 }
 
+bool app::Game::createEntities()
+{
+	std::shared_ptr<app::gra::Texture> playerTexture = app::fact::TextureFactory(m_window.getRenderer(), "./assets/player/player_idle.png").create();
+	app::Entity const player = app::fact::PlayerFactory(m_registry, playerTexture).create();
+	return true;
+}
+
 void app::Game::update(app::seconds const & dt)
 {
 	std::for_each(m_updateSystems.begin(), m_updateSystems.end(),
-		[&dt](std::unique_ptr<sys::BaseSystem> & uptrSystem) { uptrSystem->update(dt); });
+		[&dt](std::unique_ptr<sys::BaseSystem> const & uptrSystem) { uptrSystem->update(dt); });
 }
 
 void app::Game::render(app::seconds const & dt)
 {
 	m_window.clear();
 	std::for_each(m_renderSystems.begin(), m_renderSystems.end(),
-		[&dt](std::unique_ptr<sys::BaseSystem> & uptrSystem) { uptrSystem->update(dt); });
+		[&dt](std::unique_ptr<sys::BaseSystem> const & uptrSystem) { uptrSystem->update(dt); });
 	m_window.display();
 }

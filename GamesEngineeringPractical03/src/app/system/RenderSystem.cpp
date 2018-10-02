@@ -18,11 +18,13 @@ void app::sys::RenderSystem::update(app::seconds const & dt)
 	auto view = m_registry.view<comp::Location, comp::Dimension, comp::Render>();
 	view.each([this](auto entity, comp::Location & location, comp::Dimension & dimension, comp::Render & render) -> void
 	{
+		if (!render.texture) { return; }
+
 		m_rect.x = location.x;
 		m_rect.y = location.y;
 		m_rect.w = dimension.width;
 		m_rect.h = dimension.height;
 
-		SDL_RenderCopy(m_renderer.get(), render.texture.get(), nullptr, &m_rect);
+		SDL_RenderCopy(m_renderer.get(), render.texture->get(), nullptr, &m_rect);
 	});
 }

@@ -1,27 +1,26 @@
-﻿#ifndef _RENDER_H
-#define _RENDER_H
+﻿#ifndef _BASE_FACTORY_H
+#define _BASE_FACTORY_H
 
-#include "app/graphics/Texture.h"
-
-namespace app::comp
+namespace app::fact
 {
-	struct Render
+	template<typename T>
+	class BaseFactory
 	{
 	public: // Constructors/Destructor/Assignments
-		Render() = default;
-		Render(Render const &) = default;
-		Render(Render &&) = default;
+		BaseFactory() = default;
+		BaseFactory(BaseFactory const &) = default;
+		BaseFactory(BaseFactory &&) = default;
 
-		~Render() = default;
+		~BaseFactory() = default;
 
-		Render & operator=(Render const &) = default;
-		Render & operator=(Render &&) = default;
+		BaseFactory & operator=(BaseFactory const &) = default;
+		BaseFactory & operator=(BaseFactory &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
+		virtual T create() const abstract;
 	public: // Public Static Variables
 	public: // Public Member Variables
-		std::shared_ptr<app::gra::Texture> texture;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -34,4 +33,5 @@ namespace app::comp
 	};
 }
 
-#endif // !_RENDER_H
+
+#endif // !_BASE_FACTORY_H

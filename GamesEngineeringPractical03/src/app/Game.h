@@ -29,6 +29,7 @@ namespace app
 		bool init();
 		bool createComponentDependencies();
 		bool createSystems();
+		bool createEntities();
 		void update(app::seconds const & dt);
 		void render(app::seconds const & dt);
 	private: // Private Static Variables
