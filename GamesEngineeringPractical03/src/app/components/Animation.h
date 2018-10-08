@@ -1,28 +1,28 @@
-﻿#ifndef _RENDER_H
-#define _RENDER_H
-
-#include "app/graphics/Texture.h"
+﻿#ifndef _ANIMATION_H
+#define _ANIMATION_H
 
 namespace app::comp
 {
-	struct Render
+	struct Animation
 	{
+	public: // Struct
 	public: // Constructors/Destructor/Assignments
-		Render() = default;
-		Render(Render const &) = default;
-		Render(Render &&) = default;
+		Animation() = default;
+		Animation(Animation const &) = default;
+		Animation(Animation &&) = default;
 
-		~Render() = default;
+		~Animation() = default;
 
-		Render & operator=(Render const &) = default;
-		Render & operator=(Render &&) = default;
+		Animation & operator=(Animation const &) = default;
+		Animation & operator=(Animation &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
+		std::size_t currentFrame;
+		double time, perFrame;
+		std::vector<SDL_Rect> frames;
 	public: // Public Static Variables
 	public: // Public Member Variables
-		std::shared_ptr<app::gra::Texture> texture;
-		std::optional<SDL_Rect> source;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -35,4 +35,4 @@ namespace app::comp
 	};
 }
 
-#endif // !_RENDER_H
+#endif // !_ANIMATION_H

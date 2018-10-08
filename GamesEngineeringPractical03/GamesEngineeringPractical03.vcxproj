@@ -145,15 +145,19 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\app\components\Animation.cpp" />
     <ClCompile Include="src\app\components\Dimension.cpp" />
     <ClCompile Include="src\app\components\Location.cpp" />
     <ClCompile Include="src\app\components\Render.cpp" />
     <ClCompile Include="src\app\factories\BaseFactory.cpp" />
     <ClCompile Include="src\app\factories\EntityFactory.cpp" />
     <ClCompile Include="src\app\factories\PlayerFactory.cpp" />
+    <ClCompile Include="src\app\factories\PlayerIdleFactory.cpp" />
+    <ClCompile Include="src\app\factories\SourceFactory.cpp" />
     <ClCompile Include="src\app\factories\TextureFactory.cpp" />
     <ClCompile Include="src\app\Game.cpp" />
     <ClCompile Include="src\app\graphics\Texture.cpp" />
+    <ClCompile Include="src\app\system\AnimationSystem.cpp" />
     <ClCompile Include="src\app\system\BaseSystem.cpp" />
     <ClCompile Include="src\app\system\InputKeySystem.cpp" />
     <ClCompile Include="src\app\system\InputMouseSystem.cpp" />
@@ -176,15 +180,19 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\app\components\Animation.h" />
     <ClInclude Include="src\app\components\Dimension.h" />
     <ClInclude Include="src\app\components\Location.h" />
     <ClInclude Include="src\app\components\Render.h" />
     <ClInclude Include="src\app\factories\BaseFactory.h" />
     <ClInclude Include="src\app\factories\EntityFactory.h" />
     <ClInclude Include="src\app\factories\PlayerFactory.h" />
+    <ClInclude Include="src\app\factories\PlayerIdleFactory.h" />
+    <ClInclude Include="src\app\factories\SourceFactory.h" />
     <ClInclude Include="src\app\factories\TextureFactory.h" />
     <ClInclude Include="src\app\Game.h" />
     <ClInclude Include="src\app\graphics\Texture.h" />
+    <ClInclude Include="src\app\system\AnimationSystem.h" />
     <ClInclude Include="src\app\system\BaseSystem.h" />
     <ClInclude Include="src\app\system\InputKeySystem.h" />
     <ClInclude Include="src\app\system\InputMouseSystem.h" />

@@ -39,7 +39,7 @@ namespace app
 		app::util::MouseHandler m_mousehandler;
 		app::Window m_window;
 		std::array<std::unique_ptr<sys::BaseSystem>, 2> m_updateSystems;
-		std::array<std::unique_ptr<sys::BaseSystem>, 1> m_renderSystems;
+		std::array<std::unique_ptr<sys::BaseSystem>, 2> m_renderSystems;
 	};
 
 }

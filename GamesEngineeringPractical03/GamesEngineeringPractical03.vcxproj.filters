@@ -135,6 +135,18 @@
     <ClCompile Include="src\app\factories\TextureFactory.cpp">
       <Filter>Source Files\app\factories</Filter>
     </ClCompile>
+    <ClCompile Include="src\app\factories\PlayerIdleFactory.cpp">
+      <Filter>Source Files\app\factories</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\SourceFactory.cpp">
+      <Filter>Source Files\app\factories</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Animation.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\AnimationSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -211,6 +223,18 @@
     </ClInclude>
     <ClInclude Include="src\app\factories\TextureFactory.h">
       <Filter>Header Files\app\factories</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\SourceFactory.h">
+      <Filter>Header Files\app\factories</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\PlayerIdleFactory.h">
+      <Filter>Header Files\app\factories</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Animation.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\AnimationSystem.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

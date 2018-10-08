@@ -2,9 +2,10 @@
 #include "Game.h"
 
 // Systems
-#include "app/system/RenderSystem.h"
 #include "app/system/InputKeySystem.h"
 #include "app/system/InputMouseSystem.h"
+#include "app/system/AnimationSystem.h"
+#include "app/system/RenderSystem.h"
 
 // commands
 #include "CommandPattern/CrouchCommand.h"
@@ -15,6 +16,7 @@
 
 // Factories
 #include "app/factories/TextureFactory.h"
+#include "app/factories/PlayerIdleFactory.h"
 #include "app/factories/PlayerFactory.h"
 
 app::Game::Game()
@@ -103,7 +105,8 @@ bool app::Game::createSystems()
 		};
 
 		m_renderSystems = {
-			std::make_unique<sys::RenderSystem>(m_registry, m_window.getRenderer())
+			std::make_unique<sys::RenderSystem>(m_registry, m_window.getRenderer()),
+			std::make_unique<sys::AnimationSystem>(m_registry)
 		};
 
 		return true;
@@ -118,7 +121,7 @@ bool app::Game::createSystems()
 bool app::Game::createEntities()
 {
 	std::shared_ptr<app::gra::Texture> playerTexture = app::fact::TextureFactory(m_window.getRenderer(), "./assets/player/player_idle.png").create();
-	app::Entity const player = app::fact::PlayerFactory(m_registry, playerTexture).create();
+	app::Entity const player = app::fact::PlayerFactory(m_registry, playerTexture, app::fact::PlayerIdleFactory().create()).create();
 	return true;
 }
 

@@ -1,24 +1,23 @@
-﻿#ifndef _RENDER_SYSTEM_H
-#define _RENDER_SYSTEM_H
+﻿#ifndef _ANIMATION_SYSTEM_H
+#define _ANIMATION_SYSTEM_H
 
 #include "BaseSystem.h"
-#include "app/Window.h"
 
 namespace app::sys
 {
-	class RenderSystem : public BaseSystem
+	class AnimationSystem : public BaseSystem
 	{
 	public: // Constructors/Destructor/Assignments
-		RenderSystem(entt::DefaultRegistry & registry, std::shared_ptr<SDL_Renderer> renderer);
+		AnimationSystem(app::Registry & registry);
 
-		RenderSystem() = delete;
-		RenderSystem(RenderSystem const &) = default;
-		RenderSystem(RenderSystem &&) = default;
+		AnimationSystem() = delete;
+		AnimationSystem(AnimationSystem const &) = default;
+		AnimationSystem(AnimationSystem &&) = default;
 
-		~RenderSystem() = default;
+		~AnimationSystem() = default;
 
-		RenderSystem & operator=(RenderSystem const &) = default;
-		RenderSystem & operator=(RenderSystem &&) = default;
+		AnimationSystem & operator=(AnimationSystem const &) = default;
+		AnimationSystem & operator=(AnimationSystem &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -33,9 +32,8 @@ namespace app::sys
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		std::shared_ptr<SDL_Renderer> m_renderer;
-		SDL_Rect m_rect;
+
 	};
 }
 
-#endif // !_RENDER_SYSTEM_H
+#endif // !_ANIMATION_SYSTEM_H

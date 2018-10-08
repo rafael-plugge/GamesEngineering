@@ -3,7 +3,7 @@
 
 #include "app/utilities/SdlDeleter.h"
 
-namespace app::graphics
+namespace app::gra
 {
 	class Texture
 	{
