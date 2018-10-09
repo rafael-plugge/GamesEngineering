@@ -43,12 +43,6 @@
     <Filter Include="Source Files\app\components">
       <UniqueIdentifier>{ac9f2279-7abf-4332-8a87-873a616a9eda}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\CommandPattern">
-      <UniqueIdentifier>{07c8e966-f227-41ca-af98-671aa20d7afd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\CommandPattern">
-      <UniqueIdentifier>{865077de-7881-4e7c-8bf2-dc4226209e46}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\app\factories">
       <UniqueIdentifier>{b07db2d3-cdaa-464d-b68f-a68196482ae8}</UniqueIdentifier>
     </Filter>
@@ -60,6 +54,42 @@
     </Filter>
     <Filter Include="Source Files\FSMPattern">
       <UniqueIdentifier>{378267b0-06c3-4bb8-9eac-8c7572426349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CmdPattern">
+      <UniqueIdentifier>{865077de-7881-4e7c-8bf2-dc4226209e46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CmdPattern">
+      <UniqueIdentifier>{07c8e966-f227-41ca-af98-671aa20d7afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CmdPattern\Player">
+      <UniqueIdentifier>{8f579e00-164c-4155-9dea-7080e2e0e446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CmdPattern\Player">
+      <UniqueIdentifier>{a3b7aed1-7918-4532-9f18-0ab64e22795b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\factories\entities">
+      <UniqueIdentifier>{39fc6750-b127-44fa-aa48-d875380079cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\factories\animationSource">
+      <UniqueIdentifier>{e2c0e150-fcb9-429b-b273-adb20cf51b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\factories\entities">
+      <UniqueIdentifier>{592b44bd-4769-4d1a-9968-1da7b6881b77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\factories\animationSource">
+      <UniqueIdentifier>{8db5dbcb-5920-4be3-bf5f-df5d1d15a5fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\factories\states">
+      <UniqueIdentifier>{58980010-3256-4f83-91fb-37e5930d0ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\factories\states">
+      <UniqueIdentifier>{8062786a-130d-431a-8a4f-ccb5204632be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\app\components\tags">
+      <UniqueIdentifier>{8123495d-f055-44ab-9cee-e9b1a946e11e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\app\components\tags">
+      <UniqueIdentifier>{efc715dc-c0af-4e86-8a7b-d2c68e7322c2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -93,24 +123,6 @@
     <ClCompile Include="src\app\components\Render.cpp">
       <Filter>Source Files\app\components</Filter>
     </ClCompile>
-    <ClCompile Include="src\CommandPattern\Command.cpp">
-      <Filter>Source Files\CommandPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CommandPattern\JumpCommand.cpp">
-      <Filter>Source Files\CommandPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CommandPattern\MeleeCommand.cpp">
-      <Filter>Source Files\CommandPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CommandPattern\ShieldCommand.cpp">
-      <Filter>Source Files\CommandPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CommandPattern\FireCommand.cpp">
-      <Filter>Source Files\CommandPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CommandPattern\CrouchCommand.cpp">
-      <Filter>Source Files\CommandPattern</Filter>
-    </ClCompile>
     <ClCompile Include="src\app\utilities\MouseHandler.cpp">
       <Filter>Source Files\app\utilities</Filter>
     </ClCompile>
@@ -125,27 +137,6 @@
     </ClCompile>
     <ClCompile Include="src\app\system\InputMouseSystem.cpp">
       <Filter>Source Files\app\system</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CommandPattern\MacroCommand.cpp">
-      <Filter>Source Files\CommandPattern</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\BaseFactory.cpp">
-      <Filter>Source Files\app\factories</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\PlayerFactory.cpp">
-      <Filter>Source Files\app\factories</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\EntityFactory.cpp">
-      <Filter>Source Files\app\factories</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\TextureFactory.cpp">
-      <Filter>Source Files\app\factories</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\PlayerIdleFactory.cpp">
-      <Filter>Source Files\app\factories</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\SourceFactory.cpp">
-      <Filter>Source Files\app\factories</Filter>
     </ClCompile>
     <ClCompile Include="src\app\components\Animation.cpp">
       <Filter>Source Files\app\components</Filter>
@@ -186,8 +177,77 @@
     <ClCompile Include="src\FSMPattern\PlayerState.cpp">
       <Filter>Source Files\FSMPattern</Filter>
     </ClCompile>
-    <ClCompile Include="src\app\factories\PlayerRunningFactory.cpp">
+    <ClCompile Include="src\CmdPattern\ShieldCommand.cpp">
+      <Filter>Source Files\CmdPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\CrouchCommand.cpp">
+      <Filter>Source Files\CmdPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\FireCommand.cpp">
+      <Filter>Source Files\CmdPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\JumpCommand.cpp">
+      <Filter>Source Files\CmdPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\MacroCommand.cpp">
+      <Filter>Source Files\CmdPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\MeleeCommand.cpp">
+      <Filter>Source Files\CmdPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\Command.cpp">
+      <Filter>Source Files\CmdPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\Player\PlayerCommand.cpp">
+      <Filter>Source Files\CmdPattern\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CmdPattern\Player\PlayerJumpCommand.cpp">
+      <Filter>Source Files\CmdPattern\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FSMPattern\PlayerJumpState.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\BaseFactory.cpp">
       <Filter>Source Files\app\factories</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\TextureFactory.cpp">
+      <Filter>Source Files\app\factories</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\PlayerIdleFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\PlayerJumpFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\PlayerRunningFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\SourceFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\entities\EntityFactory.cpp">
+      <Filter>Source Files\app\factories\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\entities\PlayerFactory.cpp">
+      <Filter>Source Files\app\factories\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\states\StateFactory.cpp">
+      <Filter>Source Files\app\factories\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\states\PlayerRunningStateFactory.cpp">
+      <Filter>Source Files\app\factories\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\states\PlayerJumpStateFactory.cpp">
+      <Filter>Source Files\app\factories\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\states\PlayerIdleStateFactory.cpp">
+      <Filter>Source Files\app\factories\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\tags\PlayerIdleStateTag.cpp">
+      <Filter>Source Files\app\components\tags</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\tags\PlayerJumpStateTag.cpp">
+      <Filter>Source Files\app\components\tags</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,24 +278,6 @@
     <ClInclude Include="src\app\components\Render.h">
       <Filter>Header Files\app\components</Filter>
     </ClInclude>
-    <ClInclude Include="src\CommandPattern\Command.h">
-      <Filter>Header Files\CommandPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CommandPattern\JumpCommand.h">
-      <Filter>Header Files\CommandPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CommandPattern\ShieldCommand.h">
-      <Filter>Header Files\CommandPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CommandPattern\MeleeCommand.h">
-      <Filter>Header Files\CommandPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CommandPattern\CrouchCommand.h">
-      <Filter>Header Files\CommandPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CommandPattern\FireCommand.h">
-      <Filter>Header Files\CommandPattern</Filter>
-    </ClInclude>
     <ClInclude Include="src\app\utilities\MouseHandler.h">
       <Filter>Header Files\app\utilities</Filter>
     </ClInclude>
@@ -250,27 +292,6 @@
     </ClInclude>
     <ClInclude Include="src\app\system\InputMouseSystem.h">
       <Filter>Header Files\app\system</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CommandPattern\MacroCommand.h">
-      <Filter>Header Files\CommandPattern</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\BaseFactory.h">
-      <Filter>Header Files\app\factories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\PlayerFactory.h">
-      <Filter>Header Files\app\factories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\EntityFactory.h">
-      <Filter>Header Files\app\factories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\TextureFactory.h">
-      <Filter>Header Files\app\factories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\SourceFactory.h">
-      <Filter>Header Files\app\factories</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\PlayerIdleFactory.h">
-      <Filter>Header Files\app\factories</Filter>
     </ClInclude>
     <ClInclude Include="src\app\components\Animation.h">
       <Filter>Header Files\app\components</Filter>
@@ -311,8 +332,77 @@
     <ClInclude Include="src\FSMPattern\PlayerState.h">
       <Filter>Header Files\FSMPattern</Filter>
     </ClInclude>
-    <ClInclude Include="src\app\factories\PlayerRunningFactory.h">
+    <ClInclude Include="src\CmdPattern\Command.h">
+      <Filter>Header Files\CmdPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\CrouchCommand.h">
+      <Filter>Header Files\CmdPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\FireCommand.h">
+      <Filter>Header Files\CmdPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\JumpCommand.h">
+      <Filter>Header Files\CmdPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\MacroCommand.h">
+      <Filter>Header Files\CmdPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\MeleeCommand.h">
+      <Filter>Header Files\CmdPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\ShieldCommand.h">
+      <Filter>Header Files\CmdPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\Player\PlayerCommand.h">
+      <Filter>Header Files\CmdPattern\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CmdPattern\Player\PlayerJumpCommand.h">
+      <Filter>Header Files\CmdPattern\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FSMPattern\PlayerJumpState.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\TextureFactory.h">
       <Filter>Header Files\app\factories</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\BaseFactory.h">
+      <Filter>Header Files\app\factories</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\PlayerIdleFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\PlayerJumpFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\PlayerRunningFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\SourceFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\entities\EntityFactory.h">
+      <Filter>Header Files\app\factories\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\entities\PlayerFactory.h">
+      <Filter>Header Files\app\factories\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\states\StateFactory.h">
+      <Filter>Header Files\app\factories\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\states\PlayerIdleStateFactory.h">
+      <Filter>Header Files\app\factories\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\states\PlayerJumpStateFactory.h">
+      <Filter>Header Files\app\factories\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\states\PlayerRunningStateFactory.h">
+      <Filter>Header Files\app\factories\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\tags\PlayerIdleStateTag.h">
+      <Filter>Header Files\app\components\tags</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\tags\PlayerJumpStateTag.h">
+      <Filter>Header Files\app\components\tags</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

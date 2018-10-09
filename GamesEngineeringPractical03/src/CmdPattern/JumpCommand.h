@@ -3,7 +3,7 @@
 
 #include "Command.h"
 
-namespace app::commandPattern
+namespace app::cmd
 {
 	class JumpCommand : public Command
 	{

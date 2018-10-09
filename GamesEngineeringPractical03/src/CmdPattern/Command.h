@@ -1,31 +1,29 @@
-﻿#ifndef _FIRE_COMMAND_H
-#define _FIRE_COMMAND_H
+﻿#ifndef _COMMAND_H
+#define _COMMAND_H
 
-#include "Command.h"
-
-namespace app::commandPattern
+namespace app::cmd
 {
-	class FireCommand : public Command
+	class Command
 	{
 	public: // Constructors/Destructor/Assignments
-		FireCommand() = default;
-		FireCommand(FireCommand const &) = default;
-		FireCommand(FireCommand &&) = default;
+		Command(Command const &) = default;
+		Command(Command &&) = default;
 
-		~FireCommand() = default;
+		virtual ~Command() = default;
 
-		FireCommand & operator=(FireCommand const &) = default;
-		FireCommand & operator=(FireCommand &&) = default;
+		Command & operator=(Command const &) = default;
+		Command & operator=(Command &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		virtual void execute() override;
-		virtual void undo() override;
-		virtual void redo() override;
+		virtual void execute() abstract;
+		virtual void undo() abstract;
+		virtual void redo() abstract;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
+		Command() = default;
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 	private: // Private Static Functions
@@ -36,4 +34,4 @@ namespace app::commandPattern
 	};
 }
 
-#endif // !_FIRE_COMMAND_H
+#endif // !_COMMAND_H

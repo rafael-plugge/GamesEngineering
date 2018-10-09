@@ -1,36 +1,39 @@
-﻿#ifndef _STATE_H
-#define _STATE_H
+﻿#ifndef _MELEE_COMMAND_H
+#define _MELEE_COMMAND_H
 
-namespace app::fsm
+#include "Command.h"
+
+namespace app::cmd
 {
-	class State
+	class MeleeCommand : public Command
 	{
 	public: // Constructors/Destructor/Assignments
-		State(State const &) = default;
-		State(State &&) = default;
+		MeleeCommand() = default;
+		MeleeCommand(MeleeCommand const &) = default;
+		MeleeCommand(MeleeCommand &&) = default;
 
-		~State() = default;
+		~MeleeCommand() = default;
 
-		State & operator=(State const &) = default;
-		State & operator=(State &&) = default;
+		MeleeCommand & operator=(MeleeCommand const &) = default;
+		MeleeCommand & operator=(MeleeCommand &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		virtual void update(app::seconds const & dt) {}
-		virtual void beforeChange() abstract;
-		virtual void afterChange() abstract;
+		virtual void execute() override;
+		virtual void undo() override;
+		virtual void redo() override;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
-		State() = default;
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
+
 	};
 }
 
-#endif // !_STATE_H
+#endif // !_MELEE_COMMAND_H

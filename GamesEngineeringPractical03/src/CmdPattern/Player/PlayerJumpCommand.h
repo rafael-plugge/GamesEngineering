@@ -1,21 +1,22 @@
-﻿#ifndef _CROUCH_COMMAND_H
-#define _CROUCH_COMMAND_H
+﻿#ifndef _PLAYER_JUMP_COMMAND_H
+#define _PLAYER_JUMP_COMMAND_H
 
-#include "Command.h"
+#include "PlayerCommand.h"
 
-namespace app::commandPattern
+namespace app::cmd
 {
-	class CrouchCommand : public Command
+	class PlayerJumpCommand : public PlayerCommand
 	{
 	public: // Constructors/Destructor/Assignments
-		CrouchCommand() = default;
-		CrouchCommand(CrouchCommand const &) = default;
-		CrouchCommand(CrouchCommand &&) = default;
+		PlayerJumpCommand(app::Registry & registry, app::Entity const entity);
 
-		~CrouchCommand() = default;
+		PlayerJumpCommand(PlayerJumpCommand const &) = default;
+		PlayerJumpCommand(PlayerJumpCommand &&) = default;
 
-		CrouchCommand & operator=(CrouchCommand const &) = default;
-		CrouchCommand & operator=(CrouchCommand &&) = default;
+		~PlayerJumpCommand() = default;
+
+		PlayerJumpCommand & operator=(PlayerJumpCommand const &) = default;
+		PlayerJumpCommand & operator=(PlayerJumpCommand &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -33,7 +34,8 @@ namespace app::commandPattern
 	private: // Private Static Variables
 	private: // Private Member Variables
 
+
 	};
 }
 
-#endif // !_CROUCH_COMMAND_H
+#endif // !_PLAYER_JUMP_COMMAND_H

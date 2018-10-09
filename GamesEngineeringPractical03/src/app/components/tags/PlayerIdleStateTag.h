@@ -1,37 +1,36 @@
-﻿#ifndef _COMMAND_H
-#define _COMMAND_H
+﻿#ifndef _PLAYER_IDLE_STATE_TAG_H
+#define _PLAYER_IDLE_STATE_TAG_H
 
-namespace app::commandPattern
+#include "FSMPattern/State.h"
+
+namespace app::comp::tag
 {
-	class Command
+	struct PlayerIdleState
 	{
 	public: // Constructors/Destructor/Assignments
-		Command(Command const &) = default;
-		Command(Command &&) = default;
+		PlayerIdleState() = default;
+		PlayerIdleState(PlayerIdleState const &) = default;
+		PlayerIdleState(PlayerIdleState &&) = default;
 
-		virtual ~Command() = default;
+		~PlayerIdleState() = default;
 
-		Command & operator=(Command const &) = default;
-		Command & operator=(Command &&) = default;
+		PlayerIdleState & operator=(PlayerIdleState const &) = default;
+		PlayerIdleState & operator=(PlayerIdleState &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		virtual void execute() abstract;
-		virtual void undo() abstract;
-		virtual void redo() abstract;
 	public: // Public Static Variables
 	public: // Public Member Variables
+		std::shared_ptr<app::fsm::State> state;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
-		Command() = default;
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-
 	};
 }
 
-#endif // !_COMMAND_H
+#endif // !_PLAYER_IDLE_STATE_TAG_H

@@ -4,14 +4,14 @@
 #include "BaseSystem.h"
 #include "app/utilities/Keyhandler.h"
 #include "app/utilities/MouseHandler.h"
-#include "CommandPattern/Command.h"
-#include "CommandPattern/MacroCommand.h"
+#include "CmdPattern/Command.h"
+#include "CmdPattern/MacroCommand.h"
 
 namespace app::sys
 {
 	class InputKeySystem : public BaseSystem
 	{
-		typedef std::unordered_map<app::KeyCode, std::unique_ptr<app::commandPattern::Command>> map;
+		typedef std::unordered_map<app::KeyCode, std::unique_ptr<app::cmd::Command>> map;
 	public: // Constructors/Destructor/Assignments
 		InputKeySystem(app::Registry & registry, app::util::KeyHandler<app::KeyCode> & keyHandler);
 
@@ -19,14 +19,16 @@ namespace app::sys
 		InputKeySystem(InputKeySystem const &) = default;
 		InputKeySystem(InputKeySystem &&) = default;
 
-		~InputKeySystem() = default;
+		~InputKeySystem();
 
 		InputKeySystem & operator=(InputKeySystem const &) = default;
 		InputKeySystem & operator=(InputKeySystem &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		void bindCommand(app::KeyCode const & key, std::unique_ptr<app::commandPattern::Command> command);
+		void bindCommand(app::KeyCode const & key, std::unique_ptr<app::cmd::Command> command);
+		void bindCommand(std::vector<std::pair<app::KeyCode const, std::unique_ptr<app::cmd::Command>>> commands);
+		void createJumpCommand(app::Registry & registry, app::Entity entity);
 		virtual void update(app::seconds const & dt) override;
 	public: // Public Static Variables
 	public: // Public Member Variables

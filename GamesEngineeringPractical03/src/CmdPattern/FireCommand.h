@@ -1,21 +1,21 @@
-﻿#ifndef _MELEE_COMMAND_H
-#define _MELEE_COMMAND_H
+﻿#ifndef _FIRE_COMMAND_H
+#define _FIRE_COMMAND_H
 
 #include "Command.h"
 
-namespace app::commandPattern
+namespace app::cmd
 {
-	class MeleeCommand : public Command
+	class FireCommand : public Command
 	{
 	public: // Constructors/Destructor/Assignments
-		MeleeCommand() = default;
-		MeleeCommand(MeleeCommand const &) = default;
-		MeleeCommand(MeleeCommand &&) = default;
+		FireCommand() = default;
+		FireCommand(FireCommand const &) = default;
+		FireCommand(FireCommand &&) = default;
 
-		~MeleeCommand() = default;
+		~FireCommand() = default;
 
-		MeleeCommand & operator=(MeleeCommand const &) = default;
-		MeleeCommand & operator=(MeleeCommand &&) = default;
+		FireCommand & operator=(FireCommand const &) = default;
+		FireCommand & operator=(FireCommand &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -36,4 +36,4 @@ namespace app::commandPattern
 	};
 }
 
-#endif // !_MELEE_COMMAND_H
+#endif // !_FIRE_COMMAND_H

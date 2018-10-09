@@ -1,17 +1,17 @@
 ﻿#include "stdafx.h"
 #include "ShieldCommand.h"
 
-void app::commandPattern::ShieldCommand::execute()
+void app::cmd::ShieldCommand::execute()
 {
 	std::cout << "Command: Shield" << std::endl;
 }
 
-void app::commandPattern::ShieldCommand::undo()
+void app::cmd::ShieldCommand::undo()
 {
 	std::cout << "Undo Command: Shield" << std::endl;
 }
 
-void app::commandPattern::ShieldCommand::redo()
+void app::cmd::ShieldCommand::redo()
 {
 	std::cout << "Redo Command: Shield" << std::endl;
 }

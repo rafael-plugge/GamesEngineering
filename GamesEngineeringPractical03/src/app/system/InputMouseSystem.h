@@ -3,7 +3,7 @@
 
 #include "BaseSystem.h"
 #include "app/utilities/MouseHandler.h"
-#include "CommandPattern/Command.h"
+#include "CmdPattern/Command.h"
 
 namespace app::sys
 {
@@ -23,7 +23,7 @@ namespace app::sys
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		void bindCommand(app::util::MouseHandler::ButtonType const & button, std::unique_ptr<commandPattern::Command> command);
+		void bindCommand(app::util::MouseHandler::ButtonType const & button, std::unique_ptr<cmd::Command> command);
 		virtual void update(app::seconds const & dt) override;
 	public: // Public Static Variables
 	public: // Public Member Variables
@@ -36,7 +36,7 @@ namespace app::sys
 	private: // Private Static Variables
 	private: // Private Member Variables
 		app::util::MouseHandler & m_mouseHandler;
-		std::unordered_map<app::util::MouseHandler::ButtonType, std::unique_ptr<commandPattern::Command>> m_commands;
+		std::unordered_map<app::util::MouseHandler::ButtonType, std::unique_ptr<cmd::Command>> m_commands;
 	};
 }
 

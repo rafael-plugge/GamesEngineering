@@ -22,6 +22,7 @@ namespace app::fsm
 	public: // Public Static Functions
 	public: // Public Member Functions
 		virtual void update(app::seconds const & dt);
+		virtual void setState(std::shared_ptr<State> newState);
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions

@@ -1,17 +1,17 @@
 ﻿#include "stdafx.h"
 #include "FireCommand.h"
 
-void app::commandPattern::FireCommand::execute()
+void app::cmd::FireCommand::execute()
 {
 	std::cout << "Command: Fire" << std::endl;
 }
 
-void app::commandPattern::FireCommand::undo()
+void app::cmd::FireCommand::undo()
 {
 	std::cout << "Undo Command: Fire" << std::endl;
 }
 
-void app::commandPattern::FireCommand::redo()
+void app::cmd::FireCommand::redo()
 {
 	std::cout << "Redo Command: Fire" << std::endl;
 }

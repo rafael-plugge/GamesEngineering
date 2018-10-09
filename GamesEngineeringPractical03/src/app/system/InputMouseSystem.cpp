@@ -8,7 +8,7 @@ app::sys::InputMouseSystem::InputMouseSystem(app::Registry & registry, app::util
 {
 }
 
-void app::sys::InputMouseSystem::bindCommand(app::util::MouseHandler::ButtonType const & button, std::unique_ptr<commandPattern::Command> command)
+void app::sys::InputMouseSystem::bindCommand(app::util::MouseHandler::ButtonType const & button, std::unique_ptr<cmd::Command> command)
 {
 	m_commands.insert({ button, std::move(command) });
 }

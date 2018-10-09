@@ -9,16 +9,15 @@
 #include "app/system/RenderSystem.h"
 
 // commands
-#include "CommandPattern/CrouchCommand.h"
-#include "CommandPattern/FireCommand.h"
-#include "CommandPattern/JumpCommand.h"
-#include "CommandPattern/MeleeCommand.h"
-#include "CommandPattern/ShieldCommand.h"
+#include "CmdPattern/CrouchCommand.h"
+#include "CmdPattern/FireCommand.h"
+#include "CmdPattern/JumpCommand.h"
+#include "CmdPattern/MeleeCommand.h"
+#include "CmdPattern/ShieldCommand.h"
 
 // Factories
-#include "app/factories/TextureFactory.h"
-#include "app/factories/PlayerIdleFactory.h"
-#include "app/factories/PlayerFactory.h"
+#include "app/factories/entities/PlayerFactory.h"
+#include "app/factories/states/PlayerIdleStateFactory.h"
 
 app::Game::Game()
 	: m_registry()
@@ -87,18 +86,18 @@ bool app::Game::createSystems()
 {
 	try
 	{
-		auto inputKeySystem = std::make_unique<sys::InputKeySystem>(sys::InputKeySystem(m_registry, m_keyhandler));
-		inputKeySystem->bindCommand(SDLK_SPACE, std::make_unique<commandPattern::JumpCommand>());
-		inputKeySystem->bindCommand(SDLK_c, std::make_unique<commandPattern::CrouchCommand>());
-		inputKeySystem->bindCommand(SDLK_f, std::make_unique<commandPattern::MeleeCommand>());
+		auto inputKeySystem = std::make_unique<sys::InputKeySystem>(m_registry, m_keyhandler);
+		inputKeySystem->bindCommand(SDLK_SPACE, std::make_unique<cmd::JumpCommand>());
+		inputKeySystem->bindCommand(SDLK_c, std::make_unique<cmd::CrouchCommand>());
+		inputKeySystem->bindCommand(SDLK_f, std::make_unique<cmd::MeleeCommand>());
 
-		auto macroCommand = std::make_unique<commandPattern::MacroCommand>();
-		macroCommand->add({ std::make_unique<commandPattern::CrouchCommand>(), std::make_unique<commandPattern::FireCommand>(), std::make_unique<commandPattern::ShieldCommand>() });
+		auto macroCommand = std::make_unique<cmd::MacroCommand>();
+		macroCommand->add({ std::make_unique<cmd::CrouchCommand>(), std::make_unique<cmd::FireCommand>(), std::make_unique<cmd::ShieldCommand>() });
 		inputKeySystem->bindCommand(SDLK_m, std::move(macroCommand));
 
 		auto inputMouseSystem = std::make_unique<sys::InputMouseSystem>(m_registry, m_mousehandler);
-		inputMouseSystem->bindCommand(util::MouseHandler::ButtonType::Left, std::make_unique<commandPattern::FireCommand>());
-		inputMouseSystem->bindCommand(util::MouseHandler::ButtonType::Right, std::make_unique<commandPattern::ShieldCommand>());
+		inputMouseSystem->bindCommand(util::MouseHandler::ButtonType::Left, std::make_unique<cmd::FireCommand>());
+		inputMouseSystem->bindCommand(util::MouseHandler::ButtonType::Right, std::make_unique<cmd::ShieldCommand>());
 
 		m_updateSystems = {
 			std::move(inputKeySystem),
@@ -122,7 +121,6 @@ bool app::Game::createSystems()
 
 bool app::Game::createEntities()
 {
-	std::shared_ptr<app::gra::Texture> playerTexture = app::fact::TextureFactory(m_window.getRenderer(), "./assets/player/player_idle.png").create();
 	app::Entity const player = app::fact::PlayerFactory(m_registry, m_window.getRenderer()).create();
 	return true;
 }

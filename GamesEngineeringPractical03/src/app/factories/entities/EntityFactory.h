@@ -1,7 +1,7 @@
 ﻿#ifndef _ENTITY_FACTORY_H
 #define _ENTITY_FACTORY_H
 
-#include "BaseFactory.h"
+#include "app/factories/BaseFactory.h"
 
 namespace app::fact
 {

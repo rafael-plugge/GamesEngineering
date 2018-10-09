@@ -1,7 +1,7 @@
 ﻿#ifndef _ANIMATION_SOURCE_FACTORY_H
 #define _ANIMATION_SOURCE_FACTORY_H
 
-#include "BaseFactory.h"
+#include "app/factories/BaseFactory.h"
 
 namespace app::fact
 {

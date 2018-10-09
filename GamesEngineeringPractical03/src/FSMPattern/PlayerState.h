@@ -20,13 +20,15 @@ namespace app::fsm
 		PlayerState & operator=(PlayerState &&) = default;
 
 	public: // Public Static Functions
-		static std::shared_ptr<PlayerState> instance() { return s_ptr; }
 	public: // Public Member Functions
 		virtual void update(app::seconds const & dt) override;
+		virtual void beforeChange() override;
+		virtual void afterChange() override;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
+		void applyTextureAndFrames();
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 		app::Registry & m_registry;
@@ -36,7 +38,6 @@ namespace app::fsm
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
-		static std::shared_ptr<PlayerState> s_ptr;
 	private: // Private Member Variables
 	};
 }
