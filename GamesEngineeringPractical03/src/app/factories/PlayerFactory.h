@@ -9,7 +9,7 @@ namespace app::fact
 	class PlayerFactory : public EntityFactory
 	{
 	public: // Constructors/Destructor/Assignments
-		PlayerFactory(app::Registry & registry, std::shared_ptr<app::gra::Texture> texture, std::vector<SDL_Rect> animation);
+		PlayerFactory(app::Registry & registry, std::shared_ptr<SDL_Renderer> renderer);
 
 		PlayerFactory() = delete;
 		PlayerFactory(PlayerFactory const &) = default;
@@ -29,8 +29,7 @@ namespace app::fact
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
-		std::shared_ptr<app::gra::Texture> m_texture;
-		std::vector<SDL_Rect> m_animation;
+		std::shared_ptr<SDL_Renderer> m_renderer;
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables

@@ -1,38 +1,38 @@
-﻿#ifndef _RENDER_COMP_H
-#define _RENDER_COMP_H
+﻿#ifndef _STATE_H
+#define _STATE_H
 
-#include "app/graphics/Texture.h"
-
-namespace app::comp
+namespace app::fsm
 {
-	struct Render
+	class State
 	{
 	public: // Constructors/Destructor/Assignments
-		Render() = default;
-		Render(Render const &) = default;
-		Render(Render &&) = default;
+		State(State const &) = default;
+		State(State &&) = default;
 
-		~Render() = default;
+		~State() = default;
 
-		Render & operator=(Render const &) = default;
-		Render & operator=(Render &&) = default;
+		State & operator=(State const &) = default;
+		State & operator=(State &&) = default;
 
 	public: // Public Static Functions
+		static std::shared_ptr<State> ptr() { return s_singlePtr; }
 	public: // Public Member Functions
+		virtual void update(app::seconds const & dt) {}
+		virtual void setState(std::shared_ptr<State> newState) { s_singlePtr = newState; }
 	public: // Public Static Variables
 	public: // Public Member Variables
-		std::shared_ptr<app::gra::Texture> texture;
-		std::optional<SDL_Rect> source;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
+		State() = default;
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
+		static std::shared_ptr<State> s_singlePtr;
 	private: // Private Member Variables
 
 	};
 }
 
-#endif // !_RENDER_COMP_H
+#endif // !_STATE_H

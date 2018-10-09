@@ -1,28 +1,27 @@
-﻿#ifndef _RENDER_COMP_H
-#define _RENDER_COMP_H
+﻿#ifndef _FINTE_STATE_MACHINE_H
+#define _FINTE_STATE_MACHINE_H
 
-#include "app/graphics/Texture.h"
+#include "FSMPattern/StateMachine.h"
 
 namespace app::comp
 {
-	struct Render
+	struct FiniteStateMachine
 	{
 	public: // Constructors/Destructor/Assignments
-		Render() = default;
-		Render(Render const &) = default;
-		Render(Render &&) = default;
+		FiniteStateMachine() = default;
+		FiniteStateMachine(FiniteStateMachine const &) = default;
+		FiniteStateMachine(FiniteStateMachine &&) = default;
 
-		~Render() = default;
+		~FiniteStateMachine() = default;
 
-		Render & operator=(Render const &) = default;
-		Render & operator=(Render &&) = default;
+		FiniteStateMachine & operator=(FiniteStateMachine const &) = default;
+		FiniteStateMachine & operator=(FiniteStateMachine &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
-		std::shared_ptr<app::gra::Texture> texture;
-		std::optional<SDL_Rect> source;
+		std::unique_ptr<fsm::StateMachine> stateMachine;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -31,8 +30,7 @@ namespace app::comp
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-
 	};
 }
 
-#endif // !_RENDER_COMP_H
+#endif // !_FINTE_STATE_MACHINE_H

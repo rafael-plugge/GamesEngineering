@@ -1,5 +1,5 @@
-﻿#ifndef _TEXTURE_H
-#define _TEXTURE_H
+﻿#ifndef _TEXTURE_GRAPHICS_H
+#define _TEXTURE_GRAPHICS_H
 
 #include "app/utilities/SdlDeleter.h"
 
@@ -41,4 +41,4 @@ namespace app::gra
 	};
 }
 
-#endif // !_TEXTURE_H
+#endif // !_TEXTURE_GRAPHICS_H

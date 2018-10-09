@@ -55,6 +55,12 @@
     <Filter Include="Source Files\app\factories">
       <UniqueIdentifier>{43f134dd-79d3-4057-975f-b95394d61d61}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FSMPattern">
+      <UniqueIdentifier>{77435431-09e9-4f27-b637-c3b137d3a6b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FSMPattern">
+      <UniqueIdentifier>{378267b0-06c3-4bb8-9eac-8c7572426349}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -144,8 +150,44 @@
     <ClCompile Include="src\app\components\Animation.cpp">
       <Filter>Source Files\app\components</Filter>
     </ClCompile>
+    <ClCompile Include="src\FSMPattern\State.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
     <ClCompile Include="src\app\system\AnimationSystem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FSMPattern\StateMachine.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FSMPattern\AnimationStateMachine.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FSMPattern\PlayerIdleState.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\Player.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\utilities\NonDeleter.cpp">
+      <Filter>Source Files\app\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FSMPattern\PlayerStateMachine.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\components\FiniteStateMachine.cpp">
+      <Filter>Source Files\app\components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\system\FiniteStateMachineSystem.cpp">
+      <Filter>Source Files\app\system</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FSMPattern\PlayerRunningState.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FSMPattern\PlayerState.cpp">
+      <Filter>Source Files\FSMPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\PlayerRunningFactory.cpp">
+      <Filter>Source Files\app\factories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,8 +275,44 @@
     <ClInclude Include="src\app\components\Animation.h">
       <Filter>Header Files\app\components</Filter>
     </ClInclude>
+    <ClInclude Include="src\FSMPattern\State.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
     <ClInclude Include="src\app\system\AnimationSystem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FSMPattern\StateMachine.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FSMPattern\AnimationStateMachine.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FSMPattern\PlayerIdleState.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\Player.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FSMPattern\PlayerStateMachine.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\utilities\NonDeleter.h">
+      <Filter>Header Files\app\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\components\FiniteStateMachine.h">
+      <Filter>Header Files\app\components</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\system\FiniteStateMachineSystem.h">
+      <Filter>Header Files\app\system</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FSMPattern\PlayerRunningState.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FSMPattern\PlayerState.h">
+      <Filter>Header Files\FSMPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\PlayerRunningFactory.h">
+      <Filter>Header Files\app\factories</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

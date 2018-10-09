@@ -147,23 +147,28 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
   <ItemGroup>
     <ClCompile Include="src\app\components\Animation.cpp" />
     <ClCompile Include="src\app\components\Dimension.cpp" />
+    <ClCompile Include="src\app\components\FiniteStateMachine.cpp" />
     <ClCompile Include="src\app\components\Location.cpp" />
+    <ClCompile Include="src\app\components\Player.cpp" />
     <ClCompile Include="src\app\components\Render.cpp" />
     <ClCompile Include="src\app\factories\BaseFactory.cpp" />
     <ClCompile Include="src\app\factories\EntityFactory.cpp" />
     <ClCompile Include="src\app\factories\PlayerFactory.cpp" />
     <ClCompile Include="src\app\factories\PlayerIdleFactory.cpp" />
+    <ClCompile Include="src\app\factories\PlayerRunningFactory.cpp" />
     <ClCompile Include="src\app\factories\SourceFactory.cpp" />
     <ClCompile Include="src\app\factories\TextureFactory.cpp" />
     <ClCompile Include="src\app\Game.cpp" />
     <ClCompile Include="src\app\graphics\Texture.cpp" />
     <ClCompile Include="src\app\system\AnimationSystem.cpp" />
     <ClCompile Include="src\app\system\BaseSystem.cpp" />
+    <ClCompile Include="src\app\system\FiniteStateMachineSystem.cpp" />
     <ClCompile Include="src\app\system\InputKeySystem.cpp" />
     <ClCompile Include="src\app\system\InputMouseSystem.cpp" />
     <ClCompile Include="src\app\system\RenderSystem.cpp" />
     <ClCompile Include="src\app\utilities\Keyhandler.cpp" />
     <ClCompile Include="src\app\utilities\MouseHandler.cpp" />
+    <ClCompile Include="src\app\utilities\NonDeleter.cpp" />
     <ClCompile Include="src\app\utilities\SdlDeleter.cpp" />
     <ClCompile Include="src\app\Window.cpp" />
     <ClCompile Include="src\CommandPattern\Command.cpp" />
@@ -173,6 +178,13 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\CommandPattern\MacroCommand.cpp" />
     <ClCompile Include="src\CommandPattern\MeleeCommand.cpp" />
     <ClCompile Include="src\CommandPattern\ShieldCommand.cpp" />
+    <ClCompile Include="src\FSMPattern\AnimationStateMachine.cpp" />
+    <ClCompile Include="src\FSMPattern\PlayerIdleState.cpp" />
+    <ClCompile Include="src\FSMPattern\PlayerRunningState.cpp" />
+    <ClCompile Include="src\FSMPattern\PlayerState.cpp" />
+    <ClCompile Include="src\FSMPattern\PlayerStateMachine.cpp" />
+    <ClCompile Include="src\FSMPattern\State.cpp" />
+    <ClCompile Include="src\FSMPattern\StateMachine.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -182,23 +194,28 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
   <ItemGroup>
     <ClInclude Include="src\app\components\Animation.h" />
     <ClInclude Include="src\app\components\Dimension.h" />
+    <ClInclude Include="src\app\components\FiniteStateMachine.h" />
     <ClInclude Include="src\app\components\Location.h" />
+    <ClInclude Include="src\app\components\Player.h" />
     <ClInclude Include="src\app\components\Render.h" />
     <ClInclude Include="src\app\factories\BaseFactory.h" />
     <ClInclude Include="src\app\factories\EntityFactory.h" />
     <ClInclude Include="src\app\factories\PlayerFactory.h" />
     <ClInclude Include="src\app\factories\PlayerIdleFactory.h" />
+    <ClInclude Include="src\app\factories\PlayerRunningFactory.h" />
     <ClInclude Include="src\app\factories\SourceFactory.h" />
     <ClInclude Include="src\app\factories\TextureFactory.h" />
     <ClInclude Include="src\app\Game.h" />
     <ClInclude Include="src\app\graphics\Texture.h" />
     <ClInclude Include="src\app\system\AnimationSystem.h" />
     <ClInclude Include="src\app\system\BaseSystem.h" />
+    <ClInclude Include="src\app\system\FiniteStateMachineSystem.h" />
     <ClInclude Include="src\app\system\InputKeySystem.h" />
     <ClInclude Include="src\app\system\InputMouseSystem.h" />
     <ClInclude Include="src\app\system\RenderSystem.h" />
     <ClInclude Include="src\app\utilities\Keyhandler.h" />
     <ClInclude Include="src\app\utilities\MouseHandler.h" />
+    <ClInclude Include="src\app\utilities\NonDeleter.h" />
     <ClInclude Include="src\app\utilities\SdlDeleter.h" />
     <ClInclude Include="src\app\Window.h" />
     <ClInclude Include="src\CommandPattern\Command.h" />
@@ -208,6 +225,13 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\CommandPattern\MacroCommand.h" />
     <ClInclude Include="src\CommandPattern\MeleeCommand.h" />
     <ClInclude Include="src\CommandPattern\ShieldCommand.h" />
+    <ClInclude Include="src\FSMPattern\AnimationStateMachine.h" />
+    <ClInclude Include="src\FSMPattern\PlayerIdleState.h" />
+    <ClInclude Include="src\FSMPattern\PlayerRunningState.h" />
+    <ClInclude Include="src\FSMPattern\PlayerState.h" />
+    <ClInclude Include="src\FSMPattern\PlayerStateMachine.h" />
+    <ClInclude Include="src\FSMPattern\State.h" />
+    <ClInclude Include="src\FSMPattern\StateMachine.h" />
     <ClInclude Include="src\stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

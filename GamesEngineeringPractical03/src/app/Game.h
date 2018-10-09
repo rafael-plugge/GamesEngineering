@@ -38,7 +38,7 @@ namespace app
 		app::util::KeyHandler<SDL_Keycode> m_keyhandler;
 		app::util::MouseHandler m_mousehandler;
 		app::Window m_window;
-		std::array<std::unique_ptr<sys::BaseSystem>, 2> m_updateSystems;
+		std::array<std::unique_ptr<sys::BaseSystem>, 3> m_updateSystems;
 		std::array<std::unique_ptr<sys::BaseSystem>, 2> m_renderSystems;
 	};
 

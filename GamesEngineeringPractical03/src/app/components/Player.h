@@ -1,28 +1,24 @@
-﻿#ifndef _RENDER_COMP_H
-#define _RENDER_COMP_H
-
-#include "app/graphics/Texture.h"
+﻿#ifndef _PLAYER_H
+#define _PLAYER_H
 
 namespace app::comp
 {
-	struct Render
+	struct Player
 	{
 	public: // Constructors/Destructor/Assignments
-		Render() = default;
-		Render(Render const &) = default;
-		Render(Render &&) = default;
+		Player() = default;
+		Player(Player const &) = default;
+		Player(Player &&) = default;
 
-		~Render() = default;
+		~Player() = default;
 
-		Render & operator=(Render const &) = default;
-		Render & operator=(Render &&) = default;
+		Player & operator=(Player const &) = default;
+		Player & operator=(Player &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
-		std::shared_ptr<app::gra::Texture> texture;
-		std::optional<SDL_Rect> source;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -31,8 +27,7 @@ namespace app::comp
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-
 	};
 }
 
-#endif // !_RENDER_COMP_H
+#endif // !_PLAYER_H

@@ -4,6 +4,7 @@
 // Systems
 #include "app/system/InputKeySystem.h"
 #include "app/system/InputMouseSystem.h"
+#include "app/system/FiniteStateMachineSystem.h"
 #include "app/system/AnimationSystem.h"
 #include "app/system/RenderSystem.h"
 
@@ -101,7 +102,8 @@ bool app::Game::createSystems()
 
 		m_updateSystems = {
 			std::move(inputKeySystem),
-			std::move(inputMouseSystem)
+			std::move(inputMouseSystem),
+			std::make_unique<sys::FiniteStateMachineSystem>(m_registry)
 		};
 
 		m_renderSystems = {
@@ -121,7 +123,7 @@ bool app::Game::createSystems()
 bool app::Game::createEntities()
 {
 	std::shared_ptr<app::gra::Texture> playerTexture = app::fact::TextureFactory(m_window.getRenderer(), "./assets/player/player_idle.png").create();
-	app::Entity const player = app::fact::PlayerFactory(m_registry, playerTexture, app::fact::PlayerIdleFactory().create()).create();
+	app::Entity const player = app::fact::PlayerFactory(m_registry, m_window.getRenderer()).create();
 	return true;
 }
 

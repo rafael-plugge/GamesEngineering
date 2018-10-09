@@ -1,28 +1,27 @@
-﻿#ifndef _RENDER_COMP_H
-#define _RENDER_COMP_H
+﻿#ifndef _NON_DELETER_H
+#define _NON_DELETER_H
 
-#include "app/graphics/Texture.h"
+#include "FSMPattern/PlayerStateMachine.h"
 
-namespace app::comp
+namespace app::util
 {
-	struct Render
+	class NonDeleter
 	{
 	public: // Constructors/Destructor/Assignments
-		Render() = default;
-		Render(Render const &) = default;
-		Render(Render &&) = default;
+		NonDeleter() = default;
+		NonDeleter(NonDeleter const &) = default;
+		NonDeleter(NonDeleter &&) = default;
 
-		~Render() = default;
+		~NonDeleter() = default;
 
-		Render & operator=(Render const &) = default;
-		Render & operator=(Render &&) = default;
+		NonDeleter & operator=(NonDeleter const &) = default;
+		NonDeleter & operator=(NonDeleter &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions
+		void operator()(app::fsm::PlayerStateMachine * playerStateMachine) const {}
 	public: // Public Static Variables
 	public: // Public Member Variables
-		std::shared_ptr<app::gra::Texture> texture;
-		std::optional<SDL_Rect> source;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -31,8 +30,7 @@ namespace app::comp
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-
 	};
 }
 
-#endif // !_RENDER_COMP_H
+#endif // !_NON_DELETER_H
