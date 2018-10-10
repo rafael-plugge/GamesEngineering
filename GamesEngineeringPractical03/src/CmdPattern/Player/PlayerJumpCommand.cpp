@@ -4,6 +4,7 @@
 #include "app/factories/states/PlayerJumpStateFactory.h"
 
 #include "app/components/tags/PlayerJumpStateTag.h"
+#include "app/components/tags/PlayerIdleStateTag.h"
 
 app::cmd::PlayerJumpCommand::PlayerJumpCommand(app::Registry & registry, app::Entity const entity)
 	: PlayerCommand(registry, entity)
@@ -19,7 +20,9 @@ void app::cmd::PlayerJumpCommand::execute()
 
 void app::cmd::PlayerJumpCommand::undo()
 {
-	PlayerCommand::undo();
+	auto & state = this->getComp<comp::FiniteStateMachine>();
+	auto & idleState = this->getCompTag<comp::tag::PlayerIdleState>();
+	state.stateMachine->setState(idleState.state);
 }
 
 void app::cmd::PlayerJumpCommand::redo()

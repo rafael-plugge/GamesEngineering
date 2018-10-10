@@ -11,9 +11,9 @@
 
 // factories
 #include "app/factories/TextureFactory.h"
-#include "app/factories/animationSource/PlayerIdleFactory.h"
-#include "app/factories/animationSource/PlayerRunningFactory.h"
-#include "app/factories/animationSource/PlayerJumpFactory.h"
+#include "app/factories/animationSource/PlayerIdleSourceFactory.h"
+#include "app/factories/animationSource/PlayerRunningSourceFactory.h"
+#include "app/factories/animationSource/PlayerJumpSourceFactory.h"
 
 app::fsm::PlayerStateMachine::PlayerStateMachine(app::Registry & registry)
 	: AnimationStateMachine(registry, nullptr)
