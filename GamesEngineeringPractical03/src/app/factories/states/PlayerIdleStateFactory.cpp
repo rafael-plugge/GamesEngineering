@@ -19,6 +19,6 @@ std::shared_ptr<app::fsm::State> app::fact::PlayerIdleStateFactory::create() con
 		m_registry, m_entity,
 		m_texture,
 		fact::PlayerIdleFactory().create());
-	m_registry.assign<comp::tag::PlayerIdleState>(entt::tag_t(), m_registry.create(), playerIdleState);
+	m_registry.assign<decltype(playerIdleState)>(entt::tag_t(), m_registry.create(), playerIdleState);
 	return playerIdleState.state;
 }

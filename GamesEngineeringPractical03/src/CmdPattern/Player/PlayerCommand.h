@@ -9,7 +9,6 @@
 
 namespace app::cmd
 {
-	template<typename T>
 	class PlayerCommand : public Command
 	{
 	public: // Constructors/Destructor/Assignments
@@ -31,6 +30,10 @@ namespace app::cmd
 	protected: // Protected Static Functions
 		PlayerCommand(app::Registry & registry, app::Entity const entity);
 	protected: // Protected Member Functions
+		template<typename T> T & getComp();
+		template<typename T> T const & getComp() const;
+		template<typename T> T & getCompTag();
+		template<typename T> T const & getCompTag() const;
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 		app::Registry & m_registry;
@@ -42,35 +45,38 @@ namespace app::cmd
 	private: // Private Member Variables
 	};
 
-	#pragma region IMPLEMENTATION
+	#pragma region Template Implementation
 
 	template<typename T>
-	app::cmd::PlayerCommand<T>::PlayerCommand(app::Registry & registry, app::Entity const entity)
-		: Command()
-		, m_registry(registry)
-		, m_entity(entity)
-	{
-	}
-
-	template<typename T>
-	void app::cmd::PlayerCommand<T>::execute()
+	inline T & app::cmd::PlayerCommand::getComp()
 	{
 		assert(m_registry.valid(m_entity));
-		auto & finiteStateMachine = m_registry.get<comp::FiniteStateMachine>(m_entity);
-		finiteStateMachine.stateMachine->setState(m_state);
+		return m_registry.get<T>(m_entity);
 	}
 
 	template<typename T>
-	void app::cmd::PlayerCommand<T>::undo()
+	inline T const & app::cmd::PlayerCommand::getComp() const
 	{
+		assert(m_registry.valid(m_entity));
+		return m_registry.get<T>(m_entity);
 	}
 
 	template<typename T>
-	void app::cmd::PlayerCommand<T>::redo()
+	inline T & app::cmd::PlayerCommand::getCompTag()
 	{
+		assert(m_registry.valid(m_entity));
+		return m_registry.get<T>();
+	}
+
+	template<typename T>
+	inline T const & app::cmd::PlayerCommand::getCompTag() const
+	{
+		assert(m_registry.valid(m_entity));
+		return m_registry.get<T>();
 	}
 
 	#pragma endregion
+
 
 }
 

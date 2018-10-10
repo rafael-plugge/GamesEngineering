@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
-#include "PlayerRunningFactory.h"
+#include "PlayerRunningSourceFactory.h"
 
-std::vector<SDL_Rect> app::fact::PlayerRunningFactory::create() const
+std::vector<SDL_Rect> app::fact::PlayerRunningSourceFactory::create() const
 {
 	return std::vector<SDL_Rect>{
 		{ 313 * 0, 297 * 0, 313, 297 },

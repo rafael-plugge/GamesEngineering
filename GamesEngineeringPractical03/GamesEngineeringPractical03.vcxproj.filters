@@ -213,18 +213,6 @@
     <ClCompile Include="src\app\factories\TextureFactory.cpp">
       <Filter>Source Files\app\factories</Filter>
     </ClCompile>
-    <ClCompile Include="src\app\factories\animationSource\PlayerIdleFactory.cpp">
-      <Filter>Source Files\app\factories\animationSource</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\animationSource\PlayerJumpFactory.cpp">
-      <Filter>Source Files\app\factories\animationSource</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\animationSource\PlayerRunningFactory.cpp">
-      <Filter>Source Files\app\factories\animationSource</Filter>
-    </ClCompile>
-    <ClCompile Include="src\app\factories\animationSource\SourceFactory.cpp">
-      <Filter>Source Files\app\factories\animationSource</Filter>
-    </ClCompile>
     <ClCompile Include="src\app\factories\entities\EntityFactory.cpp">
       <Filter>Source Files\app\factories\entities</Filter>
     </ClCompile>
@@ -248,6 +236,18 @@
     </ClCompile>
     <ClCompile Include="src\app\components\tags\PlayerJumpStateTag.cpp">
       <Filter>Source Files\app\components\tags</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\PlayerIdleSourceFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\PlayerJumpSourceFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\PlayerRunningSourceFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\factories\animationSource\AnimationSourceFactory.cpp">
+      <Filter>Source Files\app\factories\animationSource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -368,18 +368,6 @@
     <ClInclude Include="src\app\factories\BaseFactory.h">
       <Filter>Header Files\app\factories</Filter>
     </ClInclude>
-    <ClInclude Include="src\app\factories\animationSource\PlayerIdleFactory.h">
-      <Filter>Header Files\app\factories\animationSource</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\animationSource\PlayerJumpFactory.h">
-      <Filter>Header Files\app\factories\animationSource</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\animationSource\PlayerRunningFactory.h">
-      <Filter>Header Files\app\factories\animationSource</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\factories\animationSource\SourceFactory.h">
-      <Filter>Header Files\app\factories\animationSource</Filter>
-    </ClInclude>
     <ClInclude Include="src\app\factories\entities\EntityFactory.h">
       <Filter>Header Files\app\factories\entities</Filter>
     </ClInclude>
@@ -403,6 +391,18 @@
     </ClInclude>
     <ClInclude Include="src\app\components\tags\PlayerJumpStateTag.h">
       <Filter>Header Files\app\components\tags</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\AnimationSourceFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\PlayerRunningSourceFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\PlayerJumpSourceFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\factories\animationSource\PlayerIdleSourceFactory.h">
+      <Filter>Header Files\app\factories\animationSource</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

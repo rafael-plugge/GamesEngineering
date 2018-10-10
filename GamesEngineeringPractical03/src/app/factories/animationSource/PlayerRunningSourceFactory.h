@@ -1,21 +1,21 @@
 ﻿#ifndef _PLAYER_RUNNING_FACTORY_H
 #define _PLAYER_RUNNING_FACTORY_H
 
-#include "SourceFactory.h"
+#include "AnimationSourceFactory.h"
 
 namespace app::fact
 {
-	class PlayerRunningFactory : public AnimationSourceFactory
+	class PlayerRunningSourceFactory : public AnimationSourceFactory
 	{
 	public: // Constructors/Destructor/Assignments
-		PlayerRunningFactory() = default;
-		PlayerRunningFactory(PlayerRunningFactory const &) = default;
-		PlayerRunningFactory(PlayerRunningFactory &&) = default;
+		PlayerRunningSourceFactory() = default;
+		PlayerRunningSourceFactory(PlayerRunningSourceFactory const &) = default;
+		PlayerRunningSourceFactory(PlayerRunningSourceFactory &&) = default;
 
-		~PlayerRunningFactory() = default;
+		~PlayerRunningSourceFactory() = default;
 
-		PlayerRunningFactory & operator=(PlayerRunningFactory const &) = default;
-		PlayerRunningFactory & operator=(PlayerRunningFactory &&) = default;
+		PlayerRunningSourceFactory & operator=(PlayerRunningSourceFactory const &) = default;
+		PlayerRunningSourceFactory & operator=(PlayerRunningSourceFactory &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions

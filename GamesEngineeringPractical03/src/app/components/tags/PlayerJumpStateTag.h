@@ -5,7 +5,7 @@
 
 namespace app::comp::tag
 {
-	class PlayerJumpState
+	struct PlayerJumpState
 	{
 	public: // Constructors/Destructor/Assignments
 		PlayerJumpState() = default;

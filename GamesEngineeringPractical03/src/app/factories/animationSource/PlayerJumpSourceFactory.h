@@ -1,21 +1,21 @@
 ﻿#ifndef _PLAYER_JUMP_FACTORY_H
 #define _PLAYER_JUMP_FACTORY_H
 
-#include "SourceFactory.h"
+#include "AnimationSourceFactory.h"
 
 namespace app::fact
 {
-	class PlayerJumpFactory : public AnimationSourceFactory
+	class PlayerJumpSourceFactory : public AnimationSourceFactory
 	{
 	public: // Constructors/Destructor/Assignments
-		constexpr PlayerJumpFactory() = default;
-		PlayerJumpFactory(PlayerJumpFactory const &) = default;
-		PlayerJumpFactory(PlayerJumpFactory &&) = default;
+		constexpr PlayerJumpSourceFactory() = default;
+		PlayerJumpSourceFactory(PlayerJumpSourceFactory const &) = default;
+		PlayerJumpSourceFactory(PlayerJumpSourceFactory &&) = default;
 
-		~PlayerJumpFactory() = default;
+		~PlayerJumpSourceFactory() = default;
 
-		PlayerJumpFactory & operator=(PlayerJumpFactory const &) = default;
-		PlayerJumpFactory & operator=(PlayerJumpFactory &&) = default;
+		PlayerJumpSourceFactory & operator=(PlayerJumpSourceFactory const &) = default;
+		PlayerJumpSourceFactory & operator=(PlayerJumpSourceFactory &&) = default;
 
 	public: // Public Static Functions
 	public: // Public Member Functions

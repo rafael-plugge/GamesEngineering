@@ -1,5 +1,5 @@
-﻿#ifndef _PLAYER_JUMP_STATE_H
-#define _PLAYER_JUMP_STATE_H
+﻿#ifndef _FSM_PLAYER_JUMP_STATE_H
+#define _FSM_PLAYER_JUMP_STATE_H
 
 #include "PlayerState.h"
 
@@ -35,4 +35,4 @@ namespace app::fsm
 	};
 }
 
-#endif // !_PLAYER_JUMP_STATE_H
+#endif // !_FSM_PLAYER_JUMP_STATE_H

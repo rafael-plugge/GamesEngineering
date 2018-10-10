@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
-#include "PlayerIdleFactory.h"
+#include "PlayerIdleSourceFactory.h"
 
-std::vector<SDL_Rect> app::fact::PlayerIdleFactory::create() const
+std::vector<SDL_Rect> app::fact::PlayerIdleSourceFactory::create() const
 {
 	// player idle anim frames
 	// framesInX = 5, framesInY = 6

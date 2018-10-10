@@ -3,6 +3,8 @@
 
 #include "app/factories/states/PlayerJumpStateFactory.h"
 
+#include "app/components/tags/PlayerJumpStateTag.h"
+
 app::cmd::PlayerJumpCommand::PlayerJumpCommand(app::Registry & registry, app::Entity const entity)
 	: PlayerCommand(registry, entity)
 {
@@ -10,7 +12,9 @@ app::cmd::PlayerJumpCommand::PlayerJumpCommand(app::Registry & registry, app::En
 
 void app::cmd::PlayerJumpCommand::execute()
 {
-	PlayerCommand::execute();
+	auto & state = this->getComp<comp::FiniteStateMachine>();
+	auto & jumpState = this->getCompTag<comp::tag::PlayerJumpState>();
+	state.stateMachine->setState(jumpState.state);
 }
 
 void app::cmd::PlayerJumpCommand::undo()

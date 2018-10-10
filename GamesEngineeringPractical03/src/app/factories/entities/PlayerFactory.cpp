@@ -52,18 +52,17 @@ app::Entity app::fact::PlayerFactory::create() const
 	render.source = { 0, 0, 199, 288 };
 	m_registry.assign<decltype(render)>(entity, std::move(render));
 
-
+	std::shared_ptr<app::fsm::State> startingState = nullptr;
 	app::fact::PlayerJumpStateFactory(m_registry, entity,
 		app::fact::TextureFactory(m_renderer, "./assets/player/player_jump_loop.png").create())
 		.create();
-	app::fact::PlayerIdleStateFactory(m_registry, entity,
+	startingState = app::fact::PlayerIdleStateFactory(m_registry, entity,
 		app::fact::TextureFactory(m_renderer, "./assets/player/player_idle.png").create())
 		.create();
 
-	/*
 	auto finiteStateMachine = comp::FiniteStateMachine();
 	auto playerStateMachine = std::make_unique<fsm::PlayerStateMachine>(m_registry);
-	playerStateMachine->setState(app::fact::PlayerIdleStateFactory::instance());
+	playerStateMachine->setState(startingState);
 	finiteStateMachine.stateMachine = std::move(playerStateMachine);
 	m_registry.assign<decltype(finiteStateMachine)>(entity, std::move(finiteStateMachine));
 	/**/
