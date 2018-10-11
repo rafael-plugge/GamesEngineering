@@ -46,7 +46,7 @@ void app::sys::InputKeySystem::createJumpCommand(app::Registry & registry, app::
 
 void app::sys::InputKeySystem::update(app::seconds const & dt)
 {
-	if (m_keyHandler.isKeyPressed(SDLK_TAB)) { m_commandType = static_cast<CommandType>((static_cast<int>(m_commandType) + 1) % 3); }
+	if (m_keyHandler.isKeyPressed(SDLK_TAB)) { m_commandType = static_cast<CommandType>((static_cast<int>(m_commandType) + 1) % 2); }
 
 	for (auto const &[key, command] : m_commands)
 	{
