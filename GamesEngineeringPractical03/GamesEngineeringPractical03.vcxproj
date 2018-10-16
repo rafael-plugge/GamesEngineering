@@ -70,10 +70,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SharedProject\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>.\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SharedProject\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>.\deps\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
@@ -92,7 +92,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>.\deps\lib;.\deps\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)SharedProject\deps\lib;$(SolutionDir)SharedProject\deps\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\*.dll" "$(TargetDir)"
@@ -177,7 +177,6 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\app\utilities\MouseHandler.cpp" />
     <ClCompile Include="src\app\utilities\NonDeleter.cpp" />
     <ClCompile Include="src\app\utilities\SdlDeleter.cpp" />
-    <ClCompile Include="src\app\Window.cpp" />
     <ClCompile Include="src\CmdPattern\Command.cpp" />
     <ClCompile Include="src\CmdPattern\CrouchCommand.cpp" />
     <ClCompile Include="src\CmdPattern\FireCommand.cpp" />
@@ -234,7 +233,6 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\app\utilities\MouseHandler.h" />
     <ClInclude Include="src\app\utilities\NonDeleter.h" />
     <ClInclude Include="src\app\utilities\SdlDeleter.h" />
-    <ClInclude Include="src\app\Window.h" />
     <ClInclude Include="src\CmdPattern\Command.h" />
     <ClInclude Include="src\CmdPattern\CrouchCommand.h" />
     <ClInclude Include="src\CmdPattern\FireCommand.h" />

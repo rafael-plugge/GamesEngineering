@@ -102,9 +102,6 @@
     <ClCompile Include="src\app\Game.cpp">
       <Filter>Source Files\app</Filter>
     </ClCompile>
-    <ClCompile Include="src\app\Window.cpp">
-      <Filter>Source Files\app</Filter>
-    </ClCompile>
     <ClCompile Include="src\app\system\BaseSystem.cpp">
       <Filter>Source Files\app\system</Filter>
     </ClCompile>
@@ -255,9 +252,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\app\Game.h">
-      <Filter>Header Files\app</Filter>
-    </ClInclude>
-    <ClInclude Include="src\app\Window.h">
       <Filter>Header Files\app</Filter>
     </ClInclude>
     <ClInclude Include="src\app\system\BaseSystem.h">
