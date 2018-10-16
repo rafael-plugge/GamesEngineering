@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "MouseHandler.h"
 
-void app::util::MouseHandler::updateButton(std::uint8_t const & buttonIndex, bool const & pressed)
+void util::MouseHandler::updateButton(std::uint8_t const & buttonIndex, bool const & pressed)
 {
 	if (auto const & itt = m_keyNowMap.find(static_cast<MouseHandler::ButtonType>(buttonIndex)); itt != m_keyNowMap.end())
 	{
@@ -16,50 +16,50 @@ void app::util::MouseHandler::updateButton(std::uint8_t const & buttonIndex, boo
 	}
 }
 
-void app::util::MouseHandler::updatePosition(std::int32_t const & x, std::int32_t const & y)
+void util::MouseHandler::updatePosition(std::int32_t const & x, std::int32_t const & y)
 {
 	m_mouse.x = x;
 	m_mouse.y = y;
 }
 
-bool app::util::MouseHandler::isButtonDown(ButtonType const & button) const
+bool util::MouseHandler::isButtonDown(ButtonType const & button) const
 {
-	return app::util::MouseHandler::isButtonDown(m_keyNowMap, button);
+	return util::MouseHandler::isButtonDown(m_keyNowMap, button);
 }
 
-bool app::util::MouseHandler::isButtonDown(std::initializer_list<ButtonType> const & buttons) const
+bool util::MouseHandler::isButtonDown(std::initializer_list<ButtonType> const & buttons) const
 {
-	return app::util::MouseHandler::isButtonDown(m_keyNowMap, buttons);
+	return util::MouseHandler::isButtonDown(m_keyNowMap, buttons);
 }
 
-bool app::util::MouseHandler::isButtonUp(ButtonType const & button) const
+bool util::MouseHandler::isButtonUp(ButtonType const & button) const
 {
-	return app::util::MouseHandler::isButtonUp(m_keyNowMap, button);
+	return util::MouseHandler::isButtonUp(m_keyNowMap, button);
 }
 
-bool app::util::MouseHandler::isButtonUp(std::initializer_list<ButtonType> const & buttons) const
+bool util::MouseHandler::isButtonUp(std::initializer_list<ButtonType> const & buttons) const
 {
-	return app::util::MouseHandler::isButtonUp(m_keyNowMap, buttons);
+	return util::MouseHandler::isButtonUp(m_keyNowMap, buttons);
 }
 
-bool app::util::MouseHandler::isButtonPressed(ButtonType const & button) const
+bool util::MouseHandler::isButtonPressed(ButtonType const & button) const
 {
-	return app::util::MouseHandler::isButtonUp(m_keyPrevMap, button) && app::util::MouseHandler::isButtonDown(m_keyNowMap, button);
+	return util::MouseHandler::isButtonUp(m_keyPrevMap, button) && util::MouseHandler::isButtonDown(m_keyNowMap, button);
 }
 
-bool app::util::MouseHandler::isButtonPressed(std::initializer_list<ButtonType> const & buttons) const
+bool util::MouseHandler::isButtonPressed(std::initializer_list<ButtonType> const & buttons) const
 {
-	return app::util::MouseHandler::isButtonUp(m_keyPrevMap, buttons) && app::util::MouseHandler::isButtonDown(m_keyNowMap, buttons);
+	return util::MouseHandler::isButtonUp(m_keyPrevMap, buttons) && util::MouseHandler::isButtonDown(m_keyNowMap, buttons);
 }
 
-inline bool app::util::MouseHandler::isButtonDown(MouseHandler::map const & keyMap, ButtonType const & button)
+inline bool util::MouseHandler::isButtonDown(MouseHandler::map const & keyMap, ButtonType const & button)
 {
 	using pair = std::pair<MouseHandler::map::key_type, MouseHandler::map::mapped_type>;
 	const auto predicate = [&button](pair const & p) constexpr { return p.first == button && p.second; };
 	return std::find_if(keyMap.begin(), keyMap.end(), predicate) != keyMap.end();
 }
 
-inline bool app::util::MouseHandler::isButtonDown(MouseHandler::map const & keyMap, std::initializer_list<ButtonType> const & buttons)
+inline bool util::MouseHandler::isButtonDown(MouseHandler::map const & keyMap, std::initializer_list<ButtonType> const & buttons)
 {
 	using pair = std::pair<MouseHandler::map::key_type, MouseHandler::map::mapped_type>;
 	const auto predicate = [&buttons](pair const & p) constexpr
@@ -70,14 +70,14 @@ inline bool app::util::MouseHandler::isButtonDown(MouseHandler::map const & keyM
 	return std::find_if(keyMap.begin(), keyMap.end(), predicate) != keyMap.end();
 }
 
-inline bool app::util::MouseHandler::isButtonUp(MouseHandler::map const & keyMap, ButtonType const & button)
+inline bool util::MouseHandler::isButtonUp(MouseHandler::map const & keyMap, ButtonType const & button)
 {
 	using pair = std::pair<MouseHandler::map::key_type, MouseHandler::map::mapped_type>;
 	const auto predicate = [&button](pair const & p) constexpr { return p.first == button && !p.second; };
 	return std::find_if(keyMap.begin(), keyMap.end(), predicate) != keyMap.end();
 }
 
-inline bool app::util::MouseHandler::isButtonUp(MouseHandler::map const & keyMap, std::initializer_list<ButtonType> const & buttons)
+inline bool util::MouseHandler::isButtonUp(MouseHandler::map const & keyMap, std::initializer_list<ButtonType> const & buttons)
 {
 	using pair = std::pair<MouseHandler::map::key_type, MouseHandler::map::mapped_type>;
 	const auto predicate = [&buttons](pair const & p) constexpr

@@ -1,8 +1,6 @@
 ﻿#ifndef _NON_DELETER_H
 #define _NON_DELETER_H
 
-#include "FSMPattern/PlayerStateMachine.h"
-
 namespace app::util
 {
 	class NonDeleter
@@ -19,7 +17,7 @@ namespace app::util
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		void operator()(app::fsm::PlayerStateMachine * playerStateMachine) const {}
+		//void operator()(app::fsm::PlayerStateMachine * playerStateMachine) const {}
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions

@@ -5,7 +5,7 @@
 #include "utilities/Keyhandler.h"
 #include "utilities/MouseHandler.h"
 
-namespace app
+namespace gra
 {
 	class Window
 	{
@@ -14,7 +14,7 @@ namespace app
 		typedef std::unique_ptr<SDL_Renderer, util::SdlDeleter> UPtrRenderer;
 
 	public: // Constructors/Destructor/Assignments
-		Window(app::util::KeyHandler<app::KeyCode> & keyHandler, app::util::MouseHandler & mouseHandler, std::string const & title, std::size_t const & width, std::size_t const & height);
+		Window(util::KeyHandler<app::KeyCode> & keyHandler, util::MouseHandler & mouseHandler, std::string const & title, std::size_t const & width, std::size_t const & height);
 		~Window();
 
 	public: // Public Member Functions
@@ -36,15 +36,14 @@ namespace app
 	private: // Private Static Variables
 		static constexpr SDL_Color s_BG_COLOR = { 0u, 0u, 0u, 255u };
 	private: // Private Member Variables
-		app::util::KeyHandler<app::KeyCode> & m_keyhandler;
-		app::util::MouseHandler & m_mousehandler;
+		util::KeyHandler<app::KeyCode> & m_keyhandler;
+		util::MouseHandler & m_mousehandler;
 		bool m_open;
 		std::string m_title;
 		std::size_t m_width;
 		std::size_t m_height;
 		UPtrWindow m_window;
 		std::shared_ptr<SDL_Renderer> m_renderer;
-
 	};
 
 }

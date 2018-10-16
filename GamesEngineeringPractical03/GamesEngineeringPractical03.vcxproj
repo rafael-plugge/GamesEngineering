@@ -95,9 +95,9 @@
       <AdditionalLibraryDirectories>$(SolutionDir)SharedProject\deps\lib;$(SolutionDir)SharedProject\deps\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\debug\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\debug\*.pdg" "$(TargetDir)"</Command>
+      <Command>C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\*.dll" "$(TargetDir)"
+C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\debug\*.dll" "$(TargetDir)"
+C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\debug\*.pdg" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -177,6 +177,7 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\app\utilities\MouseHandler.cpp" />
     <ClCompile Include="src\app\utilities\NonDeleter.cpp" />
     <ClCompile Include="src\app\utilities\SdlDeleter.cpp" />
+    <ClCompile Include="src\app\Window.cpp" />
     <ClCompile Include="src\CmdPattern\Command.cpp" />
     <ClCompile Include="src\CmdPattern\CrouchCommand.cpp" />
     <ClCompile Include="src\CmdPattern\FireCommand.cpp" />
@@ -233,6 +234,7 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\app\utilities\MouseHandler.h" />
     <ClInclude Include="src\app\utilities\NonDeleter.h" />
     <ClInclude Include="src\app\utilities\SdlDeleter.h" />
+    <ClInclude Include="src\app\Window.h" />
     <ClInclude Include="src\CmdPattern\Command.h" />
     <ClInclude Include="src\CmdPattern\CrouchCommand.h" />
     <ClInclude Include="src\CmdPattern\FireCommand.h" />

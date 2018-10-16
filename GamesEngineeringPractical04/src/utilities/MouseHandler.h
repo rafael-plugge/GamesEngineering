@@ -1,7 +1,7 @@
 ﻿#ifndef _MOUSE_HANDLER_H
 #define _MOUSE_HANDLER_H
 
-namespace app::util
+namespace util
 {
 	class MouseHandler
 	{

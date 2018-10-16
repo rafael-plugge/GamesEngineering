@@ -1,6 +1,6 @@
 #pragma once
 
-namespace app::util
+namespace util
 {
 	template<typename KeyType>
 	class KeyHandler
@@ -26,7 +26,7 @@ namespace app::util
 
 
 	template<typename KeyType>
-	void app::util::KeyHandler<KeyType>::updateKey(KeyType const & key, bool const & pressed)
+	void util::KeyHandler<KeyType>::updateKey(KeyType const & key, bool const & pressed)
 	{
 		if (auto itt = _keyNowMap.find(key); itt != _keyNowMap.end())
 		{
@@ -41,13 +41,13 @@ namespace app::util
 	}
 
 	template<typename KeyType>
-	void app::util::KeyHandler<KeyType>::update()
+	void util::KeyHandler<KeyType>::update()
 	{
 		_keyPrevMap = _keyNowMap;
 	}
 
 	template<typename KeyType>
-	bool app::util::KeyHandler<KeyType>::isKeyDown(KeyType const & key) const
+	bool util::KeyHandler<KeyType>::isKeyDown(KeyType const & key) const
 	{
 		if (auto const & itt = _keyNowMap.find(key); itt != _keyNowMap.end())
 		{
@@ -58,7 +58,7 @@ namespace app::util
 	}
 
 	template<typename KeyType>
-	bool app::util::KeyHandler<KeyType>::isKeyDown(std::initializer_list<KeyType> const & keys) const
+	bool util::KeyHandler<KeyType>::isKeyDown(std::initializer_list<KeyType> const & keys) const
 	{
 		for (auto const &[mapKey, mapValue] : _keyNowMap)
 		{
@@ -68,7 +68,7 @@ namespace app::util
 	}
 
 	template<typename KeyType>
-	bool app::util::KeyHandler<KeyType>::isKeyUp(KeyType const & key) const
+	bool util::KeyHandler<KeyType>::isKeyUp(KeyType const & key) const
 	{
 		if (auto const & itt = _keyNowMap.find(key); itt != _keyNowMap.end())
 		{
@@ -79,7 +79,7 @@ namespace app::util
 	}
 
 	template<typename KeyType>
-	bool app::util::KeyHandler<KeyType>::isKeyUp(std::initializer_list<KeyType> const & keys) const
+	bool util::KeyHandler<KeyType>::isKeyUp(std::initializer_list<KeyType> const & keys) const
 	{
 		for (auto const &[mapKey, mapValue] : _keyNowMap)
 		{
@@ -89,7 +89,7 @@ namespace app::util
 	}
 
 	template<typename KeyType>
-	bool app::util::KeyHandler<KeyType>::isKeyPressed(KeyType const & keyPressed) const
+	bool util::KeyHandler<KeyType>::isKeyPressed(KeyType const & keyPressed) const
 	{
 		if (auto const & itt = _keyNowMap.find(keyPressed); itt != _keyNowMap.end())
 		{

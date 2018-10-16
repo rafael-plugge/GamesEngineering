@@ -246,6 +246,9 @@
     <ClCompile Include="src\app\factories\animationSource\AnimationSourceFactory.cpp">
       <Filter>Source Files\app\factories\animationSource</Filter>
     </ClCompile>
+    <ClCompile Include="src\app\Window.cpp">
+      <Filter>Source Files\app</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.h">
@@ -397,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="src\app\factories\animationSource\PlayerIdleSourceFactory.h">
       <Filter>Header Files\app\factories\animationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\Window.h">
+      <Filter>Header Files\app</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
