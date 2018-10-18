@@ -1,4 +1,7 @@
-﻿#include "stdafx.h"
+﻿#include "..\..\..\GamesEngineeringPractical04\src\graphics\Game.h"
+#include "..\..\..\GamesEngineeringPractical04\src\graphics\Game.h"
+#include "..\..\..\GamesEngineeringPractical04\src\graphics\Game.h"
+#include "stdafx.h"
 #include "Game.h"
 
 // Systems

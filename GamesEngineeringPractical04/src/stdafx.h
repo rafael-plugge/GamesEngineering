@@ -95,6 +95,10 @@
 // Global constants
 namespace app
 {
-	typedef std::chrono::duration<double> seconds;
 	typedef SDL_Keycode KeyCode;
+	struct WindowSize
+	{
+		constexpr static std::uint32_t width = 1366u;
+		constexpr static std::uint32_t height = 768u;
+	};
 }

@@ -5,16 +5,16 @@
 #include "utilities/Keyhandler.h"
 #include "utilities/MouseHandler.h"
 
-namespace gra
+namespace app::gra
 {
 	class Window
 	{
 	private: // Private type definitions
-		typedef std::unique_ptr<SDL_Window, util::SdlDeleter> UPtrWindow;
-		typedef std::unique_ptr<SDL_Renderer, util::SdlDeleter> UPtrRenderer;
+		typedef std::unique_ptr<SDL_Window, app::util::SdlDeleter> UPtrWindow;
+		typedef std::unique_ptr<SDL_Renderer, app::util::SdlDeleter> UPtrRenderer;
 
 	public: // Constructors/Destructor/Assignments
-		Window(util::KeyHandler<app::KeyCode> & keyHandler, util::MouseHandler & mouseHandler, std::string const & title, std::size_t const & width, std::size_t const & height);
+		Window(app::util::KeyHandler<app::KeyCode> & keyHandler, app::util::MouseHandler & mouseHandler, std::string const & title, std::size_t const & width, std::size_t const & height);
 		~Window();
 
 	public: // Public Member Functions
@@ -36,8 +36,8 @@ namespace gra
 	private: // Private Static Variables
 		static constexpr SDL_Color s_BG_COLOR = { 0u, 0u, 0u, 255u };
 	private: // Private Member Variables
-		util::KeyHandler<app::KeyCode> & m_keyhandler;
-		util::MouseHandler & m_mousehandler;
+		app::util::KeyHandler<app::KeyCode> & m_keyhandler;
+		app::util::MouseHandler & m_mousehandler;
 		bool m_open;
 		std::string m_title;
 		std::size_t m_width;

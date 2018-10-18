@@ -1,7 +1,7 @@
 ﻿#ifndef _SDL_DELETER_H
 #define _SDL_DELETER_H
 
-namespace util
+namespace app::util
 {
 	class SdlDeleter
 	{

@@ -1,7 +1,7 @@
 ﻿#ifndef _MOUSE_HANDLER_H
 #define _MOUSE_HANDLER_H
 
-namespace util
+namespace app::util
 {
 	class MouseHandler
 	{
@@ -55,7 +55,7 @@ namespace util
 		map m_keyPrevMap;
 		struct
 		{
-			std::int32_t x, y;
+			std::int32_t x = 0, y = 0;
 		}m_mouse;
 	};
 }

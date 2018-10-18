@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "Window.h"
 
-gra::Window::Window(
+app::gra::Window::Window(
 	util::KeyHandler<app::KeyCode> & keyhandler
 	, util::MouseHandler & mousehandler
 	, std::string const & title
@@ -20,11 +20,11 @@ gra::Window::Window(
 	m_open = this->init();
 }
 
-gra::Window::~Window()
+app::gra::Window::~Window()
 {
 }
 
-void gra::Window::pollEvents()
+void app::gra::Window::pollEvents()
 {
 	typedef SDL_EventType EventType;
 	SDL_Event sdlEvent;
@@ -57,18 +57,18 @@ void gra::Window::pollEvents()
 	}
 }
 
-void gra::Window::clear() const
+void app::gra::Window::clear() const
 {
 	SDL_SetRenderDrawColor(m_renderer.get(), s_BG_COLOR.r, s_BG_COLOR.g, s_BG_COLOR.b, s_BG_COLOR.a);
 	SDL_RenderClear(m_renderer.get());
 }
 
-void gra::Window::display() const
+void app::gra::Window::display() const
 {
 	SDL_RenderPresent(m_renderer.get());
 }
 
-bool gra::Window::init()
+bool app::gra::Window::init()
 {
 	try
 	{
@@ -102,7 +102,7 @@ bool gra::Window::init()
 	}
 }
 
-bool gra::Window::initWindow()
+bool app::gra::Window::initWindow()
 {
 	typedef SDL_WindowFlags WindowFlags;
 	constexpr auto centerPos = SDL_WINDOWPOS_CENTERED;
@@ -116,7 +116,7 @@ bool gra::Window::initWindow()
 	return success;
 }
 
-bool gra::Window::initRenderer(gra::Window::UPtrWindow const & uptrSdlWindow)
+bool app::gra::Window::initRenderer(app::gra::Window::UPtrWindow const & uptrSdlWindow)
 {
 	SDL_Renderer * pRenderer = nullptr;
 	

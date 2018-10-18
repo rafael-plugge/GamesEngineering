@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
+#include "graphics/Game.h"
 
 int main(int argc, char** argv)
 {
-	return EXIT_SUCCESS;
+	return app::gra::Game().run();
 }

@@ -70,10 +70,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)SharedProject\deps\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\deps\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)SharedProject\deps\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\deps\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)SharedProject\deps\include;$(IncludePath)</IncludePath>
@@ -92,12 +92,12 @@
       <AdditionalIncludeDirectories>$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)SharedProject\deps\lib;$(SolutionDir)SharedProject\deps\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\deps\lib;..\deps\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\debug\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\debug\*.pdg" "$(TargetDir)"</Command>
+      <Command>C:\windows\system32\xcopy /Y "..\deps\bin\*.dll" "$(TargetDir)"
+C:\windows\system32\xcopy /Y "..\deps\bin\debug\*.dll" "$(TargetDir)"
+C:\windows\system32\xcopy /Y "..\deps\bin\debug\*.pdg" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,11 +127,11 @@ C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\debug\*.pdg" 
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)SharedProject\deps\lib;$(SolutionDir)SharedProject\deps\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\deps\lib;..\deps\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\release\*.dll" "$(TargetDir)"</Command>
+      <Command>C:\windows\system32\xcopy /Y "..\deps\bin\*.dll" "$(TargetDir)"
+C:\windows\system32\xcopy /Y "..\deps\bin\release\*.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,24 +151,46 @@ C:\windows\system32\xcopy /Y "$(SolutionDir)SharedProject\deps\bin\release\*.dll
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\component\Component.cpp" />
+    <ClCompile Include="src\component\ControlComponent.cpp" />
+    <ClCompile Include="src\component\HealthComponent.cpp" />
+    <ClCompile Include="src\component\PositionComponent.cpp" />
+    <ClCompile Include="src\entities\Entity.cpp" />
+    <ClCompile Include="src\graphics\Game.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\system\AiSystem.cpp" />
+    <ClCompile Include="src\system\ControlSystem.cpp" />
+    <ClCompile Include="src\system\RenderSystem.cpp" />
+    <ClCompile Include="src\system\System.cpp" />
     <ClCompile Include="src\utilities\Keyhandler.cpp" />
     <ClCompile Include="src\utilities\MouseHandler.cpp" />
     <ClCompile Include="src\utilities\NonDeleter.cpp" />
     <ClCompile Include="src\utilities\SdlDeleter.cpp" />
+    <ClCompile Include="src\utilities\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\component\Component.h" />
+    <ClInclude Include="src\component\ControlComponent.h" />
+    <ClInclude Include="src\component\HealthComponent.h" />
+    <ClInclude Include="src\component\PositionComponent.h" />
+    <ClInclude Include="src\entities\Entity.h" />
+    <ClInclude Include="src\graphics\Game.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\system\AiSystem.h" />
+    <ClInclude Include="src\system\ControlSystem.h" />
+    <ClInclude Include="src\system\RenderSystem.h" />
+    <ClInclude Include="src\system\BaseSystem.h" />
     <ClInclude Include="src\utilities\Keyhandler.h" />
     <ClInclude Include="src\utilities\MouseHandler.h" />
     <ClInclude Include="src\utilities\NonDeleter.h" />
     <ClInclude Include="src\utilities\SdlDeleter.h" />
+    <ClInclude Include="src\utilities\Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
