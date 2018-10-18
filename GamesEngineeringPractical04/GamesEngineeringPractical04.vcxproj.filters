@@ -90,7 +90,7 @@
     <ClCompile Include="src\component\Component.cpp">
       <Filter>Source Files\component</Filter>
     </ClCompile>
-    <ClCompile Include="src\system\System.cpp">
+    <ClCompile Include="src\system\BaseSystem.cpp">
       <Filter>Source Files\system</Filter>
     </ClCompile>
   </ItemGroup>

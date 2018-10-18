@@ -166,7 +166,7 @@ C:\windows\system32\xcopy /Y "..\deps\bin\release\*.dll" "$(TargetDir)"</Command
     <ClCompile Include="src\system\AiSystem.cpp" />
     <ClCompile Include="src\system\ControlSystem.cpp" />
     <ClCompile Include="src\system\RenderSystem.cpp" />
-    <ClCompile Include="src\system\System.cpp" />
+    <ClCompile Include="src\system\BaseSystem.cpp" />
     <ClCompile Include="src\utilities\Keyhandler.cpp" />
     <ClCompile Include="src\utilities\MouseHandler.cpp" />
     <ClCompile Include="src\utilities\NonDeleter.cpp" />

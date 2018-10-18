@@ -22,6 +22,7 @@ namespace app::ent
 		bool operator==(Entity const & ent) const { return this->getId() == ent.getId(); }
 
 		void addComp(app::comp::Component c) { m_components.push_back(std::move(c)); }
+		void addComp(std::initializer_list<app::comp::Component> cs) { m_components.insert(m_components.end(), std::move(cs)); }
 		void removeComp(app::comp::Component c) {}
 
 		std::vector<app::comp::Component> & getComps() { return m_components; }

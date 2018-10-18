@@ -5,7 +5,7 @@
 
 namespace app::comp
 {
-	struct HealthComponent
+	struct HealthComponent : public app::comp::Component
 	{
 	public: // Constructors/Destructor/Assignments
 		HealthComponent() = default;

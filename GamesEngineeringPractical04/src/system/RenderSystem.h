@@ -29,6 +29,7 @@ namespace app::sys
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
+		static constexpr bool s_includeRender = false;
 	private: // Private Member Variables
 	};
 }

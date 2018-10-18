@@ -6,6 +6,11 @@
 #include "utilities/Time.h"
 #include "graphics/Window.h"
 
+// systems
+#include "system/AiSystem.h"
+#include "system/ControlSystem.h"
+#include "system/RenderSystem.h"
+
 namespace app::gra
 {
 	class Game
@@ -28,8 +33,6 @@ namespace app::gra
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 		bool init();
-		bool initEntities();
-		bool initSystems();
 		void pollEvents();
 		void update(app::time::nanoseconds const & dt);
 		void render(app::time::nanoseconds const & dt);
@@ -45,8 +48,8 @@ namespace app::gra
 		app::gra::Window m_window;
 
 		sys::AiSystem m_aiSystem;
-		//app::sys::ControlSystem m_controlSystem;
-		//app::sys::RenderSystem m_renderSystem;
+		app::sys::ControlSystem m_controlSystem;
+		app::sys::RenderSystem m_renderSystem;
 	};
 }
 

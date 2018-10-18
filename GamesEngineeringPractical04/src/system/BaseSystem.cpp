@@ -14,9 +14,12 @@ void app::sys::BaseSystem::update(app::time::nanoseconds const & dt)
 	for (auto & entity : m_entities)
 	{
 		std::cout << "  updating entity: " << entity.getName() << std::endl;
-		for (auto & component : entity.getComps())
+		if constexpr (s_includeComponents)
 		{
-			std::cout << "    component: " << component.getName() << std::endl;
+			for (auto & component : entity.getComps())
+			{
+				std::cout << "    component: " << component.getName() << std::endl;
+			}
 		}
 	}
 }
