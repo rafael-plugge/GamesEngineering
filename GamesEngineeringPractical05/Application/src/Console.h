@@ -21,18 +21,17 @@ namespace app
 		Console & operator=(Console &&) = default;
 
 	public: // Public Static Functions
-	public: // Public Member Functions
-		int run();
-	public: // Public Static Variables
-	public: // Public Member Variables
-	protected: // Protected Static Functions
 		static inline void writeLine(std::string const & str) { std::cout << str << std::endl; }
 		static inline void writeLine() { std::cout << std::endl; }
 		static inline void write(std::string const & str) { std::cout << str; }
+	public: // Public Member Functions
+		bool checkForSixNumbers(std::vector<int> const & numbers);
+		std::vector<bool> checkNumbersAreBetweenRange(std::vector<int> const & numbers);
+		std::vector<bool> checkNoNumbersAreRepeated(std::vector<int> const & numbers);
+	public: // Public Static Variables
+	public: // Public Member Variables
+	protected: // Protected Static Functions
 	protected: // Protected Member Functions
-		void checkForSixNumbers(std::vector<int> const & numbers);
-		void checkNumbersAreBetweenRange(std::vector<int> const & numbers);
-		void checkNoNumbersAreRepeated(std::vector<int> const & numbers);
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 	private: // Private Static Functions
