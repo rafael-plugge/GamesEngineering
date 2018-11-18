@@ -116,11 +116,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Application\src\Console.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Test.h" />
+    <ProjectReference Include="..\Application\Application.vcxproj">
+      <Project>{c7fe0199-6c5f-4427-8402-94e767bebbee}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
