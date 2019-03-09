@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{4CE5F387-0983-498C-A4C4-C25C5E03F5E2}</ProjectGuid>
-    <RootNamespace>GamesEngineeringPractical06</RootNamespace>
+    <ProjectGuid>{6DCBE7E2-5A3B-4F9B-932B-3236500151D0}</ProjectGuid>
+    <RootNamespace>Project</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,15 +71,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(ProjectDir)deps\lib\$(IntDir);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(ProjectDir)deps\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(ProjectDir)deps\lib\$(IntDir);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(ProjectDir)deps\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(ProjectDir)deps\lib\$(IntDir);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(ProjectDir)deps\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>$(ProjectDir)deps\lib\$(IntDir);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(ProjectDir)deps\include</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -91,15 +95,11 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_USE_STDAFX_HPP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
-    <PostBuildEvent>
-      <Command>C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.pdb" "$(TargetDir)"</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copying all binary files to target executable.</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,15 +111,11 @@ C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.pdb" "$(Target
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_USE_STDAFX_HPP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
-    <PostBuildEvent>
-      <Command>C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.pdb" "$(TargetDir)"</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copying all binary files to target executable.</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -133,19 +129,15 @@ C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.pdb" "$(Target
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_USE_STDAFX_HPP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PostBuildEvent>
-      <Command>C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.pdb" "$(TargetDir)"</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copying all binary files to target executable.</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -159,26 +151,38 @@ C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.pdb" "$(Target
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.hpp</PrecompiledHeaderFile>
+      <PreprocessorDefinitions>_USE_STDAFX_HPP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PostBuildEvent>
-      <Command>C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.dll" "$(TargetDir)"
-C:\windows\system32\xcopy /Y /f "$(ProjectDir)deps\bin\$(IntDir)*.pdb" "$(TargetDir)"</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copying all binary files to target executable.</Message>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\stdafx.cpp" />
+    <ClCompile Include="src\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\utilities\Console.cpp" />
+    <ClCompile Include="src\utilities\Random.cpp" />
+    <ClCompile Include="src\utilities\Time.cpp" />
+    <ClCompile Include="src\utilities\Variant.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.hpp" />
+    <ClInclude Include="src\utilities\Console.hpp" />
+    <ClInclude Include="src\utilities\Random.hpp" />
+    <ClInclude Include="src\utilities\Time.hpp" />
+    <ClInclude Include="src\utilities\Variant.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\.gitkeep" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
