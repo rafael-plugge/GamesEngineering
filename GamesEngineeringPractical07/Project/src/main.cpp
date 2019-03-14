@@ -1,41 +1,41 @@
 ﻿#include "stdafx.hpp"
 #include "utilities/Console.hpp"
-#include "utilities/Random.hpp"
 
-bool inOne = false,
-	inTwo = false;
-int last = 1;
+constexpr int NUMBER_OF_PROCESSES = 5;
+std::array<std::int32_t, NUMBER_OF_PROCESSES> in, last;
 
-void csThreadOne()
+void csThread(int const i)
 {
 	while (true)
 	{
-		inOne = true; last = 1;
-		while (inTwo && last == 1) continue;
+		for (int j = 0; j < NUMBER_OF_PROCESSES; ++j)
+		{
+			in.at(i) = j; last.at(j) = i;
+			for (int k = 0; k < NUMBER_OF_PROCESSES; k++)
+			{
+				if (k != i)
+					while (in.at(k) >= in.at(i) && last.at(j) == i) { continue; }
+			}
+		}
 		// critical section
-		app::cout::wl("Thread[1] critical section");
-		inOne = false;
-	}
-}
-
-void csThreadTwo()
-{
-	while (true)
-	{
-		inTwo = true; last = 2;
-		while (inOne && last == 2) continue;
-		// critical section
-		app::cout::wl("Thread[2] critical section");
-		inTwo = false;
+		app::cout::wl({ "Thread[", i, "] critical section" });
+		in.at(i) = 0;
 	}
 }
 
 int main(int argc, char const ** argv)
 {
-	auto csOne = std::thread(csThreadOne);
-	auto csTwo = std::thread(csThreadTwo);
-	csOne.join();
-	csTwo.join();
+	in.fill(0); last.fill(0);
+	auto threadPool = std::vector<std::thread>();
+	threadPool.reserve(NUMBER_OF_PROCESSES);
+	for (int i = 0; i < NUMBER_OF_PROCESSES; ++i)
+	{
+		threadPool.push_back(std::thread(csThread, i));
+	}
+	for (auto & thread : threadPool)
+	{
+		thread.join();
+	}
 	std::cin.get();
 	return EXIT_SUCCESS;
 }
