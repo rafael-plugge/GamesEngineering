@@ -146,14 +146,24 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\input\Keyhandler.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\utilities\Console.cpp" />
+    <ClCompile Include="src\utilities\Random.cpp" />
+    <ClCompile Include="src\utilities\Time.cpp" />
+    <ClCompile Include="src\utilities\Variant.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\input\Keyhandler.h" />
     <ClInclude Include="src\stdafx.hpp" />
+    <ClInclude Include="src\utilities\Console.hpp" />
+    <ClInclude Include="src\utilities\Random.hpp" />
+    <ClInclude Include="src\utilities\Time.hpp" />
+    <ClInclude Include="src\utilities\Variant.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

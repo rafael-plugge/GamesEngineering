@@ -28,6 +28,12 @@
 /*********************************/
 /** BEGIN Independant Libraries **/
 /*********************************/
+
+#pragma comment(lib, "SDL2.lib")
+#pragma comment(lib, "SDL2main.lib")
+#pragma comment(lib, "SDL2test.lib")
+#pragma comment(lib, "SDL2_image.lib")
+
 /*********************************/
 /**  END Independant Libraries  **/
 /*********************************/
@@ -77,13 +83,32 @@
 #include <future>
 #include <condition_variable>
 
+// SDL2 Library
+#define SDL_MAIN_HANDLED
+#include <SDL/SDL.h>
+
+// SDL2_image Library
+#include <SDL/SDL_image.h>
+
 /*********************************/
 /**         Includes here       **/
 /*********************************/
 
+// Input
+#include "input/Keyhandler.h"
 
+// Utilities
+#include "utilities/Console.hpp"
+#include "utilities/Random.hpp"
+#include "utilities/Time.hpp"
+#include "utilities/Variant.hpp"
 
 // Global namespace
 namespace app
 {
+	namespace inp
+	{
+		using KeyCode = SDL_Keycode;
+		using KeyHandler = Keyhandler<KeyCode>;
+	}
 }

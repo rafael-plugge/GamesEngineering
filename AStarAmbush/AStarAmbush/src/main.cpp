@@ -1,5 +1,4 @@
 ﻿#include "stdafx.hpp"
-#include "utilities/Console.hpp"
 
 int main(int argc, char const ** argv)
 {
