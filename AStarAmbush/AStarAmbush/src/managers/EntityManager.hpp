@@ -1,7 +1,6 @@
 ﻿#pragma once
 
-#include "entities/base/Entity.hpp"
-#include "entities/base/Drawable.hpp"
+#include "entities/Grid.hpp"
 #include "graphics/Window.hpp"
 
 namespace app::man
@@ -11,6 +10,8 @@ namespace app::man
 	public: // Public Usings/Typedefs/Enums
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
+		using Entity = std::variant<app::ent::Grid>;
+		using Drawable = std::variant<app::ent::Grid>;
 	public: // Constructors/Destructor/Assignments
 		EntityManager() = default;
 		~EntityManager() = default;
@@ -24,8 +25,8 @@ namespace app::man
 	public: // Public Static Functions
 	public: // Public Member Functions
 		bool init();
-		void update(app::time::seconds const & dt) const;
-		void render(app::gra::Window const & window, app::time::seconds const & dt) const;
+		void update(app::time::seconds const & dt);
+		void render(app::gra::Window const & window, app::time::seconds const & dt);
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
@@ -36,8 +37,7 @@ namespace app::man
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		std::vector<std::shared_ptr<app::ent::base::Entity>> m_entities;
-		std::vector<std::shared_ptr<app::ent::base::Drawable>> m_drawables;
+		std::vector<Entity> m_entities;
 	};
 
 	static_assert(std::is_default_constructible<EntityManager>::value, "EntityManager must be default constructible");

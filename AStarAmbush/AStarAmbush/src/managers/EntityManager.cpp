@@ -7,21 +7,23 @@ bool app::man::EntityManager::init()
 {
 	m_entities.reserve(50);
 	{
-		auto grid = std::make_shared<ent::Grid>();
-		grid->setPosition({ 0.0, 0.0 });
-		grid->setSize(math::Vector2d{} * ent::Grid::GRID_SIZE);
-		grid->setOrigin({});
-		m_drawables.push_back(grid);
-		m_entities.push_back(m_drawables.back());
+		auto grid = ent::Grid();
+		m_entities.push_back(grid);
 	}
+
+	for (auto & entity : m_entities)
+		std::visit([&](auto & ent) constexpr { ent.init(); }, entity);
 	return true;
 }
 
-void app::man::EntityManager::update(app::time::seconds const & dt) const
+void app::man::EntityManager::update(app::time::seconds const & dt)
 {
-	for (auto const & sptr : m_entities) { sptr->update(dt); }
+	for (auto & entity : m_entities)
+		std::visit([&](auto & ent) { ent.update(dt); }, entity);
 }
 
-void app::man::EntityManager::render(app::gra::Window const & window, app::time::seconds const & dt) const
+void app::man::EntityManager::render(app::gra::Window const & window, app::time::seconds const & dt)
 {
+	for (auto & entity : m_entities)
+		std::visit([&](auto & drawable) { drawable.render(window, dt); }, entity);
 }

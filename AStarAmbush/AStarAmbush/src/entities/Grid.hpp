@@ -1,16 +1,16 @@
 ﻿#pragma once
 
-#include "entities/base/Drawable.hpp"
+#include "entities/base/Entity.hpp"
 
 namespace app::ent
 {
-	class Grid : public base::Drawable
+	class Grid : virtual public base::Entity
 	{
 	public: // Public Usings/Typedefs/Enums
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
 	public: // Constructors/Destructor/Assignments
-		Grid();
+		Grid() = default;
 		~Grid() = default;
 
 		Grid(Grid const &) = default;
@@ -21,6 +21,7 @@ namespace app::ent
 
 	public: // Public Static Functions
 	public: // Public Member Functions
+		virtual void init() final override;
 		virtual void update(app::time::seconds const & dt) final override;
 		virtual void render(app::gra::Window const & window, app::time::seconds const & dt) final override;
 	public: // Public Static Variables

@@ -11,7 +11,7 @@ namespace app::ent::base
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
 	public: // Constructors/Destructor/Assignments
-		Drawable();
+		Drawable() = default;
 		virtual ~Drawable() = default;
 
 		Drawable(Drawable const &) = default;
@@ -35,6 +35,7 @@ namespace app::ent::base
 		Drawable & setSourceRect(std::optional<math::Rectd> const & sourceRect) { m_renderRect.setSourceRect(sourceRect); return *this; }
 		Drawable & setTexture(std::shared_ptr<app::gra::Texture> const & texture) { m_renderRect.setTexture(texture); return *this; }
 
+		virtual void init() override {}
 		virtual void update(app::time::seconds const & dt) override {}
 		virtual void render(app::gra::Window const & window, app::time::seconds const & dt) override;
 	public: // Public Static Variables
