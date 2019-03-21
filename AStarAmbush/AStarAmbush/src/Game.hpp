@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "graphics/Window.hpp"
+#include "managers/EntityManager.hpp"
 
 namespace app
 {
@@ -41,6 +42,7 @@ namespace app
 		app::inp::MouseHandler m_mouseHandler;
 		app::inp::ControllerHandler m_controllerHandler;
 		app::gra::Window m_window;
+		app::man::EntityManager m_entityManager;
 	};
 
 	static_assert(std::is_default_constructible<Game>::value, "Game must be default constructible");

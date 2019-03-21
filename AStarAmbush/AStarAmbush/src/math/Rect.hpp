@@ -4,13 +4,19 @@
 
 namespace app::math
 {
-	template<typename _Types>
+	template<typename _Type>
 	class Rect
 	{
 	public: // Constructors/Destructor/Assignments
 		Rect();
-		Rect(_Types const & _x, _Types const & _y, _Types const & _w, _Types const & _h);
-		Rect(Vector2<_Types> const & position, Vector2<_Types> const & size);
+		Rect(_Type const & _x, _Type const & _y, _Type const & _w, _Type const & _h);
+		Rect(Vector2<_Type> const & position, Vector2<_Type> const & size);
+		template<typename _Other> Rect(Rect<_Other> const & other)
+			: x(static_cast<_Type>(other.x))
+			, y(static_cast<_Type>(other.y))
+			, w(static_cast<_Type>(other.w))
+			, h(static_cast<_Type>(other.h))
+		{}
 		
 		~Rect() = default;
 
@@ -21,13 +27,13 @@ namespace app::math
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		math::Vector2<_Types> halfSize() const { return math::Vector2<_Types>{ this->w, this->h } / static_cast<_Types>(2); }
-		math::Vector2<_Types> center() const { return math::Vector2<_Types>{ this->x, this->y } + this->halfSize(); }
+		math::Vector2<_Type> halfSize() const { return math::Vector2<_Type>{ this->w, this->h } / static_cast<_Type>(2); }
+		math::Vector2<_Type> center() const { return math::Vector2<_Type>{ this->x, this->y } + this->halfSize(); }
 
 		operator std::string() const;
 	public: // Public Static Variables
 	public: // Public Member Variables
-		_Types x, y, w, h;
+		_Type x, y, w, h;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -35,7 +41,7 @@ namespace app::math
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
-		constexpr static _Types const zero = static_cast<_Types>(0u);
+		constexpr static _Type const zero = static_cast<_Type>(0u);
 	private: // Private Member Variables
 	};
 

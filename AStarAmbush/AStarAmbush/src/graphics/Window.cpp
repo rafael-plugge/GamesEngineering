@@ -96,7 +96,6 @@ void app::gra::Window::render(app::gra::RenderRect const & rect) const
 	auto const & position = static_cast<math::Vector2i>(rect.getPosition());
 	auto const & origin = static_cast<math::Vector2i>(rect.getOrigin());
 	auto const & size = static_cast<math::Vector2i>(rect.getSize());
-	auto const & source = rect.getSourceRect();
 	auto const & screenSize = math::Vector2f{ static_cast<float>(m_width), static_cast<float>(m_height) };
 	auto const & scale = screenSize / static_cast<math::Vector2f>(m_view.size);
 	auto const & halfSize = m_view.size / 2;
@@ -110,7 +109,15 @@ void app::gra::Window::render(app::gra::RenderRect const & rect) const
 		static_cast<int32_t>(origin.x * scale.x),
 		static_cast<int32_t>(origin.y * scale.y)
 	};
-	SDL_RenderCopyEx(m_renderer.get(), rect.getTexture(), source.has_value() ? &source.value() : nullptr, &destination, rect.getRotation(), &center, FLIP_FLAG);
+	auto const & source = rect.getSourceRect();
+	auto const & sourceMathRect = static_cast<math::Recti>(source.value_or(math::Rectd()));
+	auto const & sourceRect = SDL_Rect{
+		  static_cast<std::int32_t>(sourceMathRect.x)
+		, static_cast<std::int32_t>(sourceMathRect.y)
+		, static_cast<std::int32_t>(sourceMathRect.w)
+		, static_cast<std::int32_t>(sourceMathRect.h)
+	};
+	SDL_RenderCopyEx(m_renderer.get(), rect.getTexture(), source.has_value() ? &sourceRect : nullptr, &destination, rect.getRotation(), &center, FLIP_FLAG);
 }
 
 void app::gra::Window::render(std::unique_ptr<SDL_Texture> const & texture, SDL_Rect const & rect, std::optional<SDL_Rect> source) const

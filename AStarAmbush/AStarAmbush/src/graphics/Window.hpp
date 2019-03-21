@@ -1,5 +1,4 @@
-﻿#ifndef _WINDOW_H
-#define _WINDOW_H
+﻿#pragma once
 
 #include "input/Keyhandler.hpp"
 #include "input/Mousehandler.hpp"
@@ -34,6 +33,7 @@ namespace app::gra
 	public: // Public Member Variables
 	protected: // Protected Member Functions
 	protected: // Protected Member Variables
+	private: // Private Static Functions
 	private: // Private Member Functions
 		bool init();
 		bool initWindow();
@@ -55,5 +55,3 @@ namespace app::gra
 	};
 
 }
-
-#endif // !_WINDOW_H
