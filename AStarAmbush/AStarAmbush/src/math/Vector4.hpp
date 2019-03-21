@@ -42,6 +42,25 @@ namespace app::math
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
+		template<typename _Other> Vector4(_Other const & _x, _Other const & _y, _Other const & _z, _Other const & _w)
+			: BaseVector(std::array<_Other, 4>{ _x, _y, _z, _w })
+			, x(BaseVector::m_values.at(0))
+			, y(BaseVector::m_values.at(1))
+			, z(BaseVector::m_values.at(2))
+			, w(BaseVector::m_values.at(3))
+		{}
+		explicit Vector4(BaseVector const & v)
+			: BaseVector(v)
+			, x(BaseVector::m_values.at(0))
+			, y(BaseVector::m_values.at(1))
+			, z(BaseVector::m_values.at(2))
+			, w(BaseVector::m_values.at(3))
+		{}
+		Vector4 & operator=(BaseVector const & v)
+		{
+			BaseVector::operator=(v);
+			return *this;
+		}
 
 		~Vector4() = default;
 
@@ -82,6 +101,87 @@ namespace app::math
 		}
 
 	public: // Public Static Functions
+
+		#pragma region Plus Operators
+
+		friend Vector4<_Type> operator+(Vector4<_Type> leftV, Vector4<_Type> const & rightV)
+		{
+			leftV += rightV;
+			return std::move(leftV);
+		}
+		friend Vector4<_Type> operator+(Vector4<_Type> v, _Type const & t)
+		{
+			v += t;
+			return std::move(v);
+		}
+		friend Vector4<_Type> operator+(_Type const & t, Vector4<_Type> v)
+		{
+			v = BaseVector::operator+(v, t);
+			return std::move(v);
+		}
+
+		#pragma endregion
+
+		#pragma region Minus Operators
+
+		friend Vector4<_Type> operator-(Vector4<_Type> leftV, Vector4<_Type> const & rightV)
+		{
+			leftV -= rightV;
+			return std::move(leftV);
+		}
+		friend Vector4<_Type> operator-(Vector4<_Type> v, _Type const & t)
+		{
+			v -= t;
+			return std::move(v);
+		}
+		friend Vector4<_Type> operator-(_Type const & t, Vector4<_Type> v)
+		{
+			v = BaseVector::operator-(t, v);
+			return std::move(v);
+		}
+
+		#pragma endregion
+
+		#pragma region Multiplication Operators
+
+		friend Vector4<_Type> operator*(Vector4<_Type> leftV, Vector4<_Type> const & rightV)
+		{
+			leftV *= rightV;
+			return std::move(leftV);
+		}
+		friend Vector4<_Type> operator*(Vector4<_Type> v, _Type const & t)
+		{
+			v *= t;
+			return std::move(v);
+		}
+		friend Vector4<_Type> operator*(_Type const & t, Vector4<_Type> v)
+		{
+			v = BaseVector::operator*(t, v);
+			return std::move(v);
+		}
+
+		#pragma endregion
+
+		#pragma region Division Operators
+
+		friend Vector4<_Type> operator/(Vector4<_Type> leftV, Vector4<_Type> const & rightV)
+		{
+			leftV /= rightV;
+			return std::move(leftV);
+		}
+		friend Vector4<_Type> operator/(Vector4<_Type> v, _Type const & t)
+		{
+			v /= t;
+			return std::move(v);
+		}
+		friend Vector4<_Type> operator/(_Type const & t, Vector4<_Type> v)
+		{
+			v = BaseVector::operator/(t, v);
+			return std::move(v);
+		}
+
+		#pragma endregion
+
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
