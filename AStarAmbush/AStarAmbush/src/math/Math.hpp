@@ -1,5 +1,6 @@
-﻿#ifndef _MATH_H
-#define _MATH_H
+﻿#pragma once
+
+#include "Vector2.hpp"
 
 namespace app::math
 {
@@ -29,6 +30,9 @@ namespace app::math
 	}
 	template<typename T> constexpr math::Vector2<T> toVectorRad(T const & rad) { return math::Vector2<T>{ std::cos(rad), std::sin(rad) }; }
 	template<typename T> constexpr math::Vector2<T> toVector(T const & deg) { return toVectorRad(toRadians(deg)); }
+	template<typename T> constexpr T angleBetween(Vector2<T> const & left, Vector2<T> const & right)
+	{
+		return static_cast<T>(math::toDegrees(std::atan2(Vector2<T>::det(left, right), Vector2<T>::dot(left, right))));
+	}
 }
 
-#endif // !_MATH_H

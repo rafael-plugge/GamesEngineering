@@ -94,6 +94,9 @@
 /**         Includes here       **/
 /*********************************/
 
+// Math
+#include "math/Math.hpp"
+
 // Input
 #include "input/Keyhandler.h"
 

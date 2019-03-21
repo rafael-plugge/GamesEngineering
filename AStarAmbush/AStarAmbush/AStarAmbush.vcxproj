@@ -154,7 +154,10 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\math\Math.cpp" />
     <ClCompile Include="src\math\Rect.cpp" />
+    <ClCompile Include="src\math\Vector.cpp" />
     <ClCompile Include="src\math\Vector2.cpp" />
+    <ClCompile Include="src\math\Vector3.cpp" />
+    <ClCompile Include="src\math\Vector4.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -166,9 +169,12 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\input\Keyhandler.h" />
-    <ClInclude Include="src\math\Math.h" />
-    <ClInclude Include="src\math\Rect.h" />
-    <ClInclude Include="src\math\Vector2.h" />
+    <ClInclude Include="src\math\Math.hpp" />
+    <ClInclude Include="src\math\Rect.hpp" />
+    <ClInclude Include="src\math\Vector.hpp" />
+    <ClInclude Include="src\math\Vector2.hpp" />
+    <ClInclude Include="src\math\Vector3.hpp" />
+    <ClInclude Include="src\math\Vector4.hpp" />
     <ClInclude Include="src\stdafx.hpp" />
     <ClInclude Include="src\utilities\Console.hpp" />
     <ClInclude Include="src\utilities\Random.hpp" />

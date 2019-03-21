@@ -1,7 +1,6 @@
-﻿#ifndef _MATH_RECT_H
-#define _MATH_RECT_H
+﻿#pragma once
 
-#include "Vector2.h"
+#include "Vector2.hpp"
 
 namespace app::math
 {
@@ -45,38 +44,3 @@ namespace app::math
 	typedef Rect<std::int32_t> Recti;
 	typedef Rect<std::uint32_t> Rectu;
 }
-
-template<typename T>
-app::math::Rect<T>::Rect()
-	: x(zero)
-	, y(zero)
-	, w(zero)
-	, h(zero)
-{
-}
-
-template<typename T>
-app::math::Rect<T>::Rect(T const & _x, T const & _y, T const & _w, T const & _h)
-	: x(_x)
-	, y(_y)
-	, w(_w)
-	, h(_h)
-{
-}
-
-template<typename T>
-app::math::Rect<T>::Rect(math::Vector2<T> const & position, math::Vector2<T> const & size)
-	: x(position.x)
-	, y(position.y)
-	, w(size.x)
-	, h(size.y)
-{
-}
-
-template<typename T>
-app::math::Rect<T>::operator std::string() const
-{
-	return std::to_string(this->x) + ", " + std::to_string(this->y) + " : " + std::to_string(this->w) + ", " + std::to_string(this->h);
-}
-
-#endif // !_MATH_RECT_H
