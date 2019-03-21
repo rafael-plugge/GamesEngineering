@@ -1,5 +1,4 @@
-#ifndef _APP_INPUT_KEYHANDLER_H
-#define _APP_INPUT_KEYHANDLER_H
+#pragma once
 
 namespace app::inp
 {
@@ -173,4 +172,3 @@ namespace app::inp
 	#pragma endregion
 
 }
-#endif

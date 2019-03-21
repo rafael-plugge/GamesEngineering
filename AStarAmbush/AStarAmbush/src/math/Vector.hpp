@@ -11,10 +11,10 @@
 namespace app::math
 {
 	/// 
-	/// @brief 2 dimensional vector class.
+	/// @brief N dimensional vector class.
 	/// @author Rafael Plugge
 	/// 
-	/// Handles all mathematics behind 2 dimensional vectors.
+	/// Handles all mathematics behind N dimensional vectors.
 	/// 
 	template<std::size_t _Size, typename _Type>
 	class Vector
@@ -22,20 +22,12 @@ namespace app::math
 	public: // Public Usings/Typedefs/Enums
 		static_assert(_Size > 0u, "_Size template parameter must not be less than zero");
 		static_assert(std::is_arithmetic<_Type>::value, "_Type must be a arithmetic type");
-		//static_assert(std::is_default_constructible<Vector<_Size, _Type>>::value, "Vector must be default constructible");
-		//static_assert(std::is_destructible<Vector<_Size, _Type>>::value, "Vector must be destructible");
-		//static_assert(std::is_copy_constructible<Vector<_Size, _Type>>::value, "Vector must be copy constructible");
-		//static_assert(std::is_copy_assignable<Vector<_Size, _Type>>::value, "Vector must be copy assignable");
-		//static_assert(std::is_move_constructible<Vector<_Size, _Type>>::value, "Vector must be move constructible");
-		//static_assert(std::is_move_assignable<Vector<_Size, _Type>>::value, "Vector must be move assignable");
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
 	public: // Constructors/Destructor/Assignments
 		Vector()
 			: m_values()
-		{
-			m_values.fill(zero);
-		}
+		{}
 
 		Vector(std::array<_Type, _Size> const & _values)
 			: m_values(_values)
@@ -44,10 +36,6 @@ namespace app::math
 		Vector(std::array<_Type, _Size> && _values)
 			: m_values(_values)
 		{}
-
-		//Vector(_Type const & _x, _Type const & _y)
-		//	: x(_x), y(_y)
-		//{}
 
 		template<typename _Other> Vector(std::array<_Other, _Size> const & _values)
 			: m_values()
@@ -60,7 +48,7 @@ namespace app::math
 			: m_values()
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
-				m_values.at(i) = static_cast<_Type>(v.m_values.at(i));
+				m_values.at(i) = static_cast<_Type>(v.get(i));
 		}
 
 		~Vector() = default;
@@ -74,6 +62,12 @@ namespace app::math
 				m_values.at(i) = other.m_values.at(i);
 			return *this;
 		}
+		template<typename _Other> Vector & operator=(Vector<_Size, _Other> const & other)
+		{
+			for (std::size_t i = 0; i < _Size; ++i)
+				m_values.at(i) = static_cast<_Type>(other.get(i));
+			return *this;
+		}
 
 		Vector(Vector && other)
 			: m_values(other.m_values)
@@ -82,6 +76,12 @@ namespace app::math
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
 				m_values.at(i) = std::move(other.m_values.at(i));
+			return *this;
+		}
+		template<typename _Other> Vector & operator=(Vector<_Size, _Other> && other)
+		{
+			for (std::size_t i = 0; i < _Size; ++i)
+				m_values.at(i) = std::move(static_cast<_Type>(other.m_values.at(i)));
 			return *this;
 		}
 
@@ -389,6 +389,17 @@ namespace app::math
 			msg << std::to_string(m_values.back()) << ")";
 			return msg.str();
 		}
+
+		constexpr _Type const & get(std::size_t const & index) const
+		{
+			return m_values.at(index);
+		}
+
+		constexpr _Type & get(std::size_t const & index)
+		{
+			return m_values.at(index);
+		}
+
 	public: // Public Static Variables
 		constexpr static _Type const zero = static_cast<_Type>(0u);
 	public: // Public Member Variables

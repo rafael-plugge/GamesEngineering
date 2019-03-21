@@ -1,8 +1,8 @@
 ﻿#include "stdafx.hpp"
 #include "Rect.hpp"
 
-template<typename T>
-app::math::Rect<T>::Rect()
+template<typename _Types>
+app::math::Rect<_Types>::Rect()
 	: x(zero)
 	, y(zero)
 	, w(zero)
@@ -10,8 +10,8 @@ app::math::Rect<T>::Rect()
 {
 }
 
-template<typename T>
-app::math::Rect<T>::Rect(T const & _x, T const & _y, T const & _w, T const & _h)
+template<typename _Types>
+app::math::Rect<_Types>::Rect(_Types const & _x, _Types const & _y, _Types const & _w, _Types const & _h)
 	: x(_x)
 	, y(_y)
 	, w(_w)
@@ -19,8 +19,8 @@ app::math::Rect<T>::Rect(T const & _x, T const & _y, T const & _w, T const & _h)
 {
 }
 
-template<typename T>
-app::math::Rect<T>::Rect(Vector2<T> const & position, Vector2<T> const & size)
+template<typename _Types>
+app::math::Rect<_Types>::Rect(Vector2<_Types> const & position, Vector2<_Types> const & size)
 	: x(position.x)
 	, y(position.y)
 	, w(size.x)
@@ -28,8 +28,8 @@ app::math::Rect<T>::Rect(Vector2<T> const & position, Vector2<T> const & size)
 {
 }
 
-template<typename T>
-app::math::Rect<T>::operator std::string() const
+template<typename _Types>
+app::math::Rect<_Types>::operator std::string() const
 {
 	return std::to_string(this->x) + ", " + std::to_string(this->y) + " : " + std::to_string(this->w) + ", " + std::to_string(this->h);
 }

@@ -96,9 +96,13 @@
 
 // Math
 #include "math/Math.hpp"
+#include "math/Vector2.hpp"
+#include "math/Vector2Math.hpp"
 
 // Input
-#include "input/Keyhandler.h"
+#include "input/Keyhandler.hpp"
+#include "input/Mousehandler.hpp"
+#include "input/Controllerhandler.hpp"
 
 // Utilities
 #include "utilities/Console.hpp"
@@ -113,5 +117,14 @@ namespace app
 	{
 		using KeyCode = SDL_Keycode;
 		using KeyHandler = Keyhandler<KeyCode>;
+
+		using MouseButtonCode = std::uint8_t;
+		using MouseHandler = Mousehandler<MouseButtonCode>;
+
+		using ControllerIndex = std::int32_t;
+		using ControllerButtonCode = SDL_GameControllerButton;
+		using ControllerAxisCode = SDL_GameControllerAxis;
+		using ControllerAxisValue = Sint16;
+		using ControllerHandler = Controllerhandler<ControllerIndex, ControllerAxisCode, ControllerAxisValue, ControllerButtonCode>;
 	}
 }

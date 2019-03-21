@@ -4,13 +4,13 @@
 
 namespace app::math
 {
-	template<typename T>
+	template<typename _Types>
 	class Rect
 	{
 	public: // Constructors/Destructor/Assignments
 		Rect();
-		Rect(T const & _x, T const & _y, T const & _w, T const & _h);
-		Rect(Vector2<T> const & position, Vector2<T> const & size);
+		Rect(_Types const & _x, _Types const & _y, _Types const & _w, _Types const & _h);
+		Rect(Vector2<_Types> const & position, Vector2<_Types> const & size);
 		
 		~Rect() = default;
 
@@ -21,13 +21,13 @@ namespace app::math
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		math::Vector2<T> halfSize() const { return math::Vector2<T>{ this->w, this->h } / static_cast<T>(2); }
-		math::Vector2<T> center() const { return math::Vector2<T>{ this->x, this->y } + this->halfSize(); }
+		math::Vector2<_Types> halfSize() const { return math::Vector2<_Types>{ this->w, this->h } / static_cast<_Types>(2); }
+		math::Vector2<_Types> center() const { return math::Vector2<_Types>{ this->x, this->y } + this->halfSize(); }
 
 		operator std::string() const;
 	public: // Public Static Variables
 	public: // Public Member Variables
-		T x, y, w, h;
+		_Types x, y, w, h;
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -35,7 +35,7 @@ namespace app::math
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
-		constexpr static T const zero = static_cast<T>(0u);
+		constexpr static _Types const zero = static_cast<_Types>(0u);
 	private: // Private Member Variables
 	};
 

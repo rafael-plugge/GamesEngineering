@@ -45,6 +45,11 @@ namespace app::math
 			BaseVector::operator=(other);
 			return *this;
 		}
+		template<typename _Other> Vector3 & operator=(Vector3<_Other> const & other)
+		{
+			BaseVector::operator=(other);
+			return *this;
+		}
 
 		Vector3(Vector3 && other)
 			: BaseVector(other)
@@ -53,6 +58,11 @@ namespace app::math
 			, z(BaseVector::m_values.at(2))
 		{}
 		Vector3 & operator=(Vector3 && other)
+		{
+			BaseVector::operator=(other);
+			return *this;
+		}
+		template<typename _Other> Vector3 & operator=(Vector3<_Other> && other)
 		{
 			BaseVector::operator=(other);
 			return *this;

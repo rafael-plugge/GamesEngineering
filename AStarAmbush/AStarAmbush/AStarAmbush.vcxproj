@@ -150,12 +150,22 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\deleters\SdlDeleter.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\graphics\RenderRect.cpp" />
+    <ClCompile Include="src\graphics\Texture.cpp" />
+    <ClCompile Include="src\graphics\View.cpp" />
+    <ClCompile Include="src\graphics\Window.cpp" />
+    <ClCompile Include="src\graphics\WindowParameters.cpp" />
+    <ClCompile Include="src\input\Controllerhandler.cpp" />
     <ClCompile Include="src\input\Keyhandler.cpp" />
+    <ClCompile Include="src\input\Mousehandler.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\math\Math.cpp" />
     <ClCompile Include="src\math\Rect.cpp" />
     <ClCompile Include="src\math\Vector.cpp" />
     <ClCompile Include="src\math\Vector2.cpp" />
+    <ClCompile Include="src\math\Vector2Math.cpp" />
     <ClCompile Include="src\math\Vector3.cpp" />
     <ClCompile Include="src\math\Vector4.cpp" />
     <ClCompile Include="src\stdafx.cpp">
@@ -168,11 +178,21 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\utilities\Variant.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\input\Keyhandler.h" />
+    <ClInclude Include="src\deleters\SdlDeleter.hpp" />
+    <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\graphics\RenderRect.hpp" />
+    <ClInclude Include="src\graphics\Texture.hpp" />
+    <ClInclude Include="src\graphics\View.hpp" />
+    <ClInclude Include="src\graphics\Window.hpp" />
+    <ClInclude Include="src\graphics\WindowParameters.hpp" />
+    <ClInclude Include="src\input\Controllerhandler.hpp" />
+    <ClInclude Include="src\input\Keyhandler.hpp" />
+    <ClInclude Include="src\input\Mousehandler.hpp" />
     <ClInclude Include="src\math\Math.hpp" />
     <ClInclude Include="src\math\Rect.hpp" />
     <ClInclude Include="src\math\Vector.hpp" />
     <ClInclude Include="src\math\Vector2.hpp" />
+    <ClInclude Include="src\math\Vector2Math.hpp" />
     <ClInclude Include="src\math\Vector3.hpp" />
     <ClInclude Include="src\math\Vector4.hpp" />
     <ClInclude Include="src\stdafx.hpp" />

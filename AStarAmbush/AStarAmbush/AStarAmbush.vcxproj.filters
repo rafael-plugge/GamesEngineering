@@ -18,6 +18,12 @@
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{d64c3dfc-600d-4d22-821a-0db227af3722}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\graphics">
+      <UniqueIdentifier>{ff551523-dc1e-4071-856b-fb8fce69c5d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\deleters">
+      <UniqueIdentifier>{7a2aa33e-0a26-4486-a7dd-52466f4752ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -59,6 +65,36 @@
     <ClCompile Include="src\math\Vector4.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
+    <ClCompile Include="src\math\Vector2Math.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\RenderRect.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Texture.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\View.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Window.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\WindowParameters.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\Controllerhandler.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input\Mousehandler.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\deleters\SdlDeleter.cpp">
+      <Filter>Source Files\deleters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.hpp">
@@ -75,9 +111,6 @@
     </ClInclude>
     <ClInclude Include="src\utilities\Variant.hpp">
       <Filter>Source Files\utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="src\input\Keyhandler.h">
-      <Filter>Source Files\input</Filter>
     </ClInclude>
     <ClInclude Include="src\math\Math.hpp">
       <Filter>Source Files\math</Filter>
@@ -96,6 +129,39 @@
     </ClInclude>
     <ClInclude Include="src\math\Vector4.hpp">
       <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Vector2Math.hpp">
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\deleters\SdlDeleter.hpp">
+      <Filter>Source Files\deleters</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\Window.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\WindowParameters.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\View.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\Texture.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\RenderRect.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\Controllerhandler.hpp">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\Keyhandler.hpp">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input\Mousehandler.hpp">
+      <Filter>Source Files\input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
