@@ -8,6 +8,7 @@ app::Game::Game()
 	, m_controllerHandler()
 	, m_window(m_keyHandler, m_mouseHandler, m_controllerHandler, app::gra::WindowParameters{ "A* Ambush", 1366u, 768u })
 	, m_entityManager()
+	, m_fps(0u)
 {
 }
 

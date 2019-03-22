@@ -20,7 +20,7 @@ namespace app::math
 	class Vector
 	{
 	public: // Public Usings/Typedefs/Enums
-		static_assert(_Size > 0u, "_Size template parameter must not be less than zero");
+		static_assert(_Size > 0u, "_Size template parameter must be greater than zero");
 		static_assert(std::is_arithmetic<_Type>::value, "_Type must be a arithmetic type");
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums

@@ -43,6 +43,7 @@ namespace app
 		app::inp::ControllerHandler m_controllerHandler;
 		app::gra::Window m_window;
 		app::man::EntityManager m_entityManager;
+		std::uint32_t m_fps;
 	};
 
 	static_assert(std::is_default_constructible<Game>::value, "Game must be default constructible");
