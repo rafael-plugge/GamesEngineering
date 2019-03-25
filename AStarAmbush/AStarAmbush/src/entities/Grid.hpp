@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "entities/base/Entity.hpp"
+#include "Cell.hpp"
 
 namespace app::ent
 {
@@ -37,7 +38,7 @@ namespace app::ent
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		std::array<std::array<std::int32_t, GRID_HEIGHT>, GRID_WIDTH> m_grid;
+		std::array<std::array<app::ent::Cell, GRID_HEIGHT>, GRID_WIDTH> m_grid;
 	};
 
 	static_assert(std::is_default_constructible<Grid>::value, "Grid must be default constructible");

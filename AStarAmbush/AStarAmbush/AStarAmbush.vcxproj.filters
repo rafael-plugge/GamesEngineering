@@ -116,6 +116,15 @@
     <ClCompile Include="src\entities\base\Entity.cpp">
       <Filter>Source Files\entities\base</Filter>
     </ClCompile>
+    <ClCompile Include="src\entities\Cell.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\RenderLine.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\Player.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.hpp">
@@ -195,6 +204,15 @@
     </ClInclude>
     <ClInclude Include="src\entities\base\Entity.hpp">
       <Filter>Source Files\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\Cell.hpp">
+      <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\RenderLine.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\Player.hpp">
+      <Filter>Source Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

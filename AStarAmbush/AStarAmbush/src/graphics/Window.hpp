@@ -4,6 +4,7 @@
 #include "input/Mousehandler.hpp"
 #include "deleters/SdlDeleter.hpp"
 #include "graphics/WindowParameters.hpp"
+#include "graphics/RenderLine.hpp"
 #include "graphics/RenderRect.hpp"
 #include "graphics/View.hpp"
 
@@ -22,8 +23,9 @@ namespace app::gra
 		void pollEvents();
 		void clear() const;
 		void render(app::gra::RenderRect const & rect) const;
-		void render(std::unique_ptr<SDL_Texture> const & texture, SDL_Rect const & rect, std::optional<SDL_Rect> source = std::nullopt) const;
-		void render(std::shared_ptr<SDL_Texture> texture, SDL_Rect const & rect, std::optional<SDL_Rect> source = std::nullopt) const;
+		void render(app::gra::RenderLine const & line) const;
+		template<class InputIterator>
+		void render(InputIterator start, InputIterator const end) const;
 		void display() const;
 
 		inline constexpr auto const & isOpen() { return m_open; }
@@ -53,5 +55,30 @@ namespace app::gra
 		app::del::UPtrWindow m_window;
 		app::del::UPtrRenderer m_renderer;
 	};
+
+	template<class InputIterator>
+	void Window::render(InputIterator start, InputIterator const end) const
+	{
+		static_assert(std::is_same<std::iterator_traits<InputIterator>::value_type, app::gra::RenderLine>::value,
+			"InputIterator must be a iterator whoose value_type must also be app::gra::RenderLine");
+
+		auto points = std::vector<SDL_Point>();
+		if constexpr (std::is_same<std::iterator_traits<InputIterator>::iterator_category, std::random_access_iterator_tag>::value)
+		{
+			points.reserve(end - start);
+		}
+		auto color = std::optional<math::Vector4<std::uint8_t>>();
+		for (; start != end; ++start)
+		{
+			app::gra::RenderLine const & renderLine = *start;
+			auto & startPoint = renderLine.getStart();
+			points.push_back(SDL_Point{ startPoint.x, startPoint.y });
+			auto & endPoint = renderLine.getEnd();
+			points.push_back(SDL_Point{ endPoint.x, endPoint.y });
+			if (!color.has_value()) { color = renderLine.getColor(); }
+		}
+		SDL_SetRenderDrawColor(m_renderer.get(), color->x, color->y, color->z, color->w);
+		SDL_RenderDrawLines(m_renderer.get(), points.data(), points.size());
+	}
 
 }

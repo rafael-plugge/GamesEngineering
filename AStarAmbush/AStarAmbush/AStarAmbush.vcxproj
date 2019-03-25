@@ -153,8 +153,11 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\deleters\SdlDeleter.cpp" />
     <ClCompile Include="src\entities\base\Drawable.cpp" />
     <ClCompile Include="src\entities\base\Entity.cpp" />
+    <ClCompile Include="src\entities\Cell.cpp" />
     <ClCompile Include="src\entities\Grid.cpp" />
+    <ClCompile Include="src\entities\Player.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\graphics\RenderLine.cpp" />
     <ClCompile Include="src\graphics\RenderRect.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
     <ClCompile Include="src\graphics\View.cpp" />
@@ -185,8 +188,11 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\deleters\SdlDeleter.hpp" />
     <ClInclude Include="src\entities\base\Drawable.hpp" />
     <ClInclude Include="src\entities\base\Entity.hpp" />
+    <ClInclude Include="src\entities\Cell.hpp" />
     <ClInclude Include="src\entities\Grid.hpp" />
+    <ClInclude Include="src\entities\Player.hpp" />
     <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\graphics\RenderLine.hpp" />
     <ClInclude Include="src\graphics\RenderRect.hpp" />
     <ClInclude Include="src\graphics\Texture.hpp" />
     <ClInclude Include="src\graphics\View.hpp" />
