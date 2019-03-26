@@ -209,14 +209,13 @@ void app::gra::Window::render(app::gra::RenderRect const & rect) const
 	SDL_RenderCopyEx(m_renderer.get(), rect.getTexture(), source.has_value() ? &sourceRect : nullptr, &destination, rect.getRotation(), &center, FLIP_FLAG);
 }
 
-void app::gra::Window::render(std::unique_ptr<SDL_Texture> const & texture, SDL_Rect const & rect, std::optional<SDL_Rect> source) const
+void app::gra::Window::render(app::gra::RenderLine const & line) const
 {
-	SDL_RenderCopy(m_renderer.get(), texture.get(), source.has_value() ? &source.value() : nullptr, &rect);
-}
-
-void app::gra::Window::render(std::shared_ptr<SDL_Texture> texture, SDL_Rect const & rect, std::optional<SDL_Rect> source) const
-{
-	SDL_RenderCopy(m_renderer.get(), texture.get(), source.has_value() ? &source.value() : nullptr, &rect);
+	auto const & color = line.getColor();
+	auto const & start = line.getStart();
+	auto const & end = line.getEnd();
+	SDL_SetRenderDrawColor(m_renderer.get(), color.x, color.y, color.z, color.w);
+	SDL_RenderDrawLine(m_renderer.get(), start.x, start.y, end.x, end.y);
 }
 
 void app::gra::Window::display() const

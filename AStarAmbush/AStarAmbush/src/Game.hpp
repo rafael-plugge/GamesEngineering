@@ -42,7 +42,7 @@ namespace app
 		app::inp::MouseHandler m_mouseHandler;
 		app::inp::ControllerHandler m_controllerHandler;
 		app::gra::Window m_window;
-		app::man::EntityManager m_entityManager;
+		app::ent::Grid m_grid;
 		std::uint32_t m_fps;
 	};
 
