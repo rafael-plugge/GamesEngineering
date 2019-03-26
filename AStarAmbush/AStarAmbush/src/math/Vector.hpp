@@ -70,7 +70,7 @@ namespace app::math
 		}
 
 		Vector(Vector && other)
-			: m_values(other.m_values)
+			: m_values(std::move(other.m_values))
 		{}
 		Vector & operator=(Vector && other)
 		{

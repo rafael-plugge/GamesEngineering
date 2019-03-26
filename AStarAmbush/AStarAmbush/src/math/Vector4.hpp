@@ -83,7 +83,7 @@ namespace app::math
 		}
 
 		Vector4(Vector4 && other)
-			: BaseVector(other)
+			: BaseVector(std::move(other))
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))

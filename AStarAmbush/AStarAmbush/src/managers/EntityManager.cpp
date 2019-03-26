@@ -19,11 +19,11 @@ bool app::man::EntityManager::init()
 void app::man::EntityManager::update(app::time::seconds const & dt)
 {
 	for (auto & entity : m_entities)
-		std::visit([&](auto & ent) { ent.update(dt); }, entity);
+		std::visit([&](auto & ent) constexpr { ent.update(dt); }, entity);
 }
 
 void app::man::EntityManager::render(app::gra::Window const & window, app::time::seconds const & dt)
 {
 	for (auto & entity : m_entities)
-		std::visit([&](auto & drawable) { drawable.render(window, dt); }, entity);
+		std::visit([&](auto & drawable) constexpr { drawable.render(window, dt); }, entity);
 }

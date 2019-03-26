@@ -37,7 +37,8 @@ namespace app::ent
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		std::array<std::array<std::int32_t, GRID_HEIGHT>, GRID_WIDTH> m_grid;
+		std::array<std::array<std::int64_t, GRID_HEIGHT>, GRID_WIDTH> m_grid;
+		math::Vector2f m_position, m_size;
 	};
 
 	static_assert(std::is_default_constructible<Grid>::value, "Grid must be default constructible");
