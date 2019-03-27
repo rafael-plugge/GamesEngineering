@@ -30,6 +30,9 @@
     <Filter Include="Source Files\entities\base">
       <UniqueIdentifier>{352b7bc1-8073-4d59-9867-77736d1958a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\singletons">
+      <UniqueIdentifier>{f0bc6909-6da5-4a4e-8c02-0bf704ea637e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -125,6 +128,15 @@
     <ClCompile Include="src\graphics\Color.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="src\singletons\KeyHandlerSingleton.cpp">
+      <Filter>Source Files\singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="src\singletons\Singleton.cpp">
+      <Filter>Source Files\singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\Enemy.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\stdafx.hpp">
@@ -216,6 +228,15 @@
     </ClInclude>
     <ClInclude Include="src\graphics\Color.hpp">
       <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\singletons\KeyHandlerSingleton.hpp">
+      <Filter>Source Files\singletons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\singletons\Singleton.hpp">
+      <Filter>Source Files\singletons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\Enemy.hpp">
+      <Filter>Source Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -38,9 +38,7 @@ namespace app
 	private: // Private Static Variables
 	private: // Private Member Variables
 		bool m_running;
-		app::inp::KeyHandler m_keyHandler;
-		app::inp::MouseHandler m_mouseHandler;
-		app::inp::ControllerHandler m_controllerHandler;
+		std::shared_ptr<app::inp::KeyHandler> m_keyHandler;
 		app::gra::Window m_window;
 		app::ent::Grid m_grid;
 	};

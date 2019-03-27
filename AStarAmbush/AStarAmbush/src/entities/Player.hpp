@@ -2,6 +2,7 @@
 
 #include "base/Entity.hpp"
 #include "graphics/RenderRect.hpp"
+#include "input/Keyhandler.hpp"
 
 namespace app::ent
 {
@@ -11,14 +12,14 @@ namespace app::ent
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
 	public: // Constructors/Destructor/Assignments
-		Player() = default;
+		Player();
 		virtual ~Player() = default;
 
 		Player(Player const &) = default;
-		Player & operator=(Player const &) = default;
+		Player & operator=(Player const & other);
 
 		Player(Player &&) = default;
-		Player & operator=(Player &&) = default;
+		Player & operator=(Player && other);
 
 	public: // Public Static Functions
 	public: // Public Member Functions
@@ -34,10 +35,11 @@ namespace app::ent
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
-		static math::Vector2f s_cellSize;
+		static math::Vector2f s_cellSizeFloat;
 	private: // Private Member Variables
 		math::Vector2u m_position;
 		gra::RenderRect m_renderRect;
+		std::shared_ptr<inp::KeyHandler> m_keyHandler;
 	};
 
 	static_assert(std::is_default_constructible<Player>::value, "Player must be default constructible");

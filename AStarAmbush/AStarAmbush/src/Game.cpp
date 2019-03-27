@@ -1,12 +1,11 @@
 ﻿#include "stdafx.hpp"
 #include "Game.hpp"
+#include "singletons/KeyHandlerSingleton.hpp"
 
 app::Game::Game()
 	: m_running(true)
-	, m_keyHandler()
-	, m_mouseHandler()
-	, m_controllerHandler()
-	, m_window(m_keyHandler, m_mouseHandler, m_controllerHandler, app::gra::WindowParameters{ "A* Ambush", 1366u, 768u })
+	, m_keyHandler(sin::KeyHandler::get())
+	, m_window()
 	, m_grid()
 {
 }
@@ -19,6 +18,7 @@ bool app::Game::init()
 {
 	try
 	{
+		m_window.init(*m_keyHandler, app::gra::WindowParameters{ "A* Ambush", 1366u, 768u });
 		auto camera = gra::View();
 		camera.size = { 1366, 768 };
 		camera.position = camera.size / 2;
@@ -41,6 +41,7 @@ void app::Game::pollEvents()
 void app::Game::update(app::time::seconds const & dt)
 {
 	m_grid.update(dt);
+	m_keyHandler->update();
 }
 
 void app::Game::render(app::time::seconds const & dt)
