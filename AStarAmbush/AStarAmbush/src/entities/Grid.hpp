@@ -1,13 +1,18 @@
 ﻿#pragma once
 
 #include "entities/base/Entity.hpp"
-#include "Cell.hpp"
+#include "entities/Player.hpp"
+#include "graphics/RenderLine.hpp"
 
 namespace app::ent
 {
 	class Grid : virtual public base::Entity
 	{
 	public: // Public Usings/Typedefs/Enums
+		using Cell = std::variant<
+			  std::monostate
+			, app::ent::Player
+		>;
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
 	public: // Constructors/Destructor/Assignments
@@ -36,10 +41,14 @@ namespace app::ent
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
+		void initGrid();
+		void renderGrid(app::gra::Window const & window);
 	private: // Private Static Variables
 	private: // Private Member Variables
-		std::array<std::array<app::ent::Cell, GRID_HEIGHT>, GRID_WIDTH> m_grid;
+		std::vector<std::vector<Cell>> m_grid;
 		math::Vector2f m_position, m_size;
+		std::vector<gra::RenderLine> m_horizonalLines;
+		std::vector<gra::RenderLine> m_verticalLines;
 	};
 
 	static_assert(std::is_default_constructible<Grid>::value, "Grid must be default constructible");

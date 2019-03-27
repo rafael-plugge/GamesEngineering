@@ -3,9 +3,11 @@
 #include "input/Keyhandler.hpp"
 #include "input/Mousehandler.hpp"
 #include "deleters/SdlDeleter.hpp"
+#include "math/Vector2.hpp"
 #include "graphics/WindowParameters.hpp"
 #include "graphics/RenderLine.hpp"
 #include "graphics/RenderRect.hpp"
+#include "graphics/RenderTexture.hpp"
 #include "graphics/View.hpp"
 
 namespace app::gra
@@ -37,20 +39,21 @@ namespace app::gra
 		void resetView();
 		void pollEvents();
 		void clear() const;
-		void render(app::gra::RenderRect const & rect) const;
+		void render(app::gra::RenderTexture const & rect) const;
 		void render(app::gra::RenderLine const & line) const;
+		void render(app::gra::RenderRect const & rect) const;
 		template<class InputIterator>
 		void render(InputIterator start, InputIterator const end) const;
 		void display() const;
 
 		inline constexpr auto const & isOpen() { return m_open; }
 		inline constexpr auto const & getRenderer() { return m_renderer; }
-		inline constexpr auto const & getWidth() const { return m_width; }
-		inline constexpr auto const & getHeight() const { return m_height; }
+		inline constexpr auto const & getWidth() const { return m_size.x; }
+		inline constexpr auto const & getHeight() const { return m_size.y; }
 
 	public: // Public Static Variables
 	public: // Public Member Variables
-		static math::Vector2u getSize();
+		static math::Vector2u const & getSize();
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
@@ -70,8 +73,7 @@ namespace app::gra
 		std::optional<app::inp::ControllerHandler * const> m_controllerHandler;
 		bool m_open;
 		std::string m_title;
-		std::uint32_t m_width, m_height;
-		View m_view;
+		math::Vector2<std::uint32_t> m_size;
 		app::del::UPtrWindow m_window;
 		app::del::UPtrRenderer m_renderer;
 	};
@@ -91,7 +93,7 @@ namespace app::gra
 		{
 			points.reserve(end - start);
 		}
-		auto color = std::optional<math::Vector4<std::uint8_t>>();
+		auto color = std::optional<gra::Color>();
 		for (; start != end; ++start)
 		{
 			app::gra::RenderLine const & renderLine = *start;
@@ -101,7 +103,7 @@ namespace app::gra
 			points.push_back(SDL_Point{ endPoint.x, endPoint.y });
 			if (!color.has_value()) { color = renderLine.getColor(); }
 		}
-		SDL_SetRenderDrawColor(m_renderer.get(), color->x, color->y, color->z, color->w);
+		SDL_SetRenderDrawColor(m_renderer.get(), color->r, color->g, color->b, color->a);
 		SDL_RenderDrawLines(m_renderer.get(), points.data(), points.size());
 	}
 

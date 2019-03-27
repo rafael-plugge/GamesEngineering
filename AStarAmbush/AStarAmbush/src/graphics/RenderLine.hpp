@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "math/Vector4.hpp"
+#include "graphics/Color.hpp"
 
 namespace app::gra
 {
@@ -21,12 +21,11 @@ namespace app::gra
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		constexpr math::Vector4<std::uint8_t> const & getColor() const { return m_color; }
-		constexpr math::Vector2i const & getStart() const { return m_start; }
-		constexpr math::Vector2i const & getEnd() const { return m_end; }
+		constexpr auto const & getColor() const { return m_color; }
+		constexpr auto const & getStart() const { return m_start; }
+		constexpr auto const & getEnd() const { return m_end; }
 
-		RenderLine & setColor(math::Vector4<std::uint8_t> const & color) { m_color = color; return *this; }
-		RenderLine & setColor(std::uint8_t r, std::uint8_t g, std::uint8_t b, std::uint8_t a = 255u) { return setColor({ r, g, b, a }); }
+		RenderLine & setColor(gra::Color const & color) { m_color = color; return *this; }
 		RenderLine & setStart(math::Vector2i const & startPosition) { m_start = startPosition; return *this; }
 		RenderLine & setEnd(math::Vector2i const & endPosition) { m_end = endPosition; return *this; }
 	public: // Public Static Variables
@@ -39,7 +38,7 @@ namespace app::gra
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		math::Vector4<std::uint8_t> m_color = { 0u, 0u, 0u, 255u };
+		gra::Color m_color = { 0u, 0u, 0u, 255u };
 		math::Vector2i m_start;
 		math::Vector2i m_end;
 	};

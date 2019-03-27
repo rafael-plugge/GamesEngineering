@@ -8,7 +8,6 @@ app::Game::Game()
 	, m_controllerHandler()
 	, m_window(m_keyHandler, m_mouseHandler, m_controllerHandler, app::gra::WindowParameters{ "A* Ambush", 1366u, 768u })
 	, m_grid()
-	, m_fps(0u)
 {
 }
 
@@ -20,6 +19,10 @@ bool app::Game::init()
 {
 	try
 	{
+		auto camera = gra::View();
+		camera.size = { 1366, 768 };
+		camera.position = camera.size / 2;
+		m_window.setView(camera);
 		m_grid.init();
 		return true;
 	}

@@ -30,9 +30,6 @@
     <Filter Include="Source Files\entities\base">
       <UniqueIdentifier>{352b7bc1-8073-4d59-9867-77736d1958a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\managers">
-      <UniqueIdentifier>{cba43638-38b8-42db-a611-0d40b8ae7f79}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -80,9 +77,6 @@
     <ClCompile Include="src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\RenderRect.cpp">
-      <Filter>Source Files\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\Texture.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
@@ -110,9 +104,6 @@
     <ClCompile Include="src\entities\base\Drawable.cpp">
       <Filter>Source Files\entities\base</Filter>
     </ClCompile>
-    <ClCompile Include="src\managers\EntityManager.cpp">
-      <Filter>Source Files\managers</Filter>
-    </ClCompile>
     <ClCompile Include="src\entities\base\Entity.cpp">
       <Filter>Source Files\entities\base</Filter>
     </ClCompile>
@@ -124,6 +115,15 @@
     </ClCompile>
     <ClCompile Include="src\entities\Player.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\RenderTexture.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\RenderRect.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Color.cpp">
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,9 +181,6 @@
     <ClInclude Include="src\graphics\Texture.hpp">
       <Filter>Source Files\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\RenderRect.hpp">
-      <Filter>Source Files\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="src\input\Controllerhandler.hpp">
       <Filter>Source Files\input</Filter>
     </ClInclude>
@@ -199,9 +196,6 @@
     <ClInclude Include="src\entities\base\Drawable.hpp">
       <Filter>Source Files\entities\base</Filter>
     </ClInclude>
-    <ClInclude Include="src\managers\EntityManager.hpp">
-      <Filter>Source Files\managers</Filter>
-    </ClInclude>
     <ClInclude Include="src\entities\base\Entity.hpp">
       <Filter>Source Files\entities\base</Filter>
     </ClInclude>
@@ -213,6 +207,15 @@
     </ClInclude>
     <ClInclude Include="src\entities\Player.hpp">
       <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\RenderTexture.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\RenderRect.hpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\Color.hpp">
+      <Filter>Source Files\graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -34,7 +34,9 @@ namespace app::ent
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
+		static math::Vector2f s_cellSize;
 	private: // Private Member Variables
+		math::Vector2u m_position;
 		gra::RenderRect m_renderRect;
 	};
 

@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "graphics/Window.hpp"
-#include "managers/EntityManager.hpp"
+#include "entities/Grid.hpp"
 
 namespace app
 {
@@ -43,7 +43,6 @@ namespace app
 		app::inp::ControllerHandler m_controllerHandler;
 		app::gra::Window m_window;
 		app::ent::Grid m_grid;
-		std::uint32_t m_fps;
 	};
 
 	static_assert(std::is_default_constructible<Game>::value, "Game must be default constructible");

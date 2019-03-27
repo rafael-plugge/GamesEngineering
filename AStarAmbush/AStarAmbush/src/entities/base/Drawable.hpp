@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "entities/base/Entity.hpp"
-#include "graphics/RenderRect.hpp"
+#include "graphics/RenderTexture.hpp"
 
 namespace app::ent::base
 {
@@ -48,7 +48,7 @@ namespace app::ent::base
 	private: // Private Member Functions
 	private: // Private Static Variables
 	private: // Private Member Variables
-		app::gra::RenderRect m_renderRect;
+		app::gra::RenderTexture m_renderRect;
 	};
 
 	static_assert(std::is_default_constructible<Drawable>::value, "Drawable must be default constructible");

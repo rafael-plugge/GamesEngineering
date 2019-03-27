@@ -157,8 +157,10 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\entities\Grid.cpp" />
     <ClCompile Include="src\entities\Player.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\graphics\Color.cpp" />
     <ClCompile Include="src\graphics\RenderLine.cpp" />
     <ClCompile Include="src\graphics\RenderRect.cpp" />
+    <ClCompile Include="src\graphics\RenderTexture.cpp" />
     <ClCompile Include="src\graphics\Texture.cpp" />
     <ClCompile Include="src\graphics\View.cpp" />
     <ClCompile Include="src\graphics\Window.cpp" />
@@ -167,7 +169,6 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\input\Keyhandler.cpp" />
     <ClCompile Include="src\input\Mousehandler.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\managers\EntityManager.cpp" />
     <ClCompile Include="src\math\Math.cpp" />
     <ClCompile Include="src\math\Rect.cpp" />
     <ClCompile Include="src\math\Vector.cpp" />
@@ -192,8 +193,10 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\entities\Grid.hpp" />
     <ClInclude Include="src\entities\Player.hpp" />
     <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\graphics\Color.hpp" />
     <ClInclude Include="src\graphics\RenderLine.hpp" />
     <ClInclude Include="src\graphics\RenderRect.hpp" />
+    <ClInclude Include="src\graphics\RenderTexture.hpp" />
     <ClInclude Include="src\graphics\Texture.hpp" />
     <ClInclude Include="src\graphics\View.hpp" />
     <ClInclude Include="src\graphics\Window.hpp" />
@@ -201,7 +204,6 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\input\Controllerhandler.hpp" />
     <ClInclude Include="src\input\Keyhandler.hpp" />
     <ClInclude Include="src\input\Mousehandler.hpp" />
-    <ClInclude Include="src\managers\EntityManager.hpp" />
     <ClInclude Include="src\math\Math.hpp" />
     <ClInclude Include="src\math\Rect.hpp" />
     <ClInclude Include="src\math\Vector.hpp" />

@@ -30,7 +30,7 @@ int main(int argc, char const ** argv)
 		app::time::toNanos(std::chrono::duration<double, std::milli>(1 / 60.0 * 1000.0));
 	constexpr auto UPDATE_STEP_SEC = app::time::toSeconds(UPDATE_STEP);
 	constexpr auto ONE_SECOND =
-		app::time::toNanos(std::chrono::duration<double, std::milli>(30.0 * 1000.0));
+		app::time::toNanos(app::time::seconds(1.0f));
 	clock::time_point deltaTimePoint = clock::now();
 	app::time::nanoseconds elapsedTime = UPDATE_STEP;
 	app::time::nanoseconds deltaRenderStep = app::time::nanoseconds::zero();

@@ -9,9 +9,7 @@ app::gra::Window::Window()
 	, m_controllerHandler()
 	, m_open(false)
 	, m_title()
-	, m_width(0u)
-	, m_height(0u)
-	, m_view()
+	, m_size()
 	, m_window(nullptr)
 	, m_renderer(nullptr)
 {
@@ -23,13 +21,12 @@ app::gra::Window::Window(WindowParameters params)
 	, m_controllerHandler()
 	, m_open(true)
 	, m_title(params.title)
-	, m_width(params.width)
-	, m_height(params.height)
-	, m_view{ math::Vector2i{ params.width / 2, params.height / 2 }, math::Vector2i{ params.width, params.height } }
+	, m_size(params.width, params.height)
 	, m_window(nullptr)
 	, m_renderer(nullptr)
 {
 	m_open = this->init();
+	this->setView({ math::Vector2i{ params.width / 2, params.height / 2 }, math::Vector2i{ params.width, params.height } });
 }
 
 app::gra::Window::Window(
@@ -43,13 +40,12 @@ app::gra::Window::Window(
 	, m_controllerHandler(&controllerHandler)
 	, m_open(true)
 	, m_title(params.title)
-	, m_width(params.width)
-	, m_height(params.height)
-	, m_view{ math::Vector2i{ params.width / 2, params.height / 2 }, math::Vector2i{ params.width, params.height } }
+	, m_size(params.width, params.height)
 	, m_window(nullptr)
 	, m_renderer(nullptr)
 {
 	m_open = this->init();
+	this->setView({ math::Vector2i{ params.width / 2, params.height / 2 }, math::Vector2i{ params.width, params.height } });
 }
 
 app::gra::Window::~Window()
@@ -81,29 +77,41 @@ bool app::gra::Window::init(WindowParameters params)
 {
 	if (m_open) { throw std::exception("Tried to initialize a window that has already been initialized"); }
 	m_title = params.title;
-	m_width = params.width;
-	m_height = params.height;
-	m_view = app::gra::View{ math::Vector2i{ params.width / 2, params.height / 2 }, math::Vector2i{ params.width, params.height } };
+	m_size.x = params.width;
+	m_size.y = params.height;
 	m_window.reset(nullptr);
 	m_renderer.reset(nullptr);
-	return m_open = this->init();
+	m_open = this->init();
+	this->setView(app::gra::View{ math::Vector2i{ params.width / 2, params.height / 2 }, math::Vector2i{ params.width, params.height } });
+	return m_open;
 }
 
 void app::gra::Window::setView(app::gra::View const & view)
 {
-	m_view = view;
+	auto const & rect = SDL_Rect{
+		  view.position.x - (view.size.x / 2)
+		, view.position.y - (view.size.y / 2)
+		, view.size.x
+		, view.size.y
+	};
+	SDL_RenderSetViewport(m_renderer.get(), &rect);
 }
 
 void app::gra::Window::resetView()
 {
-	m_view = app::gra::View{ {m_width / 2, m_height / 2}, {m_width, m_height} };
+	auto const & sizeI = static_cast<math::Vector2i>(m_size);
+	auto const & rect = SDL_Rect{
+		  0, 0
+		, sizeI.x, sizeI.y
+	};
+	SDL_RenderSetViewport(m_renderer.get(), &rect);
 }
 
 void app::gra::Window::pollEvents()
 {
 	typedef SDL_EventType EventType;
-	SDL_Event sdlEvent;
-	auto * const controllerHandler = m_controllerHandler.value_or(nullptr);
+	typedef SDL_WindowEventID WindowEventType;
+	auto sdlEvent = SDL_Event();
 	while (SDL_PollEvent(&sdlEvent))
 	{
 		if (auto * const mouseHandler = m_mousehandler.value_or(nullptr); m_mousehandler.has_value())
@@ -166,6 +174,14 @@ void app::gra::Window::pollEvents()
 			case EventType::SDL_QUIT:
 				m_open = false;
 				break;
+			case EventType::SDL_WINDOWEVENT:
+				if (sdlEvent.window.event == WindowEventType::SDL_WINDOWEVENT_RESIZED)
+				{
+					auto const newSize = math::Vector2i{ sdlEvent.window.data1, sdlEvent.window.data2 };
+					m_size = newSize;
+					//this->setView({ newSize / 2, newSize });
+				}
+				break;
 			default:
 				break;
 		}
@@ -179,24 +195,21 @@ void app::gra::Window::clear() const
 	SDL_RenderClear(m_renderer.get());
 }
 
-void app::gra::Window::render(app::gra::RenderRect const & rect) const
+void app::gra::Window::render(app::gra::RenderTexture const & rect) const
 {
 	constexpr auto FLIP_FLAG = SDL_RendererFlip::SDL_FLIP_NONE;
 	auto const & position = static_cast<math::Vector2i>(rect.getPosition());
 	auto const & origin = static_cast<math::Vector2i>(rect.getOrigin());
 	auto const & size = static_cast<math::Vector2i>(rect.getSize());
-	auto const & screenSize = math::Vector2f{ static_cast<float>(m_width), static_cast<float>(m_height) };
-	auto const & scale = screenSize / static_cast<math::Vector2f>(m_view.size);
-	auto const & halfSize = m_view.size / 2;
 	auto const & destination = SDL_Rect{
-		position.x - origin.x - (m_view.position.x - halfSize.x),
-		position.y - origin.y - (m_view.position.y - halfSize.y),
-		static_cast<int32_t>(size.x * scale.x),
-		static_cast<int32_t>(size.y * scale.y)
+		position.x - origin.x,
+		position.y - origin.y,
+		static_cast<int32_t>(size.x),
+		static_cast<int32_t>(size.y)
 	};
 	auto const & center = SDL_Point{
-		static_cast<int32_t>(origin.x * scale.x),
-		static_cast<int32_t>(origin.y * scale.y)
+		static_cast<int32_t>(origin.x),
+		static_cast<int32_t>(origin.y)
 	};
 	auto const & source = rect.getSourceRect();
 	auto const & sourceMathRect = static_cast<math::Recti>(source.value_or(math::Rectd()));
@@ -214,8 +227,23 @@ void app::gra::Window::render(app::gra::RenderLine const & line) const
 	auto const & color = line.getColor();
 	auto const & start = line.getStart();
 	auto const & end = line.getEnd();
-	SDL_SetRenderDrawColor(m_renderer.get(), color.x, color.y, color.z, color.w);
+	SDL_SetRenderDrawColor(m_renderer.get(), color.r, color.g, color.b, color.a);
 	SDL_RenderDrawLine(m_renderer.get(), start.x, start.y, end.x, end.y);
+}
+
+void app::gra::Window::render(app::gra::RenderRect const & rect) const
+{
+	auto const & position = rect.getPosition();
+	auto const & size = rect.getSize();
+	auto const & color = rect.getColor();
+	auto const & destination = SDL_Rect{
+		static_cast<std::int32_t>(position.x),
+		static_cast<std::int32_t>(position.y),
+		static_cast<int32_t>(size.x),
+		static_cast<int32_t>(size.y)
+	};
+	SDL_SetRenderDrawColor(m_renderer.get(), color.r, color.g, color.b, color.a);
+	SDL_RenderFillRect(m_renderer.get(), &destination);
 }
 
 void app::gra::Window::display() const
@@ -224,11 +252,11 @@ void app::gra::Window::display() const
 	SDL_RenderPresent(m_renderer.get());
 }
 
-app::math::Vector2u app::gra::Window::getSize()
+app::math::Vector2u const & app::gra::Window::getSize()
 {
 	if (!s_pWindow.has_value()) { throw std::exception("Tried to retrieve size of a window that doesn't exist."); }
 	auto const * const pWindow = s_pWindow.value();
-	return math::Vector2u{ pWindow->m_width, pWindow->m_height };
+	return pWindow->m_size;
 }
 
 bool app::gra::Window::init()
@@ -262,12 +290,12 @@ bool app::gra::Window::init()
 
 bool app::gra::Window::initWindow()
 {
-	typedef SDL_WindowFlags WindowFlags;
+	using WindowFlags = SDL_WindowFlags;
 	constexpr auto centerPos = SDL_WINDOWPOS_CENTERED;
 	constexpr auto windowFlags = WindowFlags::SDL_WINDOW_ALLOW_HIGHDPI | WindowFlags::SDL_WINDOW_SHOWN;
 	SDL_Window * pWindow = nullptr;
 
-	pWindow = SDL_CreateWindow(m_title.c_str(), centerPos, centerPos, m_width, m_height, windowFlags);
+	pWindow = SDL_CreateWindow(m_title.c_str(), centerPos, centerPos, m_size.x, m_size.y, windowFlags);
 
 	const bool success = nullptr != pWindow;
 	if (success) { m_window.reset(pWindow); }

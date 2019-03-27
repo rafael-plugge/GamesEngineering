@@ -14,49 +14,49 @@ namespace app::math
 	private: // Private Usings/Typedefs/Enums
 		using BaseVector = Vector<4, _Type>;
 	public: // Constructors/Destructor/Assignments
-		Vector4()
+		constexpr Vector4()
 			: BaseVector()
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		Vector4(_Type const & _x, _Type const & _y, _Type const & _z, _Type const & _w)
+		constexpr Vector4(_Type const & _x, _Type const & _y, _Type const & _z, _Type const & _w)
 			: BaseVector({ _x, _y, _z, _w })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		Vector4(Vector3<_Type> const & v, _Type const _w)
+		constexpr Vector4(Vector3<_Type> const & v, _Type const _w)
 			: BaseVector({ v.x, v.y, v.z, _w })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		Vector4(Vector2<_Type> const & leftV, Vector2<_Type> const & rightV)
+		constexpr Vector4(Vector2<_Type> const & leftV, Vector2<_Type> const & rightV)
 			: BaseVector({ leftV.x, leftV.y, rightV.x, rightV.y })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		template<typename _Other> Vector4(_Other const & _x, _Other const & _y, _Other const & _z, _Other const & _w)
+		template<typename _Other> constexpr Vector4(_Other const & _x, _Other const & _y, _Other const & _z, _Other const & _w)
 			: BaseVector(std::array<_Other, 4>{ _x, _y, _z, _w })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		explicit Vector4(BaseVector const & v)
+		explicit constexpr Vector4(BaseVector const & v)
 			: BaseVector(v)
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		Vector4 & operator=(BaseVector const & v)
+		constexpr Vector4 & operator=(BaseVector const & v)
 		{
 			BaseVector::operator=(v);
 			return *this;
@@ -64,37 +64,37 @@ namespace app::math
 
 		~Vector4() = default;
 
-		Vector4(Vector4 const & other)
+		constexpr Vector4(Vector4 const & other)
 			: BaseVector(other)
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		Vector4 & operator=(Vector4 const & other)
+		constexpr Vector4 & operator=(Vector4 const & other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
-		template<typename _Other> Vector4 & operator=(Vector4<_Other> const & other)
+		template<typename _Other> constexpr Vector4 & operator=(Vector4<_Other> const & other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
 
-		Vector4(Vector4 && other)
+		constexpr Vector4(Vector4 && other)
 			: BaseVector(std::move(other))
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 			, w(BaseVector::m_values.at(3))
 		{}
-		Vector4 & operator=(Vector4 && other)
+		constexpr Vector4 & operator=(Vector4 && other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
-		template<typename _Other> Vector4 & operator=(Vector4<_Other> && other)
+		template<typename _Other> constexpr Vector4 & operator=(Vector4<_Other> && other)
 		{
 			BaseVector::operator=(other);
 			return *this;

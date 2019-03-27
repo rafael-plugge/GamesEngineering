@@ -13,37 +13,37 @@ namespace app::math
 	private: // Private Usings/Typedefs/Enums
 		using BaseVector = Vector<3, _Type>;
 	public: // Constructors/Destructor/Assignments
-		Vector3()
+		constexpr Vector3()
 			: BaseVector()
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 		{}
-		Vector3(_Type const & _x, _Type const & _y, _Type const & _z)
+		constexpr Vector3(_Type const & _x, _Type const & _y, _Type const & _z)
 			: BaseVector({ _x, _y, _z })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 		{}
-		Vector3(Vector2<_Type> const & v, _Type const & _z)
+		constexpr Vector3(Vector2<_Type> const & v, _Type const & _z)
 			: BaseVector({ v.x, v.y, _z })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 		{}
-		template<typename _Other> Vector3(_Other const & _x, _Other const & _y, _Other const & _z)
+		template<typename _Other> constexpr Vector3(_Other const & _x, _Other const & _y, _Other const & _z)
 			: BaseVector(std::array<_Other, 3>{ _x, _y, _z })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 		{}
-		explicit Vector3(BaseVector const & v)
+		explicit constexpr Vector3(BaseVector const & v)
 			: BaseVector(v)
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 		{}
-		Vector3 & operator=(BaseVector const & v)
+		constexpr Vector3 & operator=(BaseVector const & v)
 		{
 			BaseVector::operator=(v);
 			return *this;
@@ -51,35 +51,35 @@ namespace app::math
 
 		~Vector3() = default;
 
-		Vector3(Vector3 const & other)
+		constexpr Vector3(Vector3 const & other)
 			: BaseVector(other)
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 		{}
-		Vector3 & operator=(Vector3 const & other)
+		constexpr Vector3 & operator=(Vector3 const & other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
-		template<typename _Other> Vector3 & operator=(Vector3<_Other> const & other)
+		template<typename _Other> constexpr Vector3 & operator=(Vector3<_Other> const & other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
 
-		Vector3(Vector3 && other)
+		constexpr Vector3(Vector3 && other)
 			: BaseVector(std::move(other))
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 			, z(BaseVector::m_values.at(2))
 		{}
-		Vector3 & operator=(Vector3 && other)
+		constexpr Vector3 & operator=(Vector3 && other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
-		template<typename _Other> Vector3 & operator=(Vector3<_Other> && other)
+		template<typename _Other> constexpr Vector3 & operator=(Vector3<_Other> && other)
 		{
 			BaseVector::operator=(other);
 			return *this;

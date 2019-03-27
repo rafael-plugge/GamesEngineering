@@ -25,26 +25,26 @@ namespace app::math
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
 	public: // Constructors/Destructor/Assignments
-		Vector()
+		constexpr Vector()
 			: m_values()
 		{}
 
-		Vector(std::array<_Type, _Size> const & _values)
+		constexpr Vector(std::array<_Type, _Size> const & _values)
 			: m_values(_values)
 		{}
 
-		Vector(std::array<_Type, _Size> && _values)
+		constexpr Vector(std::array<_Type, _Size> && _values)
 			: m_values(_values)
 		{}
 
-		template<typename _Other> Vector(std::array<_Other, _Size> const & _values)
+		template<typename _Other> constexpr Vector(std::array<_Other, _Size> const & _values)
 			: m_values()
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
 				m_values.at(i) = static_cast<_Type>(_values.at(i));
 		}
 
-		template<typename _Other> Vector(Vector<_Size, _Other> const & v)
+		template<typename _Other> constexpr Vector(Vector<_Size, _Other> const & v)
 			: m_values()
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
@@ -53,32 +53,32 @@ namespace app::math
 
 		~Vector() = default;
 
-		Vector(Vector const & other)
+		constexpr Vector(Vector const & other)
 			: m_values(other.m_values)
 		{}
-		Vector & operator=(Vector const & other)
+		constexpr Vector & operator=(Vector const & other)
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
 				m_values.at(i) = other.m_values.at(i);
 			return *this;
 		}
-		template<typename _Other> Vector & operator=(Vector<_Size, _Other> const & other)
+		template<typename _Other> constexpr Vector & operator=(Vector<_Size, _Other> const & other)
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
 				m_values.at(i) = static_cast<_Type>(other.get(i));
 			return *this;
 		}
 
-		Vector(Vector && other)
+		constexpr Vector(Vector && other)
 			: m_values(std::move(other.m_values))
 		{}
-		Vector & operator=(Vector && other)
+		constexpr Vector & operator=(Vector && other)
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
 				m_values.at(i) = std::move(other.m_values.at(i));
 			return *this;
 		}
-		template<typename _Other> Vector & operator=(Vector<_Size, _Other> && other)
+		template<typename _Other> constexpr Vector & operator=(Vector<_Size, _Other> && other)
 		{
 			for (std::size_t i = 0; i < _Size; ++i)
 				m_values.at(i) = std::move(static_cast<_Type>(other.m_values.at(i)));

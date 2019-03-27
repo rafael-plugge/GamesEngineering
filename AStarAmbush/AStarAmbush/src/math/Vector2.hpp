@@ -12,27 +12,27 @@ namespace app::math
 	private: // Private Usings/Typedefs/Enums
 		using BaseVector = Vector<2, _Type>;
 	public: // Constructors/Destructor/Assignments
-		Vector2()
+		constexpr Vector2()
 			: BaseVector()
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 		{}
-		Vector2(_Type const & _x, _Type const & _y)
+		constexpr Vector2(_Type const & _x, _Type const & _y)
 			: BaseVector({ _x, _y })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 		{}
-		template<typename _Other> Vector2(_Other const & _x, _Other const & _y)
+		template<typename _Other> constexpr Vector2(_Other const & _x, _Other const & _y)
 			: BaseVector(std::array<_Other, 2>{ _x, _y })
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 		{}
-		explicit Vector2(BaseVector const & v)
+		explicit constexpr Vector2(BaseVector const & v)
 			: BaseVector(v)
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 		{}
-		Vector2 & operator=(BaseVector const & v)
+		constexpr Vector2 & operator=(BaseVector const & v)
 		{
 			BaseVector::operator=(v);
 			return *this;
@@ -40,33 +40,33 @@ namespace app::math
 
 		~Vector2() = default;
 
-		Vector2(Vector2 const & other)
+		constexpr Vector2(Vector2 const & other)
 			: BaseVector(other)
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 		{}
-		Vector2 & operator=(Vector2 const & other)
+		constexpr Vector2 & operator=(Vector2 const & other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
-		template<typename _Other> Vector2 & operator=(Vector2<_Other> const & other)
+		template<typename _Other> constexpr Vector2 & operator=(Vector2<_Other> const & other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
 
-		Vector2(Vector2 && other)
+		constexpr Vector2(Vector2 && other)
 			: BaseVector(std::move(other))
 			, x(BaseVector::m_values.at(0))
 			, y(BaseVector::m_values.at(1))
 		{}
-		Vector2 & operator=(Vector2 && other)
+		constexpr Vector2 & operator=(Vector2 && other)
 		{
 			BaseVector::operator=(other);
 			return *this;
 		}
-		template<typename _Other> Vector2 & operator=(Vector2<_Other> && other)
+		template<typename _Other> constexpr Vector2 & operator=(Vector2<_Other> && other)
 		{
 			BaseVector::operator=(other);
 			return *this;
