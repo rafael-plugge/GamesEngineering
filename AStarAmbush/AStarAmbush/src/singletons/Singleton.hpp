@@ -2,7 +2,7 @@
 
 namespace app::sin
 {
-	template<typename _Type>
+	template<typename _Type, typename _Deleter = std::default_delete<_Type>>
 	class Singleton
 	{
 		static_assert(std::is_default_constructible<_Type>::value, "_Type must be default constructible");
@@ -20,14 +20,14 @@ namespace app::sin
 		Singleton & operator=(Singleton &&) = delete;
 
 	public: // Public Static Functions
-		static std::shared_ptr<_Type> get();
+		static _Type * const get();
 	public: // Public Member Functions
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
 	protected: // Protected Static Variables
-		static std::shared_ptr<_Type> s_instance;
+		static std::unique_ptr<_Type, _Deleter> s_instance;
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
@@ -35,16 +35,16 @@ namespace app::sin
 	private: // Private Member Variables
 	};
 
-	template<typename _Type>
-	std::shared_ptr<_Type> Singleton<_Type>::s_instance = Singleton<_Type>::s_instance
-		? Singleton<_Type>::s_instance
-		: std::make_shared<_Type>();
+	template<typename _Type, typename _Deleter>
+	std::unique_ptr<_Type, _Deleter> Singleton<_Type, _Deleter>::s_instance = Singleton<_Type, _Deleter>::s_instance
+		? std::move(Singleton<_Type, _Deleter>::s_instance)
+		: std::make_unique<_Type>();
 
-	template<typename _Type>
-	std::shared_ptr<_Type> Singleton<_Type>::get()
+	template<typename _Type, typename _Deleter>
+	_Type * const Singleton<_Type, _Deleter>::get()
 	{
-		if (!s_instance) { s_instance = std::make_shared<_Type>(); }
-		return s_instance;
+		if (!s_instance) { s_instance = std::make_unique<_Type>(); }
+		return s_instance.get();
 	}
 }
 

@@ -151,9 +151,9 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\deleters\SdlDeleter.cpp" />
+    <ClCompile Include="src\entities\base\Cell.cpp" />
     <ClCompile Include="src\entities\base\Drawable.cpp" />
     <ClCompile Include="src\entities\base\Entity.cpp" />
-    <ClCompile Include="src\entities\Cell.cpp" />
     <ClCompile Include="src\entities\Enemy.cpp" />
     <ClCompile Include="src\entities\Grid.cpp" />
     <ClCompile Include="src\entities\Player.cpp" />
@@ -177,7 +177,9 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClCompile Include="src\math\Vector2Math.cpp" />
     <ClCompile Include="src\math\Vector3.cpp" />
     <ClCompile Include="src\math\Vector4.cpp" />
+    <ClCompile Include="src\search\ProcessQueue.cpp" />
     <ClCompile Include="src\singletons\KeyHandlerSingleton.cpp" />
+    <ClCompile Include="src\singletons\ProcessQueueSingleton.cpp" />
     <ClCompile Include="src\singletons\Singleton.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -190,9 +192,9 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\deleters\SdlDeleter.hpp" />
+    <ClInclude Include="src\entities\base\Cell.hpp" />
     <ClInclude Include="src\entities\base\Drawable.hpp" />
     <ClInclude Include="src\entities\base\Entity.hpp" />
-    <ClInclude Include="src\entities\Cell.hpp" />
     <ClInclude Include="src\entities\Enemy.hpp" />
     <ClInclude Include="src\entities\Grid.hpp" />
     <ClInclude Include="src\entities\Player.hpp" />
@@ -215,7 +217,9 @@ C:\windows\system32\xcopy /Y "$(ProjectDir)deps\bin\release\*.dll" "$(TargetDir)
     <ClInclude Include="src\math\Vector2Math.hpp" />
     <ClInclude Include="src\math\Vector3.hpp" />
     <ClInclude Include="src\math\Vector4.hpp" />
+    <ClInclude Include="src\search\ProcessQueue.hpp" />
     <ClInclude Include="src\singletons\KeyHandlerSingleton.hpp" />
+    <ClInclude Include="src\singletons\ProcessQueueSingleton.hpp" />
     <ClInclude Include="src\singletons\Singleton.hpp" />
     <ClInclude Include="src\stdafx.hpp" />
     <ClInclude Include="src\utilities\Console.hpp" />

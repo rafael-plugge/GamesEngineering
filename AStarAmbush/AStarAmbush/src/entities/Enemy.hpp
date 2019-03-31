@@ -1,29 +1,32 @@
 ﻿#pragma once
 
-#include "base/Entity.hpp"
+#include "base/Cell.hpp"
+#include "entities/Player.hpp"
+#include "search/ProcessQueue.hpp"
 
 namespace app::ent
 {
-	class Enemy : public base::Entity
+	class Enemy : public base::Cell
 	{
 	public: // Public Usings/Typedefs/Enums
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
 	public: // Constructors/Destructor/Assignments
-		Enemy() = default;
+		Enemy();
 		virtual ~Enemy() = default;
 
-		Enemy(Enemy const &) = default;
-		Enemy & operator=(Enemy const &) = default;
+		Enemy(Enemy const & other);
+		Enemy & operator=(Enemy const & other);
 
-		Enemy(Enemy &&) = default;
-		Enemy & operator=(Enemy &&) = default;
+		Enemy(Enemy && other);
+		Enemy & operator=(Enemy && other);
 
 	public: // Public Static Functions
+		static void setTarget(app::ent::Player const & target);
 	public: // Public Member Functions
 		virtual void init() final override;
+		void init(math::Vector2u const & startingPosition);
 		virtual void update(app::time::seconds const & dt) final override;
-		virtual void render(app::gra::Window const & window, app::time::seconds const & dt) final override;
 
 	public: // Public Static Variables
 	public: // Public Member Variables
@@ -32,9 +35,16 @@ namespace app::ent
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
 	private: // Private Static Functions
+		Player const & getTarget();
 	private: // Private Member Functions
+		void searchPlayer();
 	private: // Private Static Variables
+		static std::optional<app::ent::Player const * const> s_target;
 	private: // Private Member Variables
+		inp::KeyHandler const * const m_keyHandler;
+		sea::ProcessQueue * const m_processQueue;
+		std::atomic_bool m_seekTarget;
+		std::function<void()> const m_searchTask;
 	};
 
 	static_assert(std::is_default_constructible<Enemy>::value, "Enemy must be default constructible");

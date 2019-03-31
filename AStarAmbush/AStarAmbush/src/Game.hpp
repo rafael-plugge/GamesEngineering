@@ -2,6 +2,7 @@
 
 #include "graphics/Window.hpp"
 #include "entities/Grid.hpp"
+#include "search/ProcessQueue.hpp"
 
 namespace app
 {
@@ -38,7 +39,8 @@ namespace app
 	private: // Private Static Variables
 	private: // Private Member Variables
 		bool m_running;
-		std::shared_ptr<app::inp::KeyHandler> m_keyHandler;
+		app::inp::KeyHandler * const m_keyHandler;
+		app::sea::ProcessQueue * const m_processQueue;
 		app::gra::Window m_window;
 		app::ent::Grid m_grid;
 	};

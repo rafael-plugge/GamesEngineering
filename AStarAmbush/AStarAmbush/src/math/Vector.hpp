@@ -201,34 +201,36 @@ namespace app::math
 
 		#pragma region Equality Operators
 
-		friend constexpr bool operator==(Vector<_Size, _Type> const & leftV, Vector<_Size, _Type> const & rightV)
+		friend bool operator==(Vector<_Size, _Type> const & leftV, Vector<_Size, _Type> const & rightV)
 		{
 			return std::equal(leftV.m_values.cbegin(), leftV.m_values.cend(), rightV.m_values.cbegin(), rightV.m_values.cend(),
 				[](_Type const & left, _Type const & right) { return left == right; });
 		}
-		friend constexpr bool operator==(Vector<_Size, _Type> const & v, _Type const & t)
+		friend bool operator==(Vector<_Size, _Type> const & v, _Type const & t)
 		{
-			return std::equal(v.m_values.cbegin(), v.m_values.cend(), t);
+			for (auto itt = v.m_values.cbegin(), end = v.m_values.cend(); itt != end; ++itt)
+				if (*itt != t) { return false; }
+			return true;
 		}
-		friend constexpr bool operator==(_Type const & t, Vector<_Size, _Type> const & v)
+		friend bool operator==(_Type const & t, Vector<_Size, _Type> const & v)
 		{
-			return std::equal(v.m_values.cbegin(), v.m_values.cend(), t);
+			return v == t;
 		}
 
 		#pragma endregion
 
 		#pragma region Inequality Operators
 
-		friend constexpr bool operator!=(Vector<_Size, _Type> const & leftV, Vector<_Size, _Type> const & rightV)
+		friend bool operator!=(Vector<_Size, _Type> const & leftV, Vector<_Size, _Type> const & rightV)
 		{
 			return std::equal(leftV.m_values.cbegin(), leftV.m_values.cend(), rightV.m_values.cbegin(), rightV.m_values.cend(),
 				[](_Type const & left, _Type const & right) { return left != right; });
 		}
-		friend constexpr bool operator!=(Vector<_Size, _Type> const & v, _Type const & t)
+		friend bool operator!=(Vector<_Size, _Type> const & v, _Type const & t)
 		{
 			return !std::equal(v.m_values.cbegin(), v.m_values.cend(), t);
 		}
-		friend constexpr bool operator!=(_Type const & t, Vector<_Size, _Type> const & v)
+		friend bool operator!=(_Type const & t, Vector<_Size, _Type> const & v)
 		{
 			return !std::equal(v.m_values.cbegin(), v.m_values.cend(), t);
 		}

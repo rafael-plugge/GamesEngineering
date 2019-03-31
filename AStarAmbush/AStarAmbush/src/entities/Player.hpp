@@ -1,12 +1,12 @@
 ﻿#pragma once
 
-#include "base/Entity.hpp"
+#include "base/Cell.hpp"
 #include "graphics/RenderRect.hpp"
 #include "input/Keyhandler.hpp"
 
 namespace app::ent
 {
-	class Player : public base::Entity
+	class Player : public base::Cell
 	{
 	public: // Public Usings/Typedefs/Enums
 	protected: // Protected Usings/Typedefs/Enums
@@ -25,7 +25,6 @@ namespace app::ent
 	public: // Public Member Functions
 		virtual void init() final override;
 		virtual void update(app::time::seconds const & dt) final override;
-		virtual void render(app::gra::Window const & window, app::time::seconds const & dt) final override;
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
@@ -35,11 +34,8 @@ namespace app::ent
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
-		static math::Vector2f s_cellSizeFloat;
 	private: // Private Member Variables
-		math::Vector2u m_position;
-		gra::RenderRect m_renderRect;
-		std::shared_ptr<inp::KeyHandler> m_keyHandler;
+		inp::KeyHandler const * const m_keyHandler;
 	};
 
 	static_assert(std::is_default_constructible<Player>::value, "Player must be default constructible");

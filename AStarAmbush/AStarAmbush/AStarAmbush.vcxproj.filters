@@ -33,6 +33,9 @@
     <Filter Include="Source Files\singletons">
       <UniqueIdentifier>{f0bc6909-6da5-4a4e-8c02-0bf704ea637e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\search">
+      <UniqueIdentifier>{6aebfeb0-c902-47cc-8bb3-f4a0f0cf16fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -110,9 +113,6 @@
     <ClCompile Include="src\entities\base\Entity.cpp">
       <Filter>Source Files\entities\base</Filter>
     </ClCompile>
-    <ClCompile Include="src\entities\Cell.cpp">
-      <Filter>Source Files\entities</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\RenderLine.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
@@ -136,6 +136,15 @@
     </ClCompile>
     <ClCompile Include="src\entities\Enemy.cpp">
       <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\base\Cell.cpp">
+      <Filter>Source Files\entities\base</Filter>
+    </ClCompile>
+    <ClCompile Include="src\search\ProcessQueue.cpp">
+      <Filter>Source Files\search</Filter>
+    </ClCompile>
+    <ClCompile Include="src\singletons\ProcessQueueSingleton.cpp">
+      <Filter>Source Files\singletons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,9 +220,6 @@
     <ClInclude Include="src\entities\base\Entity.hpp">
       <Filter>Source Files\entities\base</Filter>
     </ClInclude>
-    <ClInclude Include="src\entities\Cell.hpp">
-      <Filter>Source Files\entities</Filter>
-    </ClInclude>
     <ClInclude Include="src\graphics\RenderLine.hpp">
       <Filter>Source Files\graphics</Filter>
     </ClInclude>
@@ -237,6 +243,15 @@
     </ClInclude>
     <ClInclude Include="src\entities\Enemy.hpp">
       <Filter>Source Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\base\Cell.hpp">
+      <Filter>Source Files\entities\base</Filter>
+    </ClInclude>
+    <ClInclude Include="src\search\ProcessQueue.hpp">
+      <Filter>Source Files\search</Filter>
+    </ClInclude>
+    <ClInclude Include="src\singletons\ProcessQueueSingleton.hpp">
+      <Filter>Source Files\singletons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

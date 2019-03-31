@@ -1,7 +1,8 @@
 ﻿#pragma once
 
-#include "entities/base/Entity.hpp"
+#include "entities/base/Cell.hpp"
 #include "entities/Player.hpp"
+#include "entities/Enemy.hpp"
 #include "graphics/RenderLine.hpp"
 
 namespace app::ent
@@ -12,6 +13,7 @@ namespace app::ent
 		using Cell = std::variant<
 			  std::monostate
 			, app::ent::Player
+			, app::ent::Enemy
 		>;
 	protected: // Protected Usings/Typedefs/Enums
 	private: // Private Usings/Typedefs/Enums
@@ -41,11 +43,13 @@ namespace app::ent
 	protected: // Protected Member Variables
 	private: // Private Static Functions
 	private: // Private Member Functions
+		void initLiveCells();
 		void initGrid();
 		void renderGrid(app::gra::Window const & window);
 	private: // Private Static Variables
+		constexpr static auto NUMBER_ENEMIES = 1000u;
 	private: // Private Member Variables
-		std::vector<std::vector<Cell>> m_grid;
+		std::vector<Cell> m_liveCells;
 		math::Vector2f m_position, m_size;
 		std::vector<gra::RenderLine> m_horizonalLines;
 		std::vector<gra::RenderLine> m_verticalLines;

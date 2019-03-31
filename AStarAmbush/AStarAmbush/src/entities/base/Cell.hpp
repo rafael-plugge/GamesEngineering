@@ -1,10 +1,10 @@
 ﻿#pragma once
 
-#include "base/Entity.hpp"
+#include "Entity.hpp"
 
-namespace app::ent
+namespace app::ent::base
 {
-	class Cell : public base::Entity
+	class Cell : public Entity
 	{
 	public: // Public Usings/Typedefs/Enums
 	protected: // Protected Usings/Typedefs/Enums
@@ -21,27 +21,32 @@ namespace app::ent
 
 	public: // Public Static Functions
 	public: // Public Member Functions
-		virtual void init() final override;
-		virtual void update(app::time::seconds const & dt) final override;
+		virtual void init() override;
 		virtual void render(app::gra::Window const & window, app::time::seconds const & dt) final override;
-		void set(std::shared_ptr<app::ent::base::Entity> entity) { m_entity = entity; };
+
+		void setColor(app::gra::Color const & color) { m_renderRect.setColor(color); };
+		void moveTo(std::uint32_t const & r, std::uint32_t const & c);
+		void moveTo(math::Vector2u const & gridPosition);
+		void move(std::int32_t const & r, std::int32_t const & c);
+		void move(math::Vector2i const & offset);
+
+		constexpr app::math::Vector2u const & getGridPosition() const { return m_gridPosition; }
 	public: // Public Static Variables
 	public: // Public Member Variables
 	protected: // Protected Static Functions
 	protected: // Protected Member Functions
+		void render(app::gra::Window const & window);
 	protected: // Protected Static Variables
 	protected: // Protected Member Variables
-		std::shared_ptr<app::ent::base::Entity> m_entity;
 	private: // Private Static Functions
 	private: // Private Member Functions
 	private: // Private Static Variables
+		static math::Vector2f s_cellSizeFloat;
 	private: // Private Member Variables
+		gra::RenderRect m_renderRect;
+		math::Vector2u m_gridPosition;
 	};
 
-	static_assert(std::is_default_constructible<Cell>::value, "Cell must be default constructible");
 	static_assert(std::is_destructible<Cell>::value, "Cell must be destructible");
-	static_assert(std::is_copy_constructible<Cell>::value, "Cell must be copy constructible");
-	static_assert(std::is_copy_assignable<Cell>::value, "Cell must be copy assignable");
-	static_assert(std::is_move_constructible<Cell>::value, "Cell must be move constructible");
 	static_assert(std::is_move_assignable<Cell>::value, "Cell must be move assignable");
 }

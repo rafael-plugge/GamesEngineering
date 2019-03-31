@@ -1,10 +1,12 @@
 ﻿#include "stdafx.hpp"
 #include "Game.hpp"
 #include "singletons/KeyHandlerSingleton.hpp"
+#include "singletons/ProcessQueueSingleton.hpp"
 
 app::Game::Game()
 	: m_running(true)
 	, m_keyHandler(sin::KeyHandler::get())
+	, m_processQueue(sin::ProcessQueue::get())
 	, m_window()
 	, m_grid()
 {
@@ -18,6 +20,7 @@ bool app::Game::init()
 {
 	try
 	{
+		m_processQueue->init();
 		m_window.init(*m_keyHandler, app::gra::WindowParameters{ "A* Ambush", 1366u, 768u });
 		auto camera = gra::View();
 		camera.size = { 1366, 768 };

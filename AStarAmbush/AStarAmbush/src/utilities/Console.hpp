@@ -35,6 +35,7 @@ namespace app
 			, std::int64_t
 			, std::float_t
 			, std::double_t
+			, std::thread::id
 		>;
 	public: // Constructors/Destructor/Assignments
 	public: // Public Static Functions
@@ -50,6 +51,7 @@ namespace app
 		{
 			std::visit(app::util::overload{
 				  [](std::string const & txt) { std::cout << txt; }
+				, [](std::thread::id const & tid) { std::cout << tid; }
 				, [](auto const & num) { std::cout << std::to_string(num); }
 			}, text);
 		}

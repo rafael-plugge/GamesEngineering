@@ -6,43 +6,65 @@ void app::ent::Grid::init()
 {
 	m_size = app::gra::Window::getSize();
 	m_position = { 0, 0 };
-	m_grid.resize(GRID_HEIGHT);
-
-	for (auto & col : m_grid)
-		col.resize(GRID_WIDTH);
-	{
-		constexpr auto X = 0, Y = 0;
-		m_grid.at(X).at(Y) = ent::Player();
-	}
-	
-	for (auto & col : m_grid)
-		for (auto & cell : col)
-			std::visit(util::overload{
-				  [](std::monostate & c) constexpr {}
-				, [](auto & c) constexpr { c.init(); }
-			}, cell);
+	this->initLiveCells();
 	this->initGrid();
 }
 
 void app::ent::Grid::update(app::time::seconds const & dt)
 {
-	for (auto & col : m_grid)
-		for (auto & cell : col)
-			std::visit(util::overload{
-				  [](std::monostate & c) constexpr {}
-				, [&](auto & c) constexpr { c.update(dt); }
-			}, cell);
+	for (auto & cell : m_liveCells)
+		std::visit(util::overload{
+			 [](std::monostate & c) constexpr {}
+			,[&](auto & c) constexpr { c.update(dt); }
+		}, cell);
 }
 
 void app::ent::Grid::render(app::gra::Window const & window, app::time::seconds const & dt)
 {
-	for (auto & row : m_grid)
-		for (auto & cell : row)
-			std::visit(util::overload{
-				  [](std::monostate & c) constexpr {}
-				,[&](auto & c) constexpr { c.render(window, dt); }
-			}, cell);
+	std::for_each(m_liveCells.rbegin(), m_liveCells.rend(), [&](Grid::Cell & cell) constexpr
+	{
+		std::visit(util::overload{
+			 [](std::monostate & c) constexpr {}
+			,[&](auto & c) constexpr { c.render(window, dt); }
+		}, cell);
+	});
 	this->renderGrid(window);
+}
+
+void app::ent::Grid::initLiveCells()
+{
+	m_liveCells.resize(NUMBER_ENEMIES + 1u);
+	auto itt = m_liveCells.begin();
+	*itt = ent::Player();
+	app::ent::Enemy::setTarget([&]() -> app::ent::Player const &
+	{
+		auto const & player = std::get<ent::Player>(*itt);
+		++itt;
+		return player;
+	}());
+	for (auto i = 0u; i < NUMBER_ENEMIES; ++i, ++itt)
+		*itt = ent::Enemy();
+
+
+	auto enemyStartingPosition = math::Vector2u();
+	for (auto & cell : m_liveCells)
+	{
+		std::visit(util::overload{
+			 [](std::monostate & c) constexpr {}
+			,[&](ent::Enemy & e)
+			{
+				e.init(enemyStartingPosition);
+				if (enemyStartingPosition.x < GRID_WIDTH - 2)
+					enemyStartingPosition.x += 2;
+				else
+				{
+					enemyStartingPosition.x = 0;
+					enemyStartingPosition.y += 2;
+				}
+			}
+			,[](auto & c) constexpr { c.init(); }
+		}, cell);
+	}
 }
 
 void app::ent::Grid::initGrid()
@@ -53,7 +75,7 @@ void app::ent::Grid::initGrid()
 	m_verticalLines.reserve(GRID_WIDTH);
 	for (std::size_t x = 1u; x < GRID_WIDTH; ++x)
 	{
-		auto const posX = static_cast<std::int32_t>(m_size.x * (x / static_cast<std::float_t>(m_grid.size())));
+		auto const posX = static_cast<std::int32_t>(m_size.x * (x / static_cast<std::float_t>(GRID_WIDTH)));
 		start.x = end.x = posX;
 		auto renderLine = gra::RenderLine()
 			.setStart(start)
